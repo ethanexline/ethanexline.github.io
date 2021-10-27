@@ -1,1 +1,95 @@
-theme: jekyll-theme-hacker
+site: ethanexline.com
+title: How to do waste time and be wrong
+greetings: Welcome to the obligatory blog area 👋
+description: >-
+  Home of "How to waste time and be wrong (patent-pending)"
+lang: en-US
+timezone:  America/New_York
+repo: https://github.com/ethanexline/ethanexline.github.io # site repo [optional]
+data-theme: dark # default theme "dark" | "light"
+discus-identifier: ethanexline-com.disqus.com # replace with your disqus embed link
+
+author:
+  name: Ethan Exline
+  bio: doing my best out here, in spite of how it looks
+  userpicture: 
+  username: Ethan # general username
+  github: ethanexline # github username
+  twitter: N/A (might change) # twitter username
+  email: ethanexline@gmail.com # email adress
+
+# Font Settings
+googlewebfonts: family=Play:wght@400;700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900
+
+# URL settings
+url: "https://ethanexline.com" # Domain Name of host. [username].github.io for github pages
+baseurl: "" # sub folder for jekyll site. only if jekyll site not in root of host. leave blank if not wishd. always add / in front.
+permalink: pretty
+
+# local
+url: "http://localhost:4000" # 
+baseurl: "" # 
+
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+paginate: 5
+paginate_path: blog/page:num
+
+exclude:
+  - .jekyll-cache
+  - .obsidian
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - CONTRIBUTING.md
+  
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-relative-links
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:slug
+  
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+relative_links:
+  enabled:     true
+  collections: false
+
+
