@@ -2,7 +2,7 @@ site: ethanexline.com
 title: How to do waste time and be wrong
 greetings: Welcome to the obligatory blog area 👋
 description: >-
-  Home of "How to waste time and be wrong (patent-pending)"
+  Home of "How to Waste Time and be Wrong" (patent-pending)
 lang: en-US
 timezone:  America/New_York
 repo: https://github.com/ethanexline/ethanexline.github.io # site repo [optional]
@@ -35,9 +35,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-
-paginate: 5
-paginate_path: blog/page:num
 
 exclude:
   - .jekyll-cache
