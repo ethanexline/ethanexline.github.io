@@ -33,7 +33,7 @@ Which is the long way of saying that these are pretty well-established methods o
 
 Utilizing these techniques, I decided upon a basic thesis for the design of my landing page: I try to subvert the aesthetic of old windows OS and implement some sort of toggle that lets you change the display from Windows 98 to Windows XP to Bootstrap, and make sure it looks nice on desktop and mobile. I was inspired by a couple of **really** nice recent internet finds:
 
-[dayjob.work](https://dayjob.work/) - This agency's work is so dang cool and it drips with personality, and obviously I won't be able to commit to this aesthetic even close to this well - like, you can even play the first Doom game right there on the site. That's commitment
+[dayjob.work](https://dayjob.work/) - This agency's work is so dang cool and it drips with personality, and obviously I won't be able to commit to this aesthetic even close to this well - like, you can even play the first Doom game right there on the site. That's commitment.
 
 [XP.css and 98.css](https://botoxparty.github.io/XP.css/) - This a github project that allows you to link in some plain CSS files and, using their classes, have elements that  faithfully recreate buttons, windows, and layouts from Windows 98 and XP. These are such fun projects (and they make my design work substantially easier; the first thing my Java professor back in college taught us was "don't recreate the wheel"!)
 
