@@ -4,7 +4,7 @@ title: I don't know what makes a good landing page
 description: Trying weird stuff
 summary: Trial by experimentation
 tags: coding css javascript design learning
-minute: 1
+minute: 5
 ---
 
 ##### Let's find some direction.
@@ -37,7 +37,7 @@ Utilizing these techniques, I decided upon a basic thesis for the design of my l
 
 [XP.css and 98.css](https://botoxparty.github.io/XP.css/) - This a github project that allows you to link in some plain CSS files and, using their classes, have elements that  faithfully recreate buttons, windows, and layouts from Windows 98 and XP. These are such fun projects (and they make my design work substantially easier; the first thing my Java professor back in college taught us was "don't recreate the wheel"!)
 
-The hardest parts of what I accomplished today were making convincing background images that are faithful to those respective eras without infringing on Microsoft's copyrights (by editing the famous ones in completely absurd ways) and building a toggle in Javascript to change between them at will. It's kind of a compelling subversion of the modern design paradigm of always including a toggle for "light" vs "dark" mode, right? Here's the script I built (who knew you could assign CSS classes to links??):
+The hardest parts of what I accomplished today were making convincing background images that are faithful to those respective eras without infringing on Microsoft's copyrights (by editing the famous ones in completely absurd ways) and building a toggle in Javascript to change between them at will. It's kind of a compelling subversion of the modern design paradigm of always including a toggle for "light" vs "dark" mode, right? Here's the script I built (who knew you could assign CSS classes to link tags??):
 ```
 {
     function toggleTheme() {
