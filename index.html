@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="viewport">
         <link rel="shortcut icon" href="/favicon.png">
         <link rel="stylesheet" class="themeChanger" media="" href="https://unpkg.com/xp.css">
         <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css/dist/98.css">
@@ -14,19 +15,19 @@
                 var bodyPic = document.getElementsByTagName('body');
                 var styleChanger = document.getElementById('styleRange');
       
-                // Change the value of media attribute 
+                // Change the value of media attribute
                 // to change the css sheet active.
                 if (styleChanger.value == '1') {
                     theme[0].setAttribute('media', 'none');
                     theme[1].setAttribute('media', '');
                     theme[2].setAttribute('media', 'none');
-                    bodyPic[0].setAttribute('style', "font-family: Tahoma, sans-serif; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/win98.png');");
+                    bodyPic[0].setAttribute('style', "font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/win98.webp');");
                 } 
                 else if (styleChanger.value == '2') {
                     theme[1].setAttribute('media', 'none');
                     theme[0].setAttribute('media', '');
                     theme[2].setAttribute('media', 'none');
-                    bodyPic[0].setAttribute('style', "font-family: 'Franklin Gothic', sans-serif; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.jpg');");
+                    bodyPic[0].setAttribute('style', "font-family: 'Franklin Gothic', sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');");
                 }
                 else {
                     theme[2].setAttribute('media', '');
@@ -38,17 +39,31 @@
         </script>
     </head>
 
-    <body style="font-family: Tahoma, sans-serif; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.jpg');">
+    <body style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
         <br>
-        <h1>
+
+        <h1 style="text-align: center; margin-top: 17%;">
             Gimme a minute, I'm working on it.
         </h1>
-        <a href="blog/">in the meantime, here's a blog</a>
-        <div class="field-row" style="width: 200px">
-            <label for="range25">Style:</label>
-            <label for="styleRange">Classic</label>
-            <input id="styleRange" type="range" onchange="toggleTheme();" min="1" max="3" value="2" />
-            <label for="range27">Not Classic</label>
+
+        <a style="font-size: 20px; margin-left: 45%;" href="blog/">in the meantime, here's a blog</a>
+
+        <div class="window card" style="width: 320px; position: fixed; top: 20; right: 20;">
+            <div class="title-bar">
+                <div class="title-bar-text card-header">Style Ticker</div>
+                <div class="title-bar-controls d-none">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body card-body" >
+                <div class="field-row" style="width: 300px; height: 50px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                    <label for="styleRange" style="margin-right: 5px;">Classic</label>
+                    <input id="styleRange" type="range" onchange="toggleTheme();" min="1" max="3" value="2" />
+                    <label for="range27" style="margin-left: 5px;">Not Classic</label>
+                </div>
+            </div>
         </div>
     </body>
 </html>
