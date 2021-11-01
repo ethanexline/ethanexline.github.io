@@ -7,7 +7,12 @@ lang: en-US
 timezone:  America/New_York
 repo: https://github.com/ethanexline/ethanexline.github.io # site repo [optional]
 data-theme: dark # default theme "dark" | "light"
-discus-identifier: ethanexline-com.disqus.com # replace with your disqus embed link
+# discus-identifier: ethanexline-com.disqus.com link #old
+staticmanUrl: https://ethanexline-staticman.herokuapp.com/v2/entry/ethanexline/ethanexline.github.io/master/comments
+
+# recaptcha stuff
+siteKey: 6LcAnwodAAAAAN09cey2tM_r8HnSjGNAQ4Wumvgs
+secret: "fE3vGj5wNPSyisov8t+zoPQdAC85TRH0E31iLXu+RkRFQ/kcgVPoSxHIBd5MiV5FANGss6M/LKk5gmkrXbjmwKnXvCSiKDLWsGm2aaaqQuJXzNE1srvvKlbOagI1pBIg/op4PAueeUSK+kkCPyVs6+vHAWwigcl1ePFSz6dPIxvvaHZzITqJTX6EK8Sbn/J0em0+laS5ooSWcfuvrC79ua9p0b4gxRuaZobe6EHU0kqbvKbgIggRKsNOkPHw9dasCFbKBw1NyxB52fmPmzP8aQC0dxYEDzfNvRUyCusZQ+5lAG2PyWKyzIgsWOjLlYMvHsql8cUozO+6CprevO2Idn6M/2agk93xUVLAA3nYmdyCtxbtr4t5IBZwoCixgz1oP6xt/zl3kWPBobY3ij8fernqkzetMi41Kn44nv89jfV9pcJlNK5pcrZYh7vYGn8YkNQwenNC/621gDIlX8wHabReIlSM7/PFxMxuEE1sfogg1nvXgci3vrEOnrhAbH6HtjbJA9w79Kj/hdSpu9ije39aAJXc35OVSu7/NscYeI6yVIN9HBgHqdzqIXNe97fyWZ5qTUL3TDafxwgieAE180TGHuxrtYsHitdE3lfFqR/fPzNwm+OxhOPQia50+a8VcnhJr0sJqFEv8MpU75WjYjEgJA7/u91+SrrVJ0RpeCU="
 
 author:
   name: Ethan Exline
