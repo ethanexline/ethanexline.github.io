@@ -52,13 +52,13 @@ layout: compress
       if (currentMode === "dark") {
         setTheme('light');
         if (document.getElementById("reCaptcha") != null) {
-          document.getElementById("reCaptcha").innerHTML = "";
+          grecaptcha.reset();
           onloadCallback();
         }
       } else {
         setTheme('dark');
         if (document.getElementById("reCaptcha") != null) {
-          document.getElementById("reCaptcha").innerHTML = "";
+          grecaptcha.reset();
           onloadCallback();
         }
       }
