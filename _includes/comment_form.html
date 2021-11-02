@@ -84,6 +84,7 @@
       document.getElementById("reCaptcha").appendChild(node);
     }
     showReCaptcha();
+    grecaptcha.render( $('.g-recaptcha')[0], { sitekey : '{{ site.reCaptcha.siteKey }}' });
     grecaptcha.reset();
   </script>
   
