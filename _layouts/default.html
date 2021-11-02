@@ -51,12 +51,12 @@ layout: compress
 
       if (currentMode === "dark") {
         setTheme('light');
-        if (getElementById("reCaptcha")) {
+        if (document.getElementById("reCaptcha") != null) {
           showReCaptcha();
         }
       } else {
         setTheme('dark');
-        if (getElementById("reCaptcha")) {
+        if (document.getElementById("reCaptcha") != null) {
           showReCaptcha();
         }
       }
