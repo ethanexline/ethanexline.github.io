@@ -1,6 +1,5 @@
 ---
 layout: default
-comments: true
 ---
 
 <a class="title" style="margin-top: 50px; text-align: center;" href="/blog"><h1>{{ site.title }}</h1></a>
@@ -24,6 +23,8 @@ comments: true
   {{ content }}
 </section>
 
+{% include comments.html %}
+
 <section>
 
   <nav class="post-nav">
@@ -41,4 +42,5 @@ comments: true
 
   </nav>
 </section>
-{% include disqus.html %}
+
+
