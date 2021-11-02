@@ -51,8 +51,14 @@ layout: compress
 
       if (currentMode === "dark") {
         setTheme('light');
+        if (getElementById("reCaptcha")) {
+          showReCaptcha();
+        }
       } else {
         setTheme('dark');
+        if (getElementById("reCaptcha")) {
+          showReCaptcha();
+        }
       }
     }
   </script>
