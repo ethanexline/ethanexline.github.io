@@ -75,8 +75,8 @@
       var node = document.createElement("div");
       node.setAttribute('class', 'g-recaptcha');
       node.setAttribute('data-sitekey', '{{ site.reCaptcha.siteKey }}');
-      if (window.matchMedia && 
-          window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (document.getElementsByTagName("html")[0].hasAttribute("data-theme") && 
+          document.getElementsByTagName("html")[0].getAttribute("data-theme") == "dark") {
           node.setAttribute('data-theme', "dark");
       }
       document.getElementById("reCaptcha").appendChild(node);
