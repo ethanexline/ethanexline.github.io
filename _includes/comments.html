@@ -27,5 +27,5 @@
   
   <script src="{{ '/assets/main.js' | relative_url }}"></script>
   {% if site.reCaptcha.enabled %}
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
   {% endif %}

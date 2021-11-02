@@ -76,7 +76,7 @@
       node.setAttribute('class', 'g-recaptcha');
       node.setAttribute('data-sitekey', '{{ site.reCaptcha.siteKey }}');
       if (window.localStorage.getItem("theme") == "dark") {
-          node.setAttribute('data-theme', "dark");
+        node.setAttribute('data-theme', "dark");
       }
       else {
         node.setAttribute('data-theme', "light");
@@ -84,6 +84,7 @@
       document.getElementById("reCaptcha").appendChild(node);
     }
     showReCaptcha();
+    grecaptcha.reset();
   </script>
   
   {% comment %}
