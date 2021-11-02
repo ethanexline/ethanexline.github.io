@@ -84,8 +84,12 @@
       document.getElementById("reCaptcha").appendChild(node);
     }
     showReCaptcha();
-    grecaptcha.render( $('.g-recaptcha')[0], { sitekey : '{{ site.reCaptcha.siteKey }}' });
-    grecaptcha.reset();
+    function onloadCallback() {
+      grecaptcha.render('reCaptcha', {
+        'sitekey' : '{{ site.reCaptcha.siteKey }}',
+        'theme' : window.localStorage.getItem("theme")
+      });
+    }
   </script>
   
   {% comment %}
