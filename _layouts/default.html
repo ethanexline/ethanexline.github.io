@@ -32,13 +32,11 @@ layout: compress
         window.localStorage.setItem('theme', 'dark');
         document.getElementById("theme-toggle").classList.add('sun');
         document.getElementById("theme-toggle").classList.remove('moon');
-        document.getElementById("recaptcha").setAttribute('data-theme', 'light');
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         window.localStorage.setItem('theme', 'light');
         document.getElementById("theme-toggle").classList.add('moon');
         document.getElementById("theme-toggle").classList.remove('sun');
-        document.getElementById("recaptcha").setAttribute('data-theme', 'dark');
       }
     }
 
