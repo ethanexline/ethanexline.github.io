@@ -86,7 +86,7 @@ var addComment = function() {
       var comm        = I( commId );                                // whole comment
       var respond     = I( respondId );                             // whole new comment form
       var cancel      = I( 'cancel-comment-reply-link' );           // whole reply cancel link
-      var parentuidF  = I( 'comment-replying-to-uid' );             // a hidden element in the comment
+      var parentuidF  = I( 'comment-replying-to' );             // a hidden element in the comment
 
       if ( ! comm || ! respond || ! cancel || ! parentuidF ) {
         return;
@@ -113,7 +113,7 @@ var addComment = function() {
           return;
         }
 
-        I('comment-replying-to-uid').value = null;
+        I('comment-replying-to').value = null;
         temp.parentNode.insertBefore(respond, temp);  // move the comment form to its original location
         temp.parentNode.removeChild(temp);            // remove the bookmark div
         this.style.display = 'none';                  // make the cancel link invisible

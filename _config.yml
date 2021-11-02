@@ -35,7 +35,7 @@ baseurl: "" # sub folder for jekyll site. only if jekyll site not in root of hos
 permalink: pretty
 
 # local
-# url: "http://localhost:4000" # 
+url: "http://localhost:4000" # 
 # baseurl: "" # 
 
 
@@ -92,6 +92,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+timezone: America/New_York
 
 relative_links:
   enabled:     true
