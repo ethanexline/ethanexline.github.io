@@ -364,10 +364,10 @@ time {
 	color: var(--main-text-color);
 }
 
-.post > h1.title {
-	font-size: x-large;
-	margin-top: 0;
-	margin-bottom: 0;
+@media (max-width: 880px) {
+  a.title {
+    margin-top: 6.5rem !important;
+  }
 }
 
 .post > time {
