@@ -26,7 +26,15 @@ layout: compress
   
 
   <script>
-    function setTheme(theme) {
+    let widgetID = null;
+    var onloadCallback = function() {
+      widgetID = grecaptcha.render('reCaptcha', {
+        'sitekey' : '{{ site.reCaptcha.siteKey }}',
+        'theme' : window.localStorage.getItem("theme")
+      });
+    };
+
+    async function setTheme(theme) {
       if (theme === "dark") {
         document.documentElement.setAttribute('data-theme', 'dark');
         window.localStorage.setItem('theme', 'dark');
@@ -46,21 +54,21 @@ layout: compress
 
     setTheme(theme);
 
-    function modeSwitcher() {
+    async function modeSwitcher() {
       let currentMode = document.documentElement.getAttribute('data-theme');
 
       if (currentMode === "dark") {
-        setTheme('light');
-        if (document.getElementById("reCaptcha") != null) {
-          grecaptcha.reset();
-          onloadCallback();
-        }
+        setTheme('light').then(() => {
+          if (widgetID !== null) {
+            document.getElementsByTagName("iframe")[0].setAttribute('src', document.getElementsByTagName("iframe")[0].getAttribute('src').replace('dark', 'light'));
+          }
+        });
       } else {
-        setTheme('dark');
-        if (document.getElementById("reCaptcha") != null) {
-          grecaptcha.reset();
-          onloadCallback();
-        }
+        setTheme('dark').then(() => {
+          if (widgetID !== null) {
+            document.getElementsByTagName("iframe")[0].setAttribute('src', document.getElementsByTagName("iframe")[0].getAttribute('src').replace('light', 'dark'));
+          }
+        });
       }
     }
   </script>
