@@ -26,15 +26,14 @@ layout: compress
   
 
   <script>
-    let widgetID = null;
     var onloadCallback = function() {
-      widgetID = grecaptcha.render('reCaptcha', {
+      grecaptcha.render('reCaptcha', {
         'sitekey' : '{{ site.reCaptcha.siteKey }}',
         'theme' : window.localStorage.getItem("theme")
       });
     };
 
-    async function setTheme(theme) {
+    function setTheme(theme) {
       if (theme === "dark") {
         document.documentElement.setAttribute('data-theme', 'dark');
         window.localStorage.setItem('theme', 'dark');
@@ -58,17 +57,15 @@ layout: compress
       let currentMode = document.documentElement.getAttribute('data-theme');
 
       if (currentMode === "dark") {
-        setTheme('light').then(() => {
-          if (widgetID !== null) {
-            document.getElementsByTagName("iframe")[0].setAttribute('src', document.getElementsByTagName("iframe")[0].getAttribute('src').replace('dark', 'light'));
-          }
-        });
+        setTheme('light');
+        if (document.getElementById("reCaptcha") !== null) {
+          document.getElementsByTagName("iframe")[0].setAttribute('src', document.getElementsByTagName("iframe")[0].getAttribute('src').replace('dark', 'light'));
+        }
       } else {
-        setTheme('dark').then(() => {
-          if (widgetID !== null) {
-            document.getElementsByTagName("iframe")[0].setAttribute('src', document.getElementsByTagName("iframe")[0].getAttribute('src').replace('light', 'dark'));
-          }
-        });
+        setTheme('dark');
+        if (document.getElementById("reCaptcha") !== null) {
+          document.getElementsByTagName("iframe")[0].setAttribute('src', document.getElementsByTagName("iframe")[0].getAttribute('src').replace('light', 'dark'));
+        }
       }
     }
   </script>
@@ -93,5 +90,20 @@ layout: compress
   </p>
 
   <br>
+
+  {% if page.url == '/blog/' %}
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/simple-jekyll-search.js"></script>
+  <script>
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('search-results'),
+      json: '{{ site.url }}{{ site.baseurl }}/search.json',
+      searchResultTemplate: '<li><a href="{url}" title="{description}">{title}</a></li>',
+      noResultsText: 'No results found..',
+      limit: 10,
+      fuzzy: true,
+    })
+  </script>
+  {% endif %}
 
 </html>

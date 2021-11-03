@@ -4,7 +4,7 @@ greetings: How to Waste Time and be Wrong&trade;
 description: >-
   Welcome to the obligatory blog area 👋
 lang: en-US
-timezone:  America/New_York
+timezone: America/New_York
 repo: https://github.com/ethanexline/ethanexline.github.io # site repo [optional]
 data-theme: dark # default theme "dark" | "light"
 # discus-identifier: ethanexline-com.disqus.com link #old
@@ -41,7 +41,7 @@ baseurl: "" # sub folder for jekyll site. only if jekyll site not in root of hos
 permalink: pretty
 
 # local
-# url: "http://localhost:4000" # 
+# url: "http://localhost:4000"
 # baseurl: "" # 
 
 
@@ -98,8 +98,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-
-timezone: America/New_York
 
 relative_links:
   enabled:     true
