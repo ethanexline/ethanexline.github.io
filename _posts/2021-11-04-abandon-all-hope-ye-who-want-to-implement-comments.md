@@ -12,7 +12,11 @@ When I started this blog, like, a week ago, I chose to take the simplest route f
 
 ### SPOILER: there is a caveat.
 
-Of course, a company's gotta pay their employees somehow - so how does Disqus do it? Well, the same way every other internet-services company does - serving ads. In between the comments, _within_ the comments, in the Recommendations (I don't even know what this is) - looking at their sample gives a good idea of the type of saturation you'll be dealing with: ![Don't you love comments sections that look like this?](/assets/images/ads.png "Don't you love comments sections that look like this?")
+Of course, a company's gotta pay their employees somehow - so how does Disqus do it? Well, the same way every other internet-services company does - serving ads. In between the comments, _within_ the comments, in the Recommendations (I don't even know what this is) - looking at their sample gives a good idea of the type of saturation you'll be dealing with: 
+
+{:refdef: style="text-align: center;"}
+![Don't you love comments sections that look like this?](/assets/images/ads.png "Don't you love comments sections that look like this?")
+{: refdef}
 
 I can't speak for anybody else, but a blog that bombards you with ads is, best case scenario, an absolute sensory overload, and worst case scenario, frustrating to the point of driving me away from the site. Now, it may be a bit of an exaggeration to call what Disqus would do "_bombardment_", but I've just had a thing recently where I just can't stand the feeling of being **sold** to. Ever since I set up a pihole on my apartment's network for my [Raspberry Pi](https://www.raspberrypi.org/) class back in college, I've lost tolerance for advertisements, and it has progressed to a point where, if at any point I feel like a piece of media is trying to convince me to spend money for any reason, I get **angry**. 
 
@@ -48,7 +52,9 @@ I may have missed a few. It's a lot.
 
 Anyways, I obviously chose to host Staticman on Heroku. The tutorial I was following just said to use their nifty "deploy to Heroku" in the readme of the github repo, which I did - I would learn that this disallowed me from pulling my specific implementation of Staticman down from Heroku, and therefore, I couldn't make any changes to its code. For a lot of people this probably doesn't matter, but I was of the opinion that their email template and the "name" of the sender were, uh, not to my liking.
 
+{:refdef: style="text-align: center;"}
 ![it's a little cringey.](/assets/images/email.png "it's a little cringey.")
+{: refdef}
 
 So I had to get into that code and change that template. _But how am I to do that if I can't pull down my version of the app from Heroku??_ 😨 
 

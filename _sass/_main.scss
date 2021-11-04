@@ -2,7 +2,6 @@
 :after,
 :before {
 	box-sizing: border-box;
-	background-color: inherit;
 	color: inherit;
 	margin: 0;
 	padding: 0;
@@ -595,13 +594,16 @@ $link-color: var(--link-color);
     top: 0;
     content: ' ';
     display: block;
-    width: 6px;
+    width: 5px;
     height: 100%;
-    margin-left: -3px;
+    margin-left: -6px;
     background: var(--light-text-color);
     z-index: 5;
     @media(max-width: 375px) {
       height: 150%;
+    }
+    @media(max-width: 860px) {
+      margin-left: -3px;
     }
   }
   li {
@@ -662,6 +664,7 @@ $link-color: var(--link-color);
   }
   .time-wrapper {
     float: left;
+    margin-top: 4px;
     @media(max-width: 860px) {
       float: none;
     }
@@ -714,6 +717,7 @@ $link-color: var(--link-color);
   }
   .time-wrapper {
     float: right;
+    margin-top: 4px;
     @media(max-width: 860px) {
       float: none;
     }
