@@ -194,7 +194,6 @@ code,
 pre {
 	background: var(--code-bg-color);
 	margin: 0 -27px;
-  display: block;
   overflow-x: auto;
 	border-width: 1px;
 }
@@ -367,6 +366,9 @@ time {
 @media (max-width: 880px) {
   a.title {
     margin-top: 6.5rem !important;
+  }
+  #reCaptcha {
+    margin-left: -20px;
   }
 }
 
