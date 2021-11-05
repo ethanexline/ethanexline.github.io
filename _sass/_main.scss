@@ -362,12 +362,23 @@ time {
 	color: var(--main-text-color);
 }
 
+// Ethan's lil mobile tweaks
+
 @media (max-width: 880px) {
   a.title {
     margin-top: 6.5rem !important;
   }
   #reCaptcha {
     margin-left: -20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .aboutViewSwitchDesktop {
+    display: none !important;
+  }
+  .aboutViewSwitchMobile {
+    display: flex !important;
   }
 }
 
@@ -580,11 +591,12 @@ $link-color: var(--link-color);
 
 
 .timeline {
-  position: center;
+  position: relative;
   width: 650px;
   margin: -6em auto;
   padding: 1px;
   list-style-type: none;
+  margin-top: -98px;
   @media(max-width: 860px) {
     width: 100%;
   }
@@ -595,15 +607,13 @@ $link-color: var(--link-color);
     content: ' ';
     display: block;
     width: 5px;
-    height: 100%;
+    height: calc(100% + 25px);
     margin-left: -6px;
     background: var(--light-text-color);
     z-index: 5;
-    @media(max-width: 375px) {
-      height: 150%;
-    }
     @media(max-width: 860px) {
       margin-left: -3px;
+      height: calc(100% + 24px);
     }
   }
   li {

@@ -11,13 +11,27 @@ layout: default
   </div>
 </section>
 
+<u class="aboutViewSwitchMobile" style="display: none;"><h3 style="width: 100%; text-align: center;">Professional Timeline</h3></u>
+
+<nav class="post-nav aboutViewSwitchDesktop"></nav>
+
 <section>
     <!-- The Timeline -->
 
     <ul class="timeline">
 
+        <div class="aboutViewSwitchMobile" style="justify-content: center; display: none;">
+            <img src="{{ site.url }}{{ site.baseurl }}/assets/images/me.webp" class="me" style="height: 270px; width: 270px; z-index: 1001; margin-top: -2px;" alt="My mug">
+        </div>
+
         <!-- Item 1 -->
         <li>
+            <div class="direction-l">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <u><h3 class="aboutViewSwitchDesktop">Professional Timeline</h3></u>
+                </div>
+            </div>
+
             <div class="direction-r">
                 <div class="flag-wrapper">
                     <span class="flag">Dumb Kid</span>
@@ -32,7 +46,7 @@ layout: default
 
         <!-- Item 2 -->
         <li>
-            <div class="direction-l">
+            <div class="direction-l" style="position: relative;">
                 <div class="flag-wrapper">
                     <span class="flag">College Kid</span>
                     <span class="time-wrapper"><span class="time">2019 - 2020</span></span>
@@ -42,6 +56,7 @@ layout: default
                      my first programming job by the Head of Technology at the college, and had a 4.0 GPA (if you're only counting IT classes!) - I even found the time to build my 
                      own computer!
                 </div>
+                <img class="aboutViewSwitchDesktop" src="{{ site.url }}{{ site.baseurl }}/assets/images/me.webp" class="me" style="height: 300px; width: 300px; position: absolute; left: 0px; top: 230px;" alt="My mug">
             </div>
         </li>
 
@@ -53,11 +68,11 @@ layout: default
                     <span class="time-wrapper"><span class="time">2020 - 2021</span></span>
                 </div>
                 <div class="desc">
-                     While finishing up school, I began my professional career with a position as a Progammer/Developer at a medium-sized trucking company. It was a fantastic place
-                     to learn and I rapidly developed my skills, diving deep into their piles of data and deriving meaning from the chaos with data visualization, reporting, 
-                     sending and receiving information with tons of APIs, and buiding tools to help the company to stay compliant with the law in a heavily-regulated industry. 
-                     I got to get my hands dirty, learned how to communicate effectively and deliver solutions to problems my company faced, and built some really fun and 
-                     interesting sofware.
+                     In my penultimate semester of college, I began my professional career with a position as a Progammer/Developer at a medium-sized trucking company. It was a 
+                     fantastic place to learn and I rapidly developed my skills, diving deep into their piles of data and deriving meaning from the chaos with data visualization, 
+                     reporting, sending and receiving information with tons of APIs, and buiding tools to help the company to stay compliant with the law in a heavily-regulated 
+                     industry. I got to get my hands dirty, learned how to communicate effectively and deliver solutions to problems my company faced, and built some really fun 
+                     and interesting sofware.
                 </div>
             </div>
         </li>
@@ -71,10 +86,16 @@ layout: default
                     <span class="time-wrapper"><span class="time">2021 - Now</span></span>
                 </div>
                 <div class="desc">
-                    Now, as I work as the sole developer for a small software vendor in the Mental Health industry, I get to work daily on a huge variety of projects. Responsive,
-                    full-stack web applications with .NET web development, a front-end redesign of a legacy application, GUI programs to help my coworkers, web-based payment
-                    portals that use SAML as the SSO - running the gamut. I maintain this site with my free time, and I'm always down for new, interesting projects. Feel free to 
-                    reach out with any questions at ethanexline@gmail.com.
+                    Now, as I work as the lone software developer for a small software vendor in the Mental Health industry, I get to work daily on a huge variety of projects. 
+                    Responsive, full-stack web applications with .NET web development, a front-end redesign of a legacy application, GUI programs to help my coworkers, web-based 
+                    payment portals that use SAML as the SSO - running the gamut. I maintain this site with my free time, and I'm always down for new, interesting projects. 
+                    Feel free to reach out with any questions at <a href="mailto:ethanexline@gmail.com">ethanexline@gmail.com</a>.
+                </div>
+            </div>
+
+            <div class="direction-r aboutViewSwitchDesktop">
+                <div style="display: flex; justify-content: center; margin-top: 120px; font-size: larger;">
+                    <a href="https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true">Click here to view my resume.</a>
                 </div>
             </div>
         </li>
@@ -83,9 +104,10 @@ layout: default
 
 </section>
 
-
-
 <section>
     <nav class="post-nav"></nav>
-    <!-- <div style="background-color: var(--background-color); height: 158px; width: 100%; z-index: 1000; position: absolute; top: 763px; bottom: 0px;"</div> -->
 </section>
+
+<div class="aboutViewSwitchMobile" style="display: flex; justify-content: center;font-size: larger; display: none;">
+    <a href="https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true">Click here to view my resume.</a>
+</div>

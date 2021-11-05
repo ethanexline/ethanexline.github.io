@@ -39,11 +39,13 @@ layout: compress
         window.localStorage.setItem('theme', 'dark');
         document.getElementById("theme-toggle").classList.add('sun');
         document.getElementById("theme-toggle").classList.remove('moon');
+        document.getElementsByClassName("faviconSwitch")[0].href = "{{ site.url }}{{ site.baseurl }}/faviconDark.png";
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         window.localStorage.setItem('theme', 'light');
         document.getElementById("theme-toggle").classList.add('moon');
         document.getElementById("theme-toggle").classList.remove('sun');
+        document.getElementsByClassName("faviconSwitch")[0].href = "{{ site.url }}{{ site.baseurl }}/faviconLight.png";
       }
     }
 
@@ -76,12 +78,29 @@ layout: compress
 
   <footer class="social-footer">
     <div class="social-footer-icons">
-      <a href="https://github.com/ethanexline" title="Github profile - I'm working on it." target="_blank"
-        rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i></a>
-      <a href="{{site.url}}{{ site.baseurl }}/atom.xml" title="Feed RSS" target="_blank" rel="noopener noreferrer"><i
-          class="fa fa-rss" aria-hidden="true"></i></a>
-      <a href="https://github.com/ethanexline/ethanexline.github.io" title="Browse the code" target="_blank" rel="noopener noreferrer"><i
-          class="fa fa-code" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/ethan-exline-b9b369201/" title="My twitter - I tweet whenever there's a new post." target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-twitter"></i>
+      </a>
+
+      <a href="https://github.com/ethanexline" title="Github profile - I'm working on it." target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
+
+      <a href="{{site.url}}{{ site.baseurl }}/atom.xml" title="Feed RSS" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://github.com/ethanexline/ethanexline.github.io" title="Browse the code" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-code" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/ethan-exline-b9b369201/" title="Linkedin profile" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-linkedin"></i>
+      </a>
+
+      <a href="https://codestats.net/users/ethanjexline" title="Codestats profile" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-chart-bar"></i>
+      </a>
     </div>
   </footer>
 
@@ -99,7 +118,7 @@ layout: compress
       resultsContainer: document.getElementById('search-results'),
       json: '{{ site.url }}{{ site.baseurl }}/search.json',
       searchResultTemplate: '<li><a href="{url}" title="{description}">{title}</a></li>',
-      noResultsText: 'No results found..',
+      noResultsText: "There ain't nothing like that here.",
       limit: 10,
       fuzzy: true,
     })
