@@ -4,7 +4,6 @@ title: I don't know what makes a good landing page
 description: Trying weird stuff
 summary: Trial by experimentation
 tags: coding css javascript design learning
-minute: 5
 ---
 
 ##### Let's find some direction.

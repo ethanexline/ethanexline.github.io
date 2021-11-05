@@ -4,7 +4,6 @@ title: Figuring out how to blog
 description: I don't know what I'm doing
 summary: Seriously, I don't know what I'm doing
 tags: updates life
-minute: 2
 ---
 
 ##### I literally threw this together over the course of 2 days.
