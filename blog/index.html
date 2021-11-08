@@ -35,7 +35,7 @@ layout: default
         {% assign total = total | plus: 1 %}
     {% endfor %}
     <input type="search" id="search-input" placeholder="Search through all {{ total }} of my posts" aria-label="Search">
-    <ul id="search-results"></ul>
+    <ul id="search-results" role="list"></ul>
 </div>
 
 <section class="posts" id="Blog">

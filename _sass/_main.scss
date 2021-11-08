@@ -1,3 +1,40 @@
+// Ethan's main contributions
+.win98Btn {
+  background-color: silver;
+  border-bottom: 1px solid #22292f;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #22292f;
+  border-top: 1px solid #fff;
+  display: inline-block;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-pixelated;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+  margin: 2px;
+  overflow: hidden;
+  padding: 2px 4px;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.xp {
+  color: white;
+  background-color: blue;
+  height: 32px !important;
+  border-top: solid white 6px;
+}
+
+.win98 {
+  color: black;
+  background-color: silver;
+}
+
 *,
 :after,
 :before {
@@ -506,20 +543,16 @@ color: #333;
   }
 }
 
-// #search-results {
-
-//   text-align: center;
-//   li {
-//     text-align: center;
-//   }
-// }
-
 #search-results li::before {
 	content: "›";
 	display: inline-block;
 	margin-left: -1.3em;
 	width: 1.3em;
 	color: var(--main-text-color);
+}
+
+#search-results li {
+  list-style: none;
 }
 
 .post-nav {
