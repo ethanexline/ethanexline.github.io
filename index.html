@@ -6,6 +6,7 @@
         <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css/dist/98.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" class="themeChanger" media="none" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">        
 
+
         <style>
             .win98Btn {
                 background-color: silver;
@@ -56,12 +57,122 @@
             }
 
             #clockCircle {
-                margin-left: -23px;
+                margin-left: -17px;
+            }
+
+            #start-menu {
+                font-family: VT323,monospace;
+                background-color: #000082;
+                border-left: 1px solid #fff;
+                border-top: 1px solid #fff;
+                bottom: 30px;
+                -webkit-box-shadow: 1px 1px 0 0 #22292f;
+                box-shadow: 1px 1px 0 0 #22292f;
+                left: 4px;
+                margin-bottom: -2px;
+                position: fixed;
+                -webkit-transition: -webkit-transform .25s;
+                transition: -webkit-transform .25s;
+                transition: transform .25s;
+                transition: transform .25s,-webkit-transform .25s;
+                z-index: 2;
+            }
+
+            #start-menu:focus {
+                display: unset !important;
+            }
+
+            .start-menu__bar {
+                font-family: Times NR MT W01 Regular,Times New Roman,TimesNewRoman,Times,serif;
+                color: #fff;
+                font-size: 22px;
+                height: 30px;
+                left: 0;
+                line-height: 1;
+                padding: 4px 8px;
+                position: absolute;
+                top: 220px;
+                -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                font-weight: lighter;
+            }
+
+            .start-menu__list {
+                background-color: silver;
+                position: relative;
+                list-style: none;
+                margin-left: 30px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                padding-left: 0px;
+            }
+
+            .start-item {
+                color: black;
+                font-family: 'Pixelated MS Sans Serif', Arial;
+                position: relative;
+            }
+
+            .start-item__button:hover {
+                color: white;
+                background-color: #000082 !important;
+            }
+
+            .start-item__button, .start-item__icon {
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+            }
+
+            .start-item__button {
+                background-color: silver;
+                height: 40px;
+                overflow: hidden;
+                padding: 0 10px;
+                position: relative;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 160px;
+                text-decoration: none;
+                color: black;
+            }
+
+            .start-item__icon {
+                height: 35px;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                margin-right: 10px;
+                width: 35px;
+            }
+
+            .start-item__button, .start-item__icon {
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+            }
+
+            .start-item__icon img {
+                max-height: 100%;
+                max-width: 100%;
+                display: inline-block;
             }
         </style>
     </head>
 
     <body style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
+        <noscript>
+            <strong>This site is going to not work and be boring unless you enable javascript. C'mon, everyone's doing it!</strong>
+        </noscript>
+
         <br>
 
         <h2 style="text-align: center; margin-top: 17%;">
@@ -70,11 +181,11 @@
 
         <a style="font-size: 20px; margin-left: 45%;" href="blog/">in the meantime, here's a blog</a>
 
-        <div class="window card" style="width: 320px; position: fixed; top: 20; right: 20;">
+        <div id="slider" class="window card" style="width: 320px; position: fixed; top: 20; right: 20;">
             <div class="title-bar">
-                <div class="title-bar-text card-header">Nostalgia Ticker</div>
+                <div class="title-bar-text card-header">Nostalgia Slider</div>
                 <div class="title-bar-controls d-none">
-                    <button aria-label="Close"></button>
+                    <button aria-label="Close" onclick="document.getElementById('slider').style.display = 'none'"></button>
                 </div>
             </div>
             <div class="window-body card-body" >
@@ -86,9 +197,63 @@
             </div>
         </div>
 
+        <div tabindex="-1" id="start-menu" class="start-menu" style="display: none;">
+            <h3 class="start-menu__bar"><b>Apertures</b>98</h3>
+            <ul class="start-menu__list">
+                <li class="start-item">
+                    <a class="start-item__button" onmousedown="navigateTo('blog/');">
+                        <div class="start-item__icon">
+                            <img src="assets/images/blog.png" alt="Blog">
+                        </div>
+                        <span>Blog</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://github.com/ethanexline');">
+                        <div class="start-item__icon">
+                            <img src="assets/images/github.png" alt="Github">
+                        </div>
+                        <span>Github</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
+                        <div class="start-item__icon">
+                            <img src="assets/images/linkedin.png" alt="Linkedin">
+                        </div>
+                        <span>Linkedin</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');">
+                        <div class="start-item__icon">
+                            <img src="assets/images/resume.png" alt="Resume">
+                        </div>
+                        <span>Resume</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" onmousedown="navigateTo('mailto:ethanexline@gmail.com');">
+                        <div class="start-item__icon">
+                            <img src="assets/images/contact.png" alt="Contact">
+                        </div>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'">
+                        <div class="start-item__icon">
+                            <img src="assets/images/slider.png" alt="Nostalgia Slider">
+                        </div>
+                        <span>Nostalgia Slider</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         <nav id="startBar" class="xp" style="display: flex; align-items: center; justify-content: space-between; height: 30px; width: 100vw; position: fixed; bottom: 0px; left: 0; right: 0;">
-            <button id="startButton98" class="win98Btn" style="padding: 2px 3px; flex: 0 0 auto; -webkit-box-flex: 0; -ms-flex: 0 0 auto; justify-content: center; min-width: unset !important; display: none;">
-                <img src="/assets/images/startButton.png" height="14" width="45" alt="start button">
+            <button id="startButton98" class="win98Btn" onclick="menu98();" onblur="dispelMenu98();" style="padding: 2px 3px; flex: 0 0 auto; -webkit-box-flex: 0; -ms-flex: 0 0 auto; justify-content: center; min-width: unset !important; display: none;">
+                <img src="/assets/images/startNeg.png" height="14" width="45" alt="start button">
             </button>
 
             <div id="vistaStart">
@@ -99,12 +264,12 @@
             </div>
 
             <div id="98clock" class="status-bar" style="margin-right: 22px; display: none;">
-                <p class="status-bar-field" id="clock1" style="padding: 6px;"></p>
+                <p class="status-bar-field" id="clock1" style="padding: 6px; font-family: 'Pixelated MS Sans Serif', Arial;"></p>
             </div>
 
             <div id="xpClock">
                 <img id="clockCircle" src="/assets/images/clockCircle.png">
-                <p id="clock2" style="padding: 6px; margin-right: 22px; font-family: Arial;"></p>
+                <p id="clock2" style="padding: 6px; margin-right: 22px; font-family: Tahoma;"></p>
             </div>
         </nav>
     </body>
@@ -119,7 +284,7 @@
             if (minutes < 10){
                 minutes = "0" + minutes
             }
-            if (hours > 11) {
+            if (hours > 12) {
                 t_str = (hours - 12) + ":" + minutes + " " + "PM";
             } 
             else {
@@ -132,7 +297,27 @@
             document.getElementById('clock1').innerText = t_str;
             document.getElementById('clock2').innerText = t_str;
         }
-        updateTime();
+
+        function menu98() {
+            var menu = document.getElementById('start-menu');
+
+            if (menu.style.display === 'none') {
+                menu.style.display = 'unset';
+            }
+            else {
+                menu.style.display = 'none';
+            }
+        }
+
+        function dispelMenu98() {
+            var menu = document.getElementById('start-menu');
+
+            menu.style.display = 'none';
+        }
+
+        function navigateTo(url) {
+            window.open(url, '_blank').focus();
+        }
 
         function toggleTheme() {
             var theme = document.getElementsByClassName('themeChanger');
@@ -180,10 +365,12 @@
                 theme[2].setAttribute('media', '');
                 theme[0].setAttribute('media', 'none');
                 theme[1].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "font-family: sans-serif; background-color: azure;");
+                bodyPic[0].setAttribute('style', "font-family: monospace; background-color: azure;");
                 startBar.style.display = "none";
             }
         }
+
+        updateTime();
     </script>
     
 </html>
