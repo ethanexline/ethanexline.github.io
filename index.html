@@ -311,8 +311,9 @@
 
         function dispelMenu98() {
             var menu = document.getElementById('start-menu');
-
-            menu.style.display = 'none';
+            if (menu.style.display !== 'none') {
+                menu.style.display = 'none';
+            }
         }
 
         function navigateTo(url) {
