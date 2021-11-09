@@ -123,7 +123,10 @@
                 t_str = (hours - 12) + ":" + minutes + " " + "PM";
             } 
             else {
-                t_str = (hours - 12) + ":" + minutes + " " + "AM";
+                if (hours === 0) {
+                    hours = 12;
+                }
+                t_str = hours + ":" + minutes + " " + "AM";
             }
 
             document.getElementById('clock1').innerText = t_str;
