@@ -168,7 +168,7 @@
         </style>
     </head>
 
-    <body style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
+    <body onclick="dispelMenu98();" style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
         <noscript>
             <strong>This site is going to not work and be boring unless you enable javascript. C'mon, everyone's doing it!</strong>
         </noscript>
@@ -241,7 +241,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'">
+                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu98();">
                         <div class="start-item__icon">
                             <img src="assets/images/slider.png" alt="Nostalgia Slider">
                         </div>
@@ -316,6 +316,9 @@
         }
 
         function navigateTo(url) {
+            var menu = document.getElementById('start-menu');
+            menu.style.display = 'none';
+
             window.open(url, '_blank').focus();
         }
 
