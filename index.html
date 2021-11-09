@@ -168,7 +168,7 @@
         </style>
     </head>
 
-    <body onclick="dispelMenu98();" style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
+    <body style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
         <noscript>
             <strong>This site is going to not work and be boring unless you enable javascript. C'mon, everyone's doing it!</strong>
         </noscript>
@@ -317,8 +317,7 @@
         }
 
         function navigateTo(url) {
-            var menu = document.getElementById('start-menu');
-            menu.style.display = 'none';
+            dispelMenu98()
 
             window.open(url, '_blank').focus();
         }
