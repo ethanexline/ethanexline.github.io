@@ -95,7 +95,7 @@ Google's reCaptcha API forces you to make a decision on its theme right as it's 
 cause Google's API will just remember the thing was rendered and stop you - I tried so many things. I tried using Promises, I tried using async functions, I tried asking real nice, I tried [manifesting](https://www.oprahdaily.com/life/a30244004/how-to-manifest-anything/), I tried everything.
 
 My last-ditch effort was digging into the widget itself to see if anything inspired a new solution, when I looked closely at the `src` of the iframe that the widget produced and saw in the URL a `&theme=dark`. For funsies I changed that to `&theme=light` and I nearly shed joyful, salty tears when I saw that, in real time, without rendering a second time, the theme instantly changed. I immediately knew what to do. I chose the "explicit rendering" option for the widget and added the `async defer` to the end of the `<script>` tag that linked to the reCaptcha API, and changed my `ModeSwitcher()` function to look like this:
-
+```javascript
     function modeSwitcher() {
       let currentMode = document.documentElement.getAttribute('data-theme');
 
@@ -111,7 +111,7 @@ My last-ditch effort was digging into the widget itself to see if anything inspi
         }
       }
     }
-
+```
 ## Hallelujah, baybeeee
 
 It worked. I sincerely hope that someday, somebody will see this code and feel the same relief I felt when discovering it. The fact that that will probably never happen is sad. 😥
