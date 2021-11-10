@@ -41,14 +41,16 @@ baseurl: "" # sub folder for jekyll site. only if jekyll site not in root of hos
 permalink: pretty
 
 # local
-# url: "http://localhost:4000"
+url: "http://localhost:4000"
 # baseurl: "" # 
 
+gems: ["jemoji"]
 
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  #gfm_quirks: [gfm_emojis]
 
 exclude:
   - .jekyll-cache
@@ -102,5 +104,4 @@ defaults:
 relative_links:
   enabled:     true
   collections: false
-
 

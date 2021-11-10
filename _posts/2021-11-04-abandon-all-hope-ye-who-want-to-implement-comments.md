@@ -87,11 +87,11 @@ I spent literal days trying to figure this bit out. Somehow, longer any other in
 The site template I've riffed on here (see the footer of the blog for link to it, thank you [P0WEX](https://github.com/P0WEX)) has a nifty lil dark mode/light mode toggle up in the upper right, and I knew the reCaptcha widget also has a dark and light mode. Naturally, I wanted the reCaptcha in the comment form to match the mode of the page. It's the perfect example of the problem that is simple on paper and ridiculous from a code perspective.
 
 Google's reCaptcha API forces you to make a decision on its theme right as it's rendered and disallows you from rendering the widget a second time between full page reloads. That is to say, **there is absolutely NO way to rerender the widget with a new theme without a page refresh**. You can't use the API and say `grecaptcha.reset(widgetID);` (at least, this doesn't solve _my_ problem) forget any solution that manually empties the widget container like, for example:
-
+```javascript
     while ($("#widgetID").firstChild) { 
         $("#widgetID").removeChild($("#widgetID").lastChild); 
     } 
-
+```
 cause Google's API will just remember the thing was rendered and stop you - I tried so many things. I tried using Promises, I tried using async functions, I tried asking real nice, I tried [manifesting](https://www.oprahdaily.com/life/a30244004/how-to-manifest-anything/), I tried everything.
 
 My last-ditch effort was digging into the widget itself to see if anything inspired a new solution, when I looked closely at the `src` of the iframe that the widget produced and saw in the URL a `&theme=dark`. For funsies I changed that to `&theme=light` and I nearly shed joyful, salty tears when I saw that, in real time, without rendering a second time, the theme instantly changed. I immediately knew what to do. I chose the "explicit rendering" option for the widget and added the `async defer` to the end of the `<script>` tag that linked to the reCaptcha API, and changed my `ModeSwitcher()` function to look like this:
