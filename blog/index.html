@@ -42,9 +42,12 @@ layout: default
     <h2>Posts</h2>
     <ul>
         {% for post in site.posts %}
-        <li>
-		<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.description }}">{{ post.title }}</a>
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+        <li style="flex-direction: column;">
+            <div style="display: flex; justify-content: flex-end; width: 100%; justify-content: space-between;">
+                <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.description }}">{{ post.title }}</a>
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+            </div>
+            <p style="align-self: flex-start; display: list-item; margin-left: 20px; font-size: small; list-style-type: disclosure-closed;">{{ post.summary }}</p>
         </li>
         {% endfor %}
     </ul>

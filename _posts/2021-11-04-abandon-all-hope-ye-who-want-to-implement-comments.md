@@ -2,7 +2,7 @@
 layout: post
 title: Abandon All Hope, Ye Who Want to Implement Comments
 description: It's funny cause it's very possible nobody will ever comment on this blog
-summary: The labor pangs of implementing Staticman Comments
+summary: The labor pangs of implementing Staticman comments
 tags: coding humour updates design learning
 ---
 
