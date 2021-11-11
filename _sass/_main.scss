@@ -1,40 +1,3 @@
-// Ethan's main contributions
-.win98Btn {
-  background-color: silver;
-  border-bottom: 1px solid #22292f;
-  border-left: 1px solid #fff;
-  border-right: 1px solid #22292f;
-  border-top: 1px solid #fff;
-  display: inline-block;
-  image-rendering: optimizeSpeed;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -o-crisp-edges;
-  image-rendering: -webkit-crisp-edges;
-  image-rendering: crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -o-pixelated;
-  image-rendering: pixelated;
-  -ms-interpolation-mode: nearest-neighbor;
-  margin: 2px;
-  overflow: hidden;
-  padding: 2px 4px;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.xp {
-  color: white;
-  background-color: blue;
-  height: 32px !important;
-  border-top: solid white 6px;
-}
-
-.win98 {
-  color: black;
-  background-color: silver;
-}
-
 *,
 :after,
 :before {
@@ -243,7 +206,7 @@ code {
 
 pre code {
 	background-color: unset;
-	color: unset;
+	color: #cccccc;
 }
 
 pre {
@@ -397,26 +360,6 @@ b {
 
 time {
 	color: var(--main-text-color);
-}
-
-// Ethan's lil mobile tweaks
-
-@media (max-width: 880px) {
-  a.title {
-    margin-top: 6.5rem !important;
-  }
-  #reCaptcha {
-    margin-left: -20px;
-  }
-}
-
-@media (max-width: 860px) {
-  .aboutViewSwitchDesktop {
-    display: none !important;
-  }
-  .aboutViewSwitchMobile {
-    display: flex !important;
-  }
 }
 
 .post > time {
@@ -1037,4 +980,97 @@ $comment-font-size: --text-font !default;
         box-shadow: none;
         opacity: 0.65;
     }
+}
+
+// Ethan's main contributions
+.win98Btn {
+  background-color: silver;
+  border-bottom: 1px solid #22292f;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #22292f;
+  border-top: 1px solid #fff;
+  display: inline-block;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-pixelated;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+  margin: 2px;
+  overflow: hidden;
+  padding: 2px 4px;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.xp {
+  color: white;
+  background-color: blue;
+  height: 32px !important;
+  border-top: solid white 6px;
+}
+
+.win98 {
+  color: black;
+  background-color: silver;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+  background-color: var(--text-area-bg-color);
+}
+
+thead {
+  background-color: var(--text-area-bg-color);
+}
+
+td, th {
+  padding: 5px;
+  margin: -5px;
+  border: solid 1px var(--light-text-color);
+}
+
+ul ul {
+  margin-left: 15px;
+}
+
+ol ol {
+  margin-left: 15px;
+}
+
+ul ol {
+  margin-left: 15px;
+}
+
+ol ul {
+  margin-left: 15px;
+}
+
+// Ethan's lil mobile tweaks
+
+@media (max-width: 880px) {
+  a.title {
+    margin-top: 6.5rem !important;
+  }
+  #reCaptcha {
+    margin-left: -20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .aboutViewSwitchDesktop {
+    display: none !important;
+  }
+  .aboutViewSwitchMobile {
+    display: flex !important;
+  }
 }
