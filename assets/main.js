@@ -26,8 +26,12 @@ var addComment = function() {
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    submitButton.innerHTML =
-      '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...';
+    if (window.localStorage.getItem("theme") === "dark") {
+      showModal('Sending...', '<img src="/assets/images/loaderDark.gif" />');
+    }
+    else {
+      showModal('Sending...', '<img src="/assets/images/loaderLight.gif" />');
+    }
 
     var errorHandler = function(title, err) {
       console.log(err);
