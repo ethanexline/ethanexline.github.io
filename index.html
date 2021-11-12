@@ -1,6 +1,6 @@
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" class="faviconSwitch" href="/faviconDark.png">
         <link rel="stylesheet" class="themeChanger" media="" href="https://unpkg.com/xp.css">
         <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css/dist/98.css">
@@ -57,7 +57,7 @@
             }
 
             #clockCircle {
-                margin-left: -17px;
+                margin-left: -22px;
             }
 
             #start-menu {
@@ -165,19 +165,177 @@
                 max-width: 100%;
                 display: inline-block;
             }
+
+            .icon {
+                margin-left: 0.25rem;
+                margin-right: 0.25rem;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                /* cursor: pointer!important; */
+                display: inline-block;
+                position: absolute;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .icon, .icon * {
+                -ms-touch-action: none;
+                touch-action: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 640px) {
+                .icon__inner {
+                    width: 90px;
+                }
+            }
+
+            .icon__image, .icon__inner {
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+
+            .icon__inner {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                position: relative;
+                width: 65px;
+            }
+
+            @media (min-width: 860px) {
+                .icon__image {
+                    height: 42px;
+                    width: 42px;
+                }
+            }
+
+            .icon__image {
+                height: 36px;
+                width: 36px;
+            }
+
+            .icon__image img {
+                height: auto;
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+            }
+
+            .icon__title {
+                display: inline-block;
+                font-size: 13px;
+                line-height: 1.2;
+                margin-top: 6px;
+                padding: 2px 6px 4px;
+                text-decoration: none;
+                color: black;
+                text-shadow: 1px 1px 0 #fff;
+                width: 85%
+            }
+
+            a:focus .icon__title {
+                background-color: mediumblue;
+                color: white;
+                text-shadow: none;
+            }
+
+            a:focus .icon {
+                outline: 1px dotted #00f;
+            }
+
+            a:focus {
+                outline: none;
+            }
+
+            a.drag {
+                position: absolute;
+                cursor: move;
+            }
         </style>
     </head>
 
-    <body style="font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
+    <body style="overflow: clip; font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');">
         <noscript>
             <strong>This site is going to not work and be boring unless you enable javascript. C'mon, everyone's doing it!</strong>
         </noscript>
+        
+        <a id="blogIcon" class="drag" onclick="return false" ondblclick="location=this.href" tabindex="0" href="blog/">
+            <div class="icon">
+                <div class="icon__inner">
+                    <div class="icon__image">
+                        <img src="assets/images/blog.png" alt="">
+                    </div>
+                    <div class="icon__title">Blog</div>
+                </div>
+            </div>
+        </a>
 
-        <br>
+        <a id="contactIcon" class="drag" onclick="return false" ondblclick="location=this.href" tabindex="1" href="mailto:ethanexline@gmail.com" style="top: 90px">
+            <div class="icon">
+                <div class="icon__inner">
+                    <div class="icon__image">
+                        <img src="assets/images/contact.png" alt="">
+                    </div>
+                    <div class="icon__title">Contact</div>
+                </div>
+            </div>
+        </a>
 
-        <h2 style="text-align: center; margin-top: 17%;">
-            Gimme a minute, I'm working on it.
-        </h2>
+        <a id="githubIcon" class="drag" onclick="return false" ondblclick="location=this.href" tabindex="2" href="https://github.com/ethanexline" style="top: 180px">
+            <div class="icon">
+                <div class="icon__inner">
+                    <div class="icon__image">
+                        <img src="assets/images/github.png" alt="">
+                    </div>
+                    <div class="icon__title">Github</div>
+                </div>
+            </div>
+        </a>
+
+        <a id="linkedinIcon" class="drag" onclick="return false" ondblclick="location=this.href" tabindex="3" href="https://www.linkedin.com/in/ethan-exline-b9b369201/" style="top: 270px">
+            <div class="icon">
+                <div class="icon__inner">
+                    <div class="icon__image">
+                        <img src="assets/images/linkedin.png" alt="">
+                    </div>
+                    <div class="icon__title">Linkedin</div>
+                </div>
+            </div>
+        </a>
+
+        <a id="sliderIcon" class="drag" onclick="return false" ondblclick="document.getElementById('slider').style.display = 'block';" tabindex="4" href="" style="left: 75px">
+            <div class="icon">
+                <div class="icon__inner">
+                    <div class="icon__image">
+                        <img src="assets/images/slider.png" alt="">
+                    </div>
+                    <div class="icon__title">Nostalgia Slider</div>
+                </div>
+            </div>
+        </a>
+
+        <a id="resumeIcon" class="drag" onclick="return false" ondblclick="location=this.href" tabindex="5" href="https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true" style="top: 90px; left: 75px">
+            <div class="icon">
+                <div class="icon__inner">
+                    <div class="icon__image">
+                        <img src="assets/images/resume.png" alt="">
+                    </div>
+                    <div class="icon__title">Resume</div>
+                </div>
+            </div>
+        </a>
 
         <a style="font-size: 20px; margin-left: 45%;" href="blog/">in the meantime, here's a blog</a>
 
@@ -256,11 +414,11 @@
                 <img src="/assets/images/startNeg.png" height="14" width="45" alt="start button">
             </button>
 
-            <div id="vistaStart">
+            <div id="vistaStart" style="margin-bottom: 1px;">
                 <a id="vistaButton">
                     <img id="startImg" src="/assets/images/xpStartBtnPre.png" alt="start button">
                 </a>
-                <img id="gripper" src="/assets/images/gripper.png" alt="gripper" style="margin-bottom: 3px;">
+                <img id="gripper" src="/assets/images/gripper.png" alt="gripper" style="margin-bottom: 4px;">
             </div>
 
             <div id="98clock" class="status-bar" style="margin-right: 22px; display: none;">
@@ -339,7 +497,7 @@
                 theme[0].setAttribute('media', 'none');
                 theme[1].setAttribute('media', '');
                 theme[2].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/win98.webp');");
+                bodyPic[0].setAttribute('style', "overflow: clip; font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/win98.webp');");
                 startBar.style.display = "flex";
                 startBar.className = "";
                 startBar.className = "win98";
@@ -353,7 +511,7 @@
                 theme[1].setAttribute('media', 'none');
                 theme[0].setAttribute('media', '');
                 theme[2].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "font-family: 'Franklin Gothic', sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');");
+                bodyPic[0].setAttribute('style', "overflow: clip; font-family: 'Franklin Gothic', sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');");
                 startBar.style.display = "flex";
                 startBar.className = "";
                 startBar.className = "xp";
@@ -368,12 +526,87 @@
                 theme[2].setAttribute('media', '');
                 theme[0].setAttribute('media', 'none');
                 theme[1].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "font-family: monospace; background-color: azure;");
+                bodyPic[0].setAttribute('style', "overflow: clip; font-family: monospace; background-color: azure;");
                 startBar.style.display = "none";
             }
         }
 
+        // Make the DIV element draggable:
+        dragElement(document.getElementById("blogIcon"));
+        dragElement(document.getElementById("contactIcon"));
+        dragElement(document.getElementById("githubIcon"));
+        dragElement(document.getElementById("linkedinIcon"));
+        dragElement(document.getElementById("sliderIcon"));
+        dragElement(document.getElementById("resumeIcon"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            elmnt.addEventListener('mousedown', dragMouseDown, false);
+            elmnt.addEventListener('touchstart', dragMouseDown, false);
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                elmnt.focus();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX || e.targetTouches[0].clientX;
+                pos4 = e.clientY || e.targetTouches[0].clientY;;
+                document.addEventListener('mouseup', closeDragElement, false);
+                document.addEventListener('touchend', closeDragElement, false);
+                // call a function whenever the cursor moves:
+                document.addEventListener('mousemove', elementDrag, false);
+                document.addEventListener('touchmove', elementDragMob, false);
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function elementDragMob(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.targetTouches[0].clientX;
+                pos2 = pos4 - e.targetTouches[0].clientY;
+                pos3 = e.targetTouches[0].clientX;
+                pos4 = e.targetTouches[0].clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                // stop moving when mouse button is released:
+                document.removeEventListener('mouseup', closeDragElement, false);
+                document.removeEventListener('touchend', closeDragElement, false);
+                document.removeEventListener('mousemove', elementDrag, false);
+                document.removeEventListener('touchmove', elementDragMob, false);
+            }
+        }
+
         updateTime();
+
+        window.onresize = function () {
+            const draggables = document.getElementsByClassName('drag');
+
+            for (let i = 0; i < draggables.length; i++) {
+                if (parseInt(draggables[i].style.left) >= window.innerWidth) {
+                    draggables[i].style.left = (window.innerWidth - 100) + 'px';
+                }
+                if (parseInt(draggables[i].style.top) >= window.innerHeight - 100) {
+                    draggables[i].style.top = (window.innerHeight - 150) + 'px';
+                }
+            }
+        }
     </script>
     
 </html>
