@@ -39,13 +39,13 @@ layout: compress
         window.localStorage.setItem('theme', 'dark');
         document.getElementById("theme-toggle").classList.add('sun');
         document.getElementById("theme-toggle").classList.remove('moon');
-        document.getElementsByClassName("faviconSwitch")[0].href = "{{ site.url }}{{ site.baseurl }}/faviconDark.png";
+        document.getElementsByClassName("faviconSwitch")[0].href = "{{ site.url }}/faviconDark.png";
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         window.localStorage.setItem('theme', 'light');
         document.getElementById("theme-toggle").classList.add('moon');
         document.getElementById("theme-toggle").classList.remove('sun');
-        document.getElementsByClassName("faviconSwitch")[0].href = "{{ site.url }}{{ site.baseurl }}/faviconLight.png";
+        document.getElementsByClassName("faviconSwitch")[0].href = "{{ site.url }}/faviconLight.png";
       }
     }
 
@@ -105,7 +105,7 @@ layout: compress
   </footer>
 
   <p class="post-footer" style="color: grey; text-align: center;">
-    &copy; {{ site.time | date: "%Y" }} Ethan Exline. Made with <a href="https://jekyllrb.com">Jekyll</a>. Jekyll theme: <a href="https://github.com/P0WEX/Gesko">Gesko</a> 
+    &copy; {{ site.time | date: "%Y" }} Ethan Exline. Made with <a href="https://jekyllrb.com">Jekyll</a>. Jekyll theme based off of: <a href="https://github.com/P0WEX/Gesko">Gesko</a> 
   </p>
 
   <br>
