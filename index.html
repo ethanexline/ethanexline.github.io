@@ -367,7 +367,7 @@
 
         <div id="Bombsniffer" class="window" style="width: auto; position: absolute; left: 12%; display: none;">
             <div id="noMobile">
-                <div class="window" style="position: fixed; top: 20; right: 20;">
+                <div class="window" style="position: fixed; top: 20px; right: 20px;">
                     <div class="title-bar">
                         <div class="title-bar-text">You Rapscallion, You</div>
                         <div class="title-bar-controls">
@@ -378,20 +378,23 @@
                 </div>
             </div>
 
-            <div id="game-container" class="z100" style="height: auto; min-width: 210px;">
+            <div id="game-container" class="z100" style="height: auto; min-width: 167px;">
                 <div id="Bombsnifferheader" class="title-bar" style="width: calc(100% + 10px);">
-                    <div class="title-bar-text">Bombsniffer</div>
+                    <div style="display: flex; align-items: center; flex-direction: row;">
+                        <img src="assets/images/Bombsniffer.png" style="height: 15px;">
+                        <div class="title-bar-text" style="margin-left: 2px;">Bombsniffer</div>
+                    </div>
                     <div class="title-bar-controls">
                         <button aria-label="Close" onclick="document.getElementById('Bombsniffer').style.display = 'none'"></button>
                     </div>
                 </div>
 
-                <div style="white-space: nowrap; margin-left: 10px;">
+                <div style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial;">
                     <span id="options-link" title="game options">Game</span>
-                    | <span id="display-link" title="zoom level">Display</span>
-                    | <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
-                    | <span id="import-link" title="load previously exported game">Import</span> 
-                    | <span id="export-link" title="save a game for later">Export</span>
+                    &nbsp; <span id="display-link" title="zoom level">Display</span>
+                    &nbsp; <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
+                    &nbsp; <span id="import-link" title="load previously exported game">Import</span> 
+                    &nbsp; <span id="export-link" title="save a game for later">Export</span>
                 </div>
 
                 <div style="width: calc(100% + 13px); display: flex; justify-content: center;">
@@ -749,7 +752,6 @@
                 xpClock.style.display = "none";
                 clock98.style.display = "flex";
                 blogIcon.src = "/assets/images/blog.png";
-                console.log(document.getElementById('blogIcon').src);
                 contactIcon.src = "/assets/images/contact.png";
                 githubIcon.src = "/assets/images/github.png";
                 linkedinIcon.src = "/assets/images/linkedin.png";
@@ -1195,7 +1197,6 @@
                 }
 
                 zoom = parseFloat($('input[name="zoom"]:checked').val());
-                console.log(gameTypeId + " " + numRows + " " + numCols + " " + numMines + " " + zoom);
                 return {
                     gameTypeId: gameTypeId,
                     numRows: numRows,
