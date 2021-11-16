@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
@@ -9,6 +10,9 @@
 
         <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="/assets/js/hammer.min.js"></script>
+
+        <link rel="stylesheet" href="/assets/css/minesweeper.min.css">
+        <script src="assets/js/minesweeper.min.js"></script>
 
         <style>
             .win98Btn {
@@ -174,7 +178,7 @@
                 margin-right: 0.25rem;
                 margin-top: 0.5rem;
                 margin-bottom: 0.5rem;
-                /* cursor: pointer!important; */
+                cursor: pointer!important; 
                 display: inline-block;
                 position: absolute;
                 text-align: center;
@@ -266,6 +270,27 @@
                 position: absolute;
                 cursor: move;
             }
+
+            td:not(.title-bar > td) {
+                padding: 5px;
+            }
+
+            span[id$="link"] {
+                text-decoration: none !important;
+                color: black !important;
+            }
+
+            @media (max-width: 1000px) {
+                #game-container {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 1000px) {
+                #noMobile {
+                    display: none;
+                }
+            }
         </style>
     </head>
 
@@ -340,169 +365,182 @@
             </div>
         </a>
 
-        <div id="game-container" class="z100" style="display: none;">
-			<div style="white-space: nowrap;">
-				<span id="options-link" title="game options">Game</span>
-				| <span id="display-link" title="size/position">Display</span>
-				| <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
-				| <span id="import-link" title="load exported game">Import</span> 
-				| <span id="export-link" title="same game to be impoorted">Export</span>
-			</div>
-			<div id="game" oncontextmenu="return false;" ondrag="return false;" ondragstart="return false;"></div>
+        <div id="Bombsniffer" class="window" style="width: auto; position: absolute; left: 12%; display: none;">
+            <div id="noMobile">
+                <div class="window" style="position: fixed; top: 20; right: 20;">
+                    <div class="title-bar">
+                        <div class="title-bar-text">You Rapscallion, You</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Close" onclick="document.getElementById('noMobile').style.display = 'none';"></button>
+                        </div>
+                    </div>
+                    <p style="padding: 10px;">I refuse to let you try to play this on mobile. It's just not gonna look good or play right. Try this: <a href="https://itunes.apple.com/us/app/minesweeper-ol/id670307706?mt=8&uo=4" target="itunes_store">Minesweeper for iOS</a></p>
+                </div>
+            </div>
 
-			<form id="options-form">
-				<table cellspacing="0" cellpadding="2" id="options" class="dialog">
-					<tr class="dialog-title">
-						<td style="padding: 3px;">Game</td>
-						<td colspan="3" style="padding: 3px; text-align: right;">
-							<span id="options-close" class="dialog-close" title="close this box">&times;</span>
-						</td>
-					</tr>
-					<tr class="dialog-bar">
-						<td></td>
-						<td>Height</td>
-						<td>Width</td>
-						<td>Mines</td>
-					</tr>
-					<tr>
-						<td><label><input type="radio" name="field" id="beginner" /> <strong>Beginner</strong></label></td>
-						<td>9</td>
-						<td>9</td>
-						<td>10</td>
-					</tr>
-					<tr>
-						<td><label><input type="radio" name="field" id="intermediate" /> <strong>Intermediate</strong></label></td>
-						<td>16</td>
-						<td>16</td>
-						<td>40</td>
-					</tr>
-					<tr>
-						<td><label><input type="radio" name="field" checked="checked" id="expert" /> <strong>Expert</strong></label></td>
-						<td>16</td>
-						<td>30</td>
-						<td>99</td>
-					</tr>
-					<tr>
-						<td><label><input type="radio" name="field" id="custom" /> Custom</label></td>
-						<td><input type="text" value="20" id="custom_height" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
-						<td><input type="text" value="30" id="custom_width" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
-						<td><input type="text" value="145" id="custom_mines" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
-					</tr>
-					<tr class="dialog-bar">
-						<td><input type="submit" value="New Game" class="dialogText" style="vertical-align: middle;" /></td>
-						<td colspan="3">
-							<label style="margin-bottom: 0;"><input type="checkbox" id="marks" /> Marks (?)</label>
-						</td>
-					</tr>
-				</table>
-			</form>
+            <div id="game-container" class="z100" style="height: auto; min-width: 210px;">
+                <div id="Bombsnifferheader" class="title-bar" style="width: calc(100% + 10px);">
+                    <div class="title-bar-text">Bombsniffer</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Close" onclick="document.getElementById('Bombsniffer').style.display = 'none'"></button>
+                    </div>
+                </div>
 
-			<table cellspacing="0" cellpadding="2" id="display" class="dialog">
-				<tr class="dialog-title">
-					<td>Display</td>
-					<td style="text-align: right;">
-						<span id="display-close" class="dialog-close" title="close this box">&times;</span>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding: 6px;"><strong>Zoom</strong></td>
-					<td style="padding: 6px;">
-						<label><input type="radio" name="zoom" id="zoom100" value="1" checked="checked"/> 100%</label><br />
-						<label><input type="radio" name="zoom" id="zoom150" value="1.5" /> 150%</label><br />
-						<label><input type="radio" name="zoom" id="zoom200" value="2" /> 200%</label>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding: 6px; border-top: 1px solid #AAA;"><strong>Position</strong></td>
-					<td style="padding: 6px; border-top: 1px solid #AAA;">
-						<label><input type="radio" name="position" id="position-center" value="center" /> Center</label><br />
-						<label><input type="radio" name="position" id="position-left" value="left" checked="checked" /> Left</label>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding: 6px; border-top: 1px solid #AAA;"><label for="nightMode"><strong>Night Mode</strong></label></td>
-					<td style="padding: 6px; border-top: 1px solid #AAA;">
-						<input type="checkbox" name="nightMode" id="nightMode" />
-					</td>
-				</tr>
-			</table>
+                <div style="white-space: nowrap; margin-left: 10px;">
+                    <span id="options-link" title="game options">Game</span>
+                    | <span id="display-link" title="zoom level">Display</span>
+                    | <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
+                    | <span id="import-link" title="load previously exported game">Import</span> 
+                    | <span id="export-link" title="save a game for later">Export</span>
+                </div>
 
-			<table cellspacing="0" cellpadding="2" id="controls" class="dialog">
-				<tr class="dialog-title">
-					<td>Controls</td>
-					<td style="text-align: right;">
-						<span id="controls-close" class="dialog-close" title="close this box">&times;</span>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding: 6px;"><strong>Desktop</strong></td>
-					<td style="padding: 6px;">
-						<ul>
-							<li><b>Left-click</b> an empty square to reveal it.</li>
-							<li><b>Right-click</b> (or <b>Ctrl+click</b>) an empty square to flag it.</li>
-							<li><b>Midde-click</b> (or <b>left+right click</b>) a number to reveal<br /> its adjacent squares.</li>
-							<li>Press <b>space</b> bar while hovering over a square to flag<br />it or reveal its adjacent squares.</li>
-							<li>Press <b>F2</b> or click the smiley face to start a new game.</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding: 6px; border-top: 1px solid #AAA;"><strong>Mobile</strong></td>
-					<td style="padding: 6px; border-top: 1px solid #AAA;">
-						<ul>
-							<li><b>Tap</b> an empty square to reveal it.</li>
-							<li><b>Long-press</b> an empty square to flag it.</li>
-							<li><b>Tap</b> a number to reveal its adjacent squares.</li>
-						</ul>
-					</td>
-				</tr>
-			</table>
+                <div style="width: calc(100% + 13px); display: flex; justify-content: center;">
+                    <div id="game" oncontextmenu="return false;" ondrag="return false;" ondragstart="return false;" style="margin-left: 1%;"></div>
+                </div>
 
-			<form id="import-form">
-				<table cellspacing="0" cellpadding="2" id="import" class="dialog">
-					<tr class="dialog-title">
-						<td>Import</td>
-						<td style="text-align: right;">
-							<span id="import-close" class="dialog-close" title="close this box">&times;</span>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							Paste exported game state:
-							<br />
-							<textarea style="width: 240px; height: 40px; margin-top: 4px;"></textarea>
-						</td>
-					</tr>
-					<tr class="dialog-bar">
-						<td colspan="2">
-							<input type="submit" value="Load Game" />
-						</td>
-					</tr>
-				</table>
-			</form>
+                <form id="options-form">
+                    <table id="options" class="window" style="width: 250px; position: absolute; top: 100px; left: 100px; border-spacing: unset; display: none;">
+                        <tr class="title-bar" id="optionsheader" style="border-top-style: none; border-left-style: none; margin-right: -134px;">
+                            <td class="title-bar-text">Game</td>
+                            <td colspan="3" class="title-bar-controls" style="text-align: right;">
+                                <button type="button" id="options-close" aria-label="Close" title="close this box"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Height</td>
+                            <td>Width</td>
+                            <td>Mines</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="field" id="beginner" /><label for="beginner"><strong>Beginner</strong></label></td>
+                            <td>9</td>
+                            <td>9</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="field" id="intermediate" /><label for="intermediate"><strong>Intermediate</strong></label></td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="field" checked="checked" id="expert" /><label for="expert"><strong>Expert</strong></label></td>
+                            <td>16</td>
+                            <td>30</td>
+                            <td>99</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="field" id="custom" /><label for="custom">Custom</label></td>
+                            <td><input type="text" value="20" id="custom_height" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
+                            <td><input type="text" value="30" id="custom_width" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
+                            <td><input type="text" value="145" id="custom_mines" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
+                        </tr>
+                        <tr>
+                            <td><button id="newGame" type="submit" value="New Game" style="vertical-align: middle;">New Game</button></td>
+                            <td colspan="3">
+                                <input type="checkbox" id="marks" /><label style="margin-bottom: 0;"><strong style=" vertical-align: middle;">Marks (?)</strong></label>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
 
-			<table cellspacing="0" cellpadding="2" id="export" class="dialog">
-				<tr class="dialog-title">
-					<td>Export</td>
-					<td style="text-align: right;">
-						<span id="export-close" class="dialog-close" title="close this box">&times;</span>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<em id="export-message"></em>
-						<br />
-						<textarea style="width: 240px; height: 40px; margin-top: 4px;"></textarea>
-						<div id="export-first-click-message" style="width: 240px; margin-top: 4px; white-space: normal;">
-							&#9432; &ldquo;First click cannot be a mine&rdquo; behavior has been disabled for this game, as a result of having clicked &ldquo;Export&rdquo;.
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
+                <table cellspacing="0" cellpadding="2" id="display" class="window" style="display: none; position: absolute; width: 109px; top: 100px; left: 100px;">
+                    <tr class="title-bar" id="displayheader" style="margin-right: -57px;">
+                        <td class="title-bar-text">Display</td>
+                        <td class="title-bar-controls" style="text-align: right;">
+                            <button type="button" id="display-close" aria-label="Close" title="close this box"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 6px;"><strong>Zoom</strong></td>
+                        <td style="padding: 6px;">
+                            <div class="field-row">
+                                <input type="radio" name="zoom" id="zoom100" value="1" checked="checked"/><label for="zoom100">100%</label>
+                            </div>
 
-        <div id="slider" class="window card" style="width: 320px; position: fixed; top: 20; right: 20; display: none;">
-            <div class="title-bar">
+                            <div class="field-row">
+                                <input type="radio" name="zoom" id="zoom150" value="1.5" /><label for="zoom150">150%</label>
+                            </div>
+
+                            <div class="field-row">
+                                <input type="radio" name="zoom" id="zoom200" value="2" /><label for="zoom200">200%</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td style="padding: 6px; border-top: 1px solid #AAA;">
+                            <input type="checkbox" name="nightMode" id="nightMode" /><label for="nightMode"><strong>Night Mode</strong></label>
+                        </td>
+                    </tr> -->
+                </table>
+
+                <table cellspacing="0" cellpadding="2" id="controls" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
+                    <tr class="title-bar" id="controlsheader">
+                        <td class="title-bar-text">Controls</td>
+                        <td class="title-bar-controls" style="text-align: right;">
+                            <button type="button" id="controls-close" aria-label="Close" title="close this box"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 6px;">
+                            <ul class="tree-view">
+                                <li><b>Left-click</b> an empty square to reveal it.</li>
+                                <li><b>Right-click</b> (or <b>Ctrl+click</b>) an empty square to flag it.</li>
+                                <li><b>Midde-click</b> (or <b>left+right click</b>) a number to reveal<br /> its adjacent squares.</li>
+                                <li>Press <b>space</b> bar while hovering over a square to flag<br />it or reveal its adjacent squares.</li>
+                                <li>Press <b>F2</b> or click the smiley face to start a new game.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <form id="import-form">
+                    <table cellspacing="0" cellpadding="2" id="import" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
+                        <tr class="title-bar" id="importheader">
+                            <td class="title-bar-text">Import</td>
+                            <td class="title-bar-controls" style="text-align: right;">
+                                <button type="button" id="import-close" aria-label="Close" title="close this box"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Paste exported game state:
+                                <br />
+                                <textarea style="width: 96%; height: 40px; margin-top: 4px; margin-left: 3px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;">
+                                <button type="submit" value="Load Game">Load Game</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <table cellspacing="0" cellpadding="2" id="export" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
+                    <tr class="title-bar" id="exportheader">
+                        <td class="title-bar-text">Export</td>
+                        <td class="title-bar-controls" style="text-align: right;">
+                            <button aria-label="Close" id="export-close" title="close this box"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <em id="export-message"></em>
+                            <br />
+                            <textarea style="width: 98%; height: 40px; margin-top: 4px; margin-left: 3px;"></textarea>
+                            <div id="export-first-click-message" style="width: 240px; margin-top: 4px; white-space: normal;">
+                                &#9432; &ldquo;First click cannot be a mine&rdquo; behavior has been disabled for this game, as a result of having clicked &ldquo;Export&rdquo;.
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="slider" class="window card" style="width: 320px; position: absolute; top: 20px; right: 20px; display: none;">
+            <div class="title-bar" id="sliderheader">
                 <div class="title-bar-text card-header">Nostalgia Slider</div>
                 <div class="title-bar-controls d-none">
                     <button aria-label="Close" onclick="document.getElementById('slider').style.display = 'none'"></button>
@@ -566,6 +604,14 @@
                             <img id="sliderStart" src="assets/images/slider.png" alt="Nostalgia Slider">
                         </div>
                         <span>Nostalgia Slider</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" onmousedown="document.getElementById('Bombsniffer').style.display = 'block';">
+                        <div class="start-item__icon">
+                            <img id="sliderStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
+                        </div>
+                        <span>Bombsniffer</span>
                     </a>
                 </li>
             </ul>
@@ -681,6 +727,11 @@
             var linkedinIcon = document.getElementById('linkedinImage');
             var resumeIcon = document.getElementById('resumeImage');
             var sliderIcon = document.getElementById('sliderImage');
+
+            var Bombsnifferheader = document.getElementById('Bombsnifferheader');
+            var bombSniffer = document.getElementById('Bombsniffer');
+            var snifferWarning = document.getElementById('noMobile');
+            var optionsHeader = document.getElementById('optionsheader');
   
             // Change the value of media attribute
             // to change the active css stylesheet.
@@ -704,6 +755,8 @@
                 linkedinIcon.src = "/assets/images/linkedin.png";
                 resumeIcon.src = "/assets/images/resume.png";
                 sliderIcon.src = "/assets/images/slider.png";
+                Bombsnifferheader.style.width = "calc(100% + 14px)";
+                optionsHeader.style.marginRight = "-134px";
             } 
             else if (styleChanger.value == '2') {
                 theme[1].setAttribute('media', 'none');
@@ -724,7 +777,8 @@
                 linkedinIcon.src = "/assets/images/linkedinXP.png";
                 resumeIcon.src = "/assets/images/resumeXP.png";
                 sliderIcon.src = "/assets/images/sliderXP.png";
-                
+                Bombsnifferheader.style.width = "calc(100% + 10px)";
+                optionsHeader.style.marginRight = "-138px";
             }
             else {
                 theme[2].setAttribute('media', '');
@@ -732,6 +786,8 @@
                 theme[1].setAttribute('media', 'none');
                 bodyPic[0].setAttribute('style', "overflow: clip; font-family: monospace; background-color: azure;");
                 startBar.style.display = "none";
+                bombSniffer.style.display = "none";
+                snifferWarning.style.display = "none";
             }
         }
 
@@ -742,6 +798,52 @@
         dragElement(document.getElementById("linkedinIcon"));
         dragElement(document.getElementById("sliderIcon"));
         dragElement(document.getElementById("resumeIcon"));
+        dragWindow(document.getElementById("Bombsniffer"));
+        dragWindow(document.getElementById("options"));
+        dragWindow(document.getElementById("display"));
+        dragWindow(document.getElementById("controls"));
+        dragWindow(document.getElementById("import"));
+        dragWindow(document.getElementById("export"));
+        dragWindow(document.getElementById("slider"));
+
+        function dragWindow(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                elmnt.focus();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX || e.targetTouches[0].clientX;
+                pos4 = e.clientY || e.targetTouches[0].clientY;;
+                document.addEventListener('mouseup', closeDragElement, false);
+                // call a function whenever the cursor moves:
+                document.addEventListener('mousemove', elementDrag, false);
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                document.removeEventListener('mouseup', closeDragElement, false);
+                document.removeEventListener('mousemove', elementDrag, false);
+            }
+        }
 
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -892,8 +994,8 @@
 
             $('#' + gameType).attr('checked', true);
             $('#zoom' + zoom).attr('checked', true);
-            $('#position-' + position).attr('checked', true);
-            $('#nightMode').attr('checked', isNightMode);
+            // $('#position-' + position).attr('checked', true);
+            // $('#nightMode').attr('checked', isNightMode);
 
             document.getElementById('game-container').className = 'z' + zoom;
             setPosition(position);
@@ -903,41 +1005,16 @@
             }
 
             minesweeper = new Minesweeper([
-                [ 3, 14, 57],
+                [ 2, 17, 62],
                 [ 2, 14, 53],
                 [ 1, 13, 51],
                 [ 1, 10, 45]
             ], getOptions, setOptions);
 
             minesweeper.onWin = function(gameTypeId, time) {
-                var mode;
-                switch (gameTypeId) {
-                    case 1: mode = 'Beginner'; break;
-                    case 2: mode = 'Intermediate'; break;
-                    case 3: mode = 'Expert'; break;
-                    default: return;
-                }
-
-                var tweet = 'I just beat #MinesweeperOnline in ' + time + ' second' + (time === 1 ? '' : 's') + ' on ' + mode + ' mode!';
-                $('#share-twitter').attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet)
-                    + '&url=' + encodeURIComponent('https://minesweeperonline.com') + '&hashtags=MinesweeperOnline');
-
-                var fbSummary = tweet.replace('#MinesweeperOnline', 'Minesweeper Online');
-                $('#share-facebook').attr('href', 'https://www.facebook.com/sharer/sharer.php'
-                    + '?u=' + encodeURIComponent('https://minesweeperonline.com')
-                    + '&quote=' + encodeURIComponent(fbSummary)
-                    + '&hashtag=' + encodeURIComponent('#MinesweeperOnline'));
-
-                $('#share-text').text(tweet + ' https://minesweeperonline.com');
-                $('#share').fadeIn();
             };
 
             minesweeper.onNewHighScore = function(intervalTypeId) {
-                $('#scores-panes').load('scores-panes.php?interval=' + intervalTypeId + '&r=' + Math.random());
-                if (intervalTypeId === 1) $('#daily-link').click();
-                if (intervalTypeId === 2) $('#weekly-link').click();
-                if (intervalTypeId === 3) $('#monthly-link').click();
-                if (intervalTypeId === 4) $('#alltime-link').click();
             };
 
             minesweeper.newGame();
@@ -1049,33 +1126,6 @@
                 }
             });
 
-            $(".scores-tab").click(function() {
-                var id = this.id;
-                $(".scores-tab-selected").removeClass("scores-tab-selected");
-                $(this).addClass("scores-tab-selected");
-                $(".scores-pane").hide();
-                $("#" + id.substring(0, id.length - 5)).show();
-            });
-
-            $('#share-close').click(function() {
-                $('#share').fadeOut();
-            });
-
-            $('#share-twitter, #share-facebook').click(function(e) {
-                //https://dev.twitter.com/docs/intents
-                var width = 550;
-                var height = 420;
-                var winWidth = screen.width;
-                var winHeight = screen.height;
-                var left = Math.round((winWidth / 2) - (width / 2));
-                var top = 0;
-                if (winHeight > height) {
-                    top = Math.round((winHeight / 2) - (height / 2));
-                }
-                window.open($(this).attr('href'), 'share', 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
-                e.preventDefault();
-            });
-
             function setPosition(position) {
                 if (position == 'left') {
                     $('.outer-container').css('text-align', 'left' );
@@ -1098,25 +1148,25 @@
                 var numMines;
                 var zoom;
 
-                if ($("#beginner").attr("checked")) {
+                if ($("#beginner").is(':checked')) {
                     gameTypeId = 1;
                     numRows = 9;
                     numCols = 9;
                     numMines = 10;
                 }
-                else if ($("#intermediate").attr("checked")) {
+                else if ($("#intermediate").is(':checked')) {
                     gameTypeId = 2;
                     numRows = 16;
                     numCols = 16;
                     numMines = 40;
                 }
-                else if ($("#expert").attr("checked")) {
+                else if ($("#expert").is(':checked')) {
                     gameTypeId = 3;
                     numRows = 16;
                     numCols = 30;
                     numMines = 99;
                 }
-                else if ($("#custom").attr("checked")) {
+                else if ($("#custom").is(':checked')) {
                     gameTypeId = 0;
 
                     numRows = parseInt($("#custom_height").val(), 10);
@@ -1145,7 +1195,7 @@
                 }
 
                 zoom = parseFloat($('input[name="zoom"]:checked').val());
-
+                console.log(gameTypeId + " " + numRows + " " + numCols + " " + numMines + " " + zoom);
                 return {
                     gameTypeId: gameTypeId,
                     numRows: numRows,
