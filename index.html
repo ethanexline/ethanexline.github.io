@@ -85,7 +85,28 @@
                 z-index: 2;
             }
 
+            #start-menuXP {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                border: 1px solid rgba(0,51,153,1);
+                font-family: VT323,monospace;
+                bottom: 44px;
+                -webkit-box-shadow: 1px 1px 0 0 #22292f;
+                box-shadow: 1px 1px 0 0 #22292f;
+                margin-bottom: -2px;
+                position: fixed;
+                -webkit-transition: -webkit-transform .25s;
+                transition: -webkit-transform .25s;
+                transition: transform .25s;
+                transition: transform .25s,-webkit-transform .25s;
+                z-index: 2;
+            }
+
             #start-menu:focus {
+                display: unset !important;
+            }
+
+            #start-menuXP:focus {
                 display: unset !important;
             }
 
@@ -116,6 +137,17 @@
                 padding-left: 0px;
             }
 
+            .start-menu__listXP {
+                width: 210px;
+                background-color: white;
+                color: white;
+                position: relative;
+                list-style: none;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                padding-left: 0px;
+            }
+
             .start-item {
                 color: black;
                 font-family: 'Pixelated MS Sans Serif', Arial;
@@ -125,6 +157,11 @@
             .start-item__button:hover {
                 color: white;
                 background-color: #000082 !important;
+            }
+
+            .start-item__buttonXP:hover {
+                color: white;
+                background-color: #316AC5 !important;
             }
 
             .start-item__button, .start-item__icon {
@@ -149,6 +186,20 @@
                 color: black;
             }
 
+            .start-item__buttonXP {
+                background-color: white;
+                height: 40px;
+                overflow: hidden;
+                padding: 0 10px;
+                position: relative;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 160px;
+                text-decoration: none;
+                color: black;
+                width: 210px;
+            }
+
             .start-item__icon {
                 height: 35px;
                 -webkit-box-pack: center;
@@ -158,7 +209,7 @@
                 width: 35px;
             }
 
-            .start-item__button, .start-item__icon {
+            .start-item__button, .start-item__buttonXP, .start-item__icon {
                 -webkit-box-align: center;
                 -ms-flex-align: center;
                 align-items: center;
@@ -562,6 +613,73 @@
             </div>
         </div>
 
+        <div tabindex="-1" id="start-menuXP" class="start-menuXP" style="display: none;">
+            <div id="XPStartMenuHeader" style="width: 230px; height: 75px; display: flex; align-items: center; background: linear-gradient(0deg, rgba(47,181,255,1) 0%, rgba(59,141,255,1) 40%, rgba(0,51,153,1) 95%, rgba(140,170,230,1) 99%);">
+                <img src="/assets/images/profile.jpg" alt="pending" style="margin-left: 10px; height: 60px; width: 60px; border-radius: 5px; border: 1px solid white; box-shadow: 1px 1px darkslategrey; box-sizing: border-box;" />
+                <h4 style="color: white; font-weight: 100; margin-left: 10px; font-size: 16px; text-shadow: 1px 2px darkslategrey;">xXrocklover69Xx</h4>
+            </div>
+            <div style="height:2px; width: 230px; background: linear-gradient(90deg, rgba(47,181,255,1) 0%, #FF9933 45%, #FF9933 55%, rgba(47,181,255,1) 100%);"></div>
+            <ul class="start-menu__listXP">
+                <li class="start-item">
+                    <a class="start-item__buttonXP" onmousedown="navigateTo('blog/');">
+                        <div class="start-item__icon">
+                            <img id="blogStart" src="assets/images/blogXP.png" alt="Blog">
+                        </div>
+                        <span>Blog</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://github.com/ethanexline');">
+                        <div class="start-item__icon">
+                            <img id="githubStart" src="assets/images/githubXP.png" alt="Github">
+                        </div>
+                        <span>Github</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
+                        <div class="start-item__icon">
+                            <img id="linkedinStart" src="assets/images/linkedinXP.png" alt="Linkedin">
+                        </div>
+                        <span>Linkedin</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');">
+                        <div class="start-item__icon">
+                            <img id="resumeStart" src="assets/images/resumeXP.png" alt="Resume">
+                        </div>
+                        <span>Resume</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" onmousedown="navigateTo('mailto:ethanexline@gmail.com');">
+                        <div class="start-item__icon">
+                            <img id="contactStart" src="assets/images/contactXP.png" alt="Contact">
+                        </div>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenuXP();">
+                        <div class="start-item__icon">
+                            <img id="sliderStart" src="assets/images/sliderXP.png" alt="Nostalgia Slider">
+                        </div>
+                        <span>Nostalgia Slider</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" onmousedown="document.getElementById('Bombsniffer').style.display = 'block';">
+                        <div class="start-item__icon">
+                            <img id="sliderStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
+                        </div>
+                        <span>Bombsniffer</span>
+                    </a>
+                </li>
+            </ul>
+            <div  style="width: 230px; height: 35px; display: flex; align-items: center; background: linear-gradient(0deg, rgba(0,51,153,1) 0%, rgba(59,141,255,1) 60%, rgba(47,181,255,1)); border-top: 1px solid rgba(59,141,255,1);"></div>
+        </div>
+
         <div tabindex="-1" id="start-menu" class="start-menu" style="display: none;">
             <h3 class="start-menu__bar"><b>Apertures</b>98</h3>
             <ul class="start-menu__list">
@@ -629,10 +747,8 @@
                 <img src="/assets/images/startNeg.png" height="14" width="45" alt="start button">
             </button>
 
-            <div id="vistaStart" style="margin-bottom: 1px;">
-                <a id="vistaButton">
-                    <img id="startImg" src="/assets/images/xpStartBtnPre.png" alt="start button" style="margin-bottom: -2px;">
-                </a>
+            <div id="xpStart" style="margin-bottom: 1px;">
+                <a id="xpTag" href="" onclick="menuXP(); return false;" onblur="dispelMenuXP();"><img src="/assets/images/xpStartBtnPre.png" id="xpButton" style="margin-bottom: -2px;" /></a>
                 <img id="gripper" src="/assets/images/gripper.png" alt="gripper" style="margin-bottom: 2px;">
             </div>
 
@@ -709,6 +825,30 @@
             }
         }
 
+        function menuXP() {
+            var menu = document.getElementById('start-menuXP');
+            var button = document.getElementById('xpButton');
+
+            if (menu.style.display === 'none') {
+                menu.style.display = 'unset';
+                button.src = "/assets/images/xpStartBtnPost.png";
+            }
+            else {
+                menu.style.display = 'none';
+                button.src = "/assets/images/xpStartBtnPre.png";
+            }
+        }
+
+        function dispelMenuXP() {
+            console.log('working');
+            var menu = document.getElementById('start-menuXP');
+            var button = document.getElementById('xpButton');
+            if (menu.style.display !== 'none') {
+                menu.style.display = 'none';
+                button.src = "/assets/images/xpStartBtnPre.png";
+            }
+        }
+
         function navigateTo(url) {
             dispelMenu98()
 
@@ -725,7 +865,7 @@
             var clock98 = document.getElementById('98clock');
             
             var xpClock = document.getElementById('xpClock');
-            var startXP = document.getElementById('vistaStart');
+            var startXP = document.getElementById('xpStart');
             var gripper = document.getElementById('gripper');
 
             var blogIcon = document.getElementById('blogImage');
@@ -970,8 +1110,6 @@
                 }
             }
         }
-
-
     </script>
 
     <script>
