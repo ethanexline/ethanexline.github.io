@@ -291,6 +291,11 @@
                     display: none;
                 }
             }
+
+            span[id$="link"] {
+                padding-right: 5px;
+                font-size: larger;
+            }
         </style>
     </head>
 
@@ -389,12 +394,12 @@
                     </div>
                 </div>
 
-                <div style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial;">
+                <div style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial; display: flex; align-items: center; height: 20px;">
                     <span id="options-link" title="game options">Game</span>
-                    &nbsp; <span id="display-link" title="zoom level">Display</span>
-                    &nbsp; <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
-                    &nbsp; <span id="import-link" title="load previously exported game">Import</span> 
-                    &nbsp; <span id="export-link" title="save a game for later">Export</span>
+                    <span id="display-link" title="zoom level">Display</span>
+                    <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
+                    <span id="import-link" title="load previously exported game">Import</span> 
+                    <span id="export-link" title="save a game for later">Export</span>
                 </div>
 
                 <div style="width: calc(100% + 15px); display: flex; justify-content: center;">
