@@ -1271,10 +1271,14 @@
 
         bodyTap.on('tap', function() {
             if (document.getElementById('start-menu').style.display === "unset") {
-                dispelMenu98();
+                setTimeout(function() {
+                    dispelMenu98();
+                }, 50);
             }
             else if (document.getElementById('start-menuXP').style.display === "unset") {
+                setTimeout(function() {
                 dispelMenuXP();
+                }, 50);
             }
         });
 
