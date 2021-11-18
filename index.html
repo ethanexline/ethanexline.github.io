@@ -1270,15 +1270,16 @@
         var resumeIconTap = new Hammer(resumeIcon);
 
         bodyTap.on('tap', function() {
+            // this is definitely hacky, but this is what dang makes the start menu functional for mobile Safari AKA the new IE
             if (document.getElementById('start-menu').style.display === "unset") {
                 setTimeout(function() {
                     dispelMenu98();
-                }, 50);
+                }, 20);
             }
             else if (document.getElementById('start-menuXP').style.display === "unset") {
                 setTimeout(function() {
                 dispelMenuXP();
-                }, 50);
+                }, 20);
             }
         });
 
