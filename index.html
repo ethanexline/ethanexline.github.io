@@ -751,7 +751,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
+                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/'); dispelMenuXP();">
                         <div class="start-item__icon">
                             <img id="linkedinStart" src="assets/images/linkedinXP.png" alt="Linkedin">
                         </div>
@@ -814,7 +814,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/'); dispelMenu98();">
                         <div class="start-item__icon">
                             <img id="linkedinStart" src="assets/images/linkedin.png" alt="Linkedin">
                         </div>
@@ -1274,12 +1274,12 @@
             if (document.getElementById('start-menu').style.display === "unset") {
                 setTimeout(function() {
                     dispelMenu98();
-                }, 20);
+                }, 30);
             }
             else if (document.getElementById('start-menuXP').style.display === "unset") {
                 setTimeout(function() {
-                dispelMenuXP();
-                }, 20);
+                    dispelMenuXP();
+                }, 30);
             }
         });
 
