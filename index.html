@@ -987,9 +987,10 @@
         }
 
         function linkedinNav() {
-            dispelMenu98();
-            dispelMenuXP();
-            window.open('https://www.linkedin.com/in/ethan-exline-b9b369201/', '_blank').focus();
+            Object.assign(document.createElement('a'), {
+                target: '_blank',
+                href: 'https://www.linkedin.com/in/ethan-exline-b9b369201/',
+            }).click();
         }
 
         function navigateTo(url) {
