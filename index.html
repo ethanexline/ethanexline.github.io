@@ -958,7 +958,9 @@
             var menu = document.getElementById('start-menu');
             
             if (menu.style.display !== 'none') {
-                menu.style.display = 'none';
+                setTimeout(function() {
+                    menu.style.display = 'none';
+                }, 50);
             }
         }
 
@@ -981,8 +983,10 @@
             var button = document.getElementById('xpButton');
 
             if (menu.style.display !== 'none') {
-                menu.style.display = 'none';
-                button.src = "/assets/images/xpStartBtnPre.png";
+                setTimeout(function() {
+                    menu.style.display = 'none';
+                    button.src = "/assets/images/xpStartBtnPre.png";
+                }, 50);
             }
         }
 
