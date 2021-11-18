@@ -806,7 +806,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://github.com/ethanexline');" ontouchstart="navigateTo('https://github.com/ethanexline');">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://github.com/ethanexline');">
                         <div class="start-item__icon">
                             <img id="githubStart" src="assets/images/github.png" alt="Github">
                         </div>
@@ -814,7 +814,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
                         <div class="start-item__icon">
                             <img id="linkedinStart" src="assets/images/linkedin.png" alt="Linkedin">
                         </div>
@@ -822,7 +822,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');" ontouchstart="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');">
                         <div class="start-item__icon">
                             <img id="resumeStart" src="assets/images/resume.png" alt="Resume">
                         </div>
@@ -830,7 +830,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="navigateTo('mailto:ethanexline@gmail.com');" ontouchstart="navigateTo('mailto:ethanexline@gmail.com');">
+                    <a class="start-item__button" onmousedown="navigateTo('mailto:ethanexline@gmail.com');">
                         <div class="start-item__icon">
                             <img id="contactStart" src="assets/images/contact.png" alt="Contact">
                         </div>
@@ -1270,10 +1270,10 @@
         var resumeIconTap = new Hammer(resumeIcon);
 
         bodyTap.on('tap', function() {
-            if (document.getElementById('start-menu').style.display === "block") {
+            if (document.getElementById('start-menu').style.display === "unset") {
                 dispelMenu98();
             }
-            else if (document.getElementById('start-menuXP').style.display === "block") {
+            else if (document.getElementById('start-menuXP').style.display === "unset") {
                 dispelMenuXP();
             }
         });
