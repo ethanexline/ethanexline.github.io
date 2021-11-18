@@ -751,7 +751,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="setTimeout(navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/'), 50);">
+                    <a class="start-item__buttonXP" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="dispelMenuXP(); navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
                         <div class="start-item__icon">
                             <img id="linkedinStart" src="assets/images/linkedinXP.png" alt="Linkedin">
                         </div>
@@ -814,7 +814,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="setTimeout(navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/'), 50);">
+                    <a class="start-item__button" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="dispelMenuXP(); navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');">
                         <div class="start-item__icon">
                             <img id="linkedinStart" src="assets/images/linkedin.png" alt="Linkedin">
                         </div>
@@ -887,13 +887,13 @@
             var main = document.getElementById("main");
 
             if (toggler.classList.contains("toggled")) {
-                toggler.style.transform = "revert";
+                toggler.style.transform = "rotate(-360deg)";
                 sidebar.style.transform = "revert";
                 main.style.transform = "translateX(200px)";
                 toggler.classList.toggle("toggled");
             }
             else {
-                toggler.style.transform = "rotate(180deg)";
+                toggler.style.transform = "rotate(540deg)";
                 sidebar.style.transform = "translateX(-195px)";
                 main.style.marginLeft = "translateX(-200px)";
                 main.style.transform = "revert";
