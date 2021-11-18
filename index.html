@@ -956,7 +956,7 @@
 
         function dispelMenu98() {
             var menu = document.getElementById('start-menu');
-
+            
             if (menu.style.display !== 'none') {
                 menu.style.display = 'none';
             }
@@ -1270,10 +1270,12 @@
         var resumeIconTap = new Hammer(resumeIcon);
 
         bodyTap.on('tap', function() {
-            setTimeout(function() {
+            if (document.getElementById('start-menu').style.display === "block") {
                 dispelMenu98();
+            }
+            else if (document.getElementById('start-menuXP').style.display === "block") {
                 dispelMenuXP();
-            }, 50);            
+            }
         });
 
         blogIconTap.on('doubletap', function() {
