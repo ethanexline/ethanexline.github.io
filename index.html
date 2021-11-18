@@ -956,6 +956,7 @@
 
         function dispelMenu98() {
             var menu = document.getElementById('start-menu');
+
             if (menu.style.display !== 'none') {
                 menu.style.display = 'none';
             }
@@ -978,6 +979,7 @@
         function dispelMenuXP() {
             var menu = document.getElementById('start-menuXP');
             var button = document.getElementById('xpButton');
+
             if (menu.style.display !== 'none') {
                 menu.style.display = 'none';
                 button.src = "/assets/images/xpStartBtnPre.png";
@@ -985,7 +987,7 @@
         }
 
         function navigateTo(url) {
-            dispelMenu98()
+            dispelMenu98();
 
             window.open(url, '_blank').focus();
         }
@@ -1117,7 +1119,7 @@
             }
         }
 
-        // Make the DIV element draggable:
+        // Make stuff draggable:
         dragElement(document.getElementById("blogIcon"));
         dragElement(document.getElementById("contactIcon"));
         dragElement(document.getElementById("githubIcon"));
@@ -1144,10 +1146,12 @@
                 e = e || window.event;
                 e.preventDefault();
                 elmnt.focus();
+                
                 // get the mouse cursor position at startup:
                 pos3 = e.clientX || e.targetTouches[0].clientX;
                 pos4 = e.clientY || e.targetTouches[0].clientY;;
                 document.addEventListener('mouseup', closeDragElement, false);
+
                 // call a function whenever the cursor moves:
                 document.addEventListener('mousemove', elementDrag, false);
             }
@@ -1155,11 +1159,13 @@
             function elementDrag(e) {
                 e = e || window.event;
                 e.preventDefault();
+
                 // calculate the new cursor position:
                 pos1 = pos3 - e.clientX;
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
+
                 // set the element's new position:
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -1180,6 +1186,7 @@
                 e = e || window.event;
                 e.preventDefault();
                 elmnt.focus();
+                
                 // get the mouse cursor position at startup:
                 pos3 = e.clientX || e.targetTouches[0].clientX;
                 pos4 = e.clientY || e.targetTouches[0].clientY;;
@@ -1192,23 +1199,27 @@
                 e = e || window.event;
                 e.preventDefault();
                 elmnt.focus();
-                // get the mouse cursor position at startup:
+
+                // get the touch location at startup:
                 pos3 = e.targetTouches[0].clientX;
                 pos4 = e.targetTouches[0].clientY;;
                 document.addEventListener('touchend', closeDragElement, false);
                 document.addEventListener('mouseup', closeDragElement, false);
-                // call a function whenever the cursor moves:
+
+                // call a function when the finger moves:
                 document.addEventListener('touchmove', elementDragMob, false);
             }
 
             function elementDrag(e) {
                 e = e || window.event;
                 e.preventDefault();
+
                 // calculate the new cursor position:
                 pos1 = pos3 - e.clientX;
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
+
                 // set the element's new position:
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -1217,18 +1228,20 @@
             function elementDragMob(e) {
                 e = e || window.event;
                 e.preventDefault();
-                // calculate the new cursor position:
+
+                // calculate the new touch location:
                 pos1 = pos3 - e.targetTouches[0].clientX;
                 pos2 = pos4 - e.targetTouches[0].clientY;
                 pos3 = e.targetTouches[0].clientX;
                 pos4 = e.targetTouches[0].clientY;
+
                 // set the element's new position:
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
             }
 
             function closeDragElement() {
-                // stop moving when mouse button is released:
+                // stop moving when mouse button/finger is released/raised:
                 document.removeEventListener('mouseup', closeDragElement, false);
                 document.removeEventListener('touchend', closeDragElement, false);
                 document.removeEventListener('mousemove', elementDrag, false);
@@ -1257,8 +1270,10 @@
         var resumeIconTap = new Hammer(resumeIcon);
 
         bodyTap.on('tap', function() {
-            dispelMenu98();
-            dispelMenuXP();
+            setTimeout(function() {
+                dispelMenu98();
+                dispelMenuXP();
+            }, 50);            
         });
 
         blogIconTap.on('doubletap', function() {
