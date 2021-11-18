@@ -15,6 +15,11 @@
         <script src="assets/js/minesweeper.min.js"></script>
 
         <style>
+            #main {
+                width: 100%;
+                height: 100%;
+                transition: transform 1s;
+            }
             #sidebar {
                 height: 100%;
                 width: 240px;
@@ -26,6 +31,11 @@
                 top: 0;
                 left: 0;
                 overflow-y: auto;
+                z-index: 5;
+                display: flex;
+                flex-direction: row-reverse;
+                transform: translateX(-195px);
+                transition: transform 1s;
             }
 
             #sidebar h6 {
@@ -368,6 +378,28 @@
 
             @media (min-width: 1000px) {
                 #noMobile {
+                    display: none !important;;
+                }
+            }
+
+            @media (max-width: 600px) {
+                #slider {
+                    left: 20px;
+                    width: unset !important;
+                }
+                #slider.initialCard {
+                    left: 55px; 
+                    right: 10px !important;
+                    width: unset !important;
+                }
+                #main {
+                    padding-top: 145px;
+                    margin-left: 70px;
+                }
+                #words {
+                    width: 100%;
+                }
+                #spacing {
                     display: none;
                 }
             }
@@ -387,6 +419,16 @@
             #slider.initialCard div.card-body {
                 background-color: mediumpurple;
             }
+
+            #toggler {
+                position: sticky; 
+                top: 10px; 
+                left: 205px; 
+                height: 25px; 
+                margin-right: 10px;
+                transform: rotate(180deg);
+                transition: transform 1s;
+            }
         </style>
     </head>
 
@@ -396,7 +438,9 @@
         </noscript>
 
         <div id="sidebar" style="display: none;">
-            <a style="float: right; padding-top: 10px; padding-right: 10px;" href="" onclick="toggle(); return false;"><img src="/assets/images/arrow.png" /></a>
+            <!-- <div style="float: right; height: 25px; width: 28px; background-color: transparent; padding-top: 10px; padding-right: 10px;"></div> -->
+            <a id="toggler" class="toggled" href="" onclick="toggle(); return false;"><img src="/assets/images/arrow.png" /></a>
+
             <div id="toggleHide" style="display: flex; flex-direction: column; height: 100%;">
                 <h6>It's likely you want to do one of the following:</h6>
                 <ul>
@@ -409,12 +453,26 @@
 
                 <h6>Or perhaps you were looking to get funky:</h6>
                 <ul style="margin-bottom: 200px;">
-                    <li><a style="cursor: pointer;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around with the Nostalgia Slider</a></li>
+                    <li><a style="cursor: pointer;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around with <br> the Nostalgia Slider</a></li>
                 </ul>
 
                 <h6 style="padding-bottom: 0;">Thank you for visiting ethanexline.com.</h6>
             </div>
         </div>
+
+        <div id="main" style="overflow-y: auto; margin-left: 50px; display: flex; flex-direction: row;">
+            <div id="words" class="col-9" style="text-align: center;">
+                <h1 style="padding-top: 25px; margin-bottom: 275px;">Welcome to ethanexline.com, home of, uh, ethanexline.com.</h1>
+
+                <h2 style="margin-bottom: 250px;">This site is maintained by Ethan Exline, who is a software engineer of little renown, but he's working on it.</h2>
+
+                <h4 style="padding-bottom: 20px;"><- There's a bunch of Ethan-relevant items and links right there in the sidebar. I encourage you to fiddle with everything and waste a few minutes
+                checking out the cool stuff I've built - might I recommend the nostalgia slider?</h4>
+            </div>
+
+            <div id="spacing" class="col-3"></div>
+        </div>
+        
         
         <a id="blogIcon" class="drag" onclick="return false" ondblclick="location=this.href" tabindex="0" href="blog/">
             <div class="icon">
@@ -667,7 +725,7 @@
                 </div>
             </div>
             <div class="window-body card-body" >
-                <div class="field-row" style="width: 300px; height: 50px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                <div class="field-row" style="height: 50px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
                     <label for="styleRange" style="margin-right: 5px;">Classic</label>
                     <input id="styleRange" type="range" onchange="toggleTheme();" min="1" max="3" value="3" />
                     <label for="range27" style="margin-left: 5px;">Not Classic</label>
@@ -829,9 +887,26 @@
         toggleTheme();
         setInterval(updateTime, 1000);
 
-        // function toggle() {
-        //     var 
-        // }
+        function toggle() {
+            var toggler = document.getElementById("toggler");
+            var sidebar = document.getElementById("sidebar");
+            var main = document.getElementById("main");
+
+            if (toggler.classList.contains("toggled")) {
+                toggler.style.transform = "revert";
+                sidebar.style.transform = "revert";
+                main.style.transform = "translateX(200px)";
+                toggler.classList.toggle("toggled");
+            }
+            else {
+                toggler.style.transform = "rotate(180deg)";
+                sidebar.style.transform = "translateX(-195px)";
+                main.style.marginLeft = "translateX(-200px)";
+                main.style.transform = "revert";
+
+                toggler.classList.toggle("toggled");
+            }
+        }
 
         function updateTime() {
             var clockCircle = document.getElementById("clockCircle");
@@ -927,6 +1002,7 @@
             var styleChanger = document.getElementById('styleRange');
             var sliderWindow = document.getElementById('slider');
             var sidebar = document.getElementById('sidebar');
+            var main = document.getElementById('main');
 
             var startBar = document.getElementById('startBar');
             var start98 = document.getElementById('startButton98');
@@ -977,11 +1053,19 @@
                 resumeIcon.src = "/assets/images/resume.png";
                 sliderIcon.src = "/assets/images/slider.png";
                 Bombsnifferheader.style.width = "calc(100% + 14px)";
+                snifferWarning.style.display = "block";
                 optionsHeader.style.marginRight = "-134px";
 
                 if (sliderWindow.classList.contains("initialCard")) {
                     sliderWindow.classList.remove("initialCard");
                     sidebar.style.display = "none";
+                    main.style.display = "none";
+                    blog.style.display = "block";
+                    contact.style.display = "block";
+                    github.style.display = "block";
+                    linkedin.style.display = "block";
+                    resume.style.display = "block";
+                    slider.style.display = "block";
                 }
             } 
             else if (styleChanger.value == '2') {
@@ -1004,18 +1088,26 @@
                 resumeIcon.src = "/assets/images/resumeXP.png";
                 sliderIcon.src = "/assets/images/sliderXP.png";
                 Bombsnifferheader.style.width = "calc(100% + 10px)";
+                snifferWarning.style.display = "block";
                 optionsHeader.style.marginRight = "-138px";
 
                 if (sliderWindow.classList.contains("initialCard")) {
                     sliderWindow.classList.remove("initialCard");
                     sidebar.style.display = "none";
+                    main.style.display = "none";
+                    blog.style.display = "block";
+                    contact.style.display = "block";
+                    github.style.display = "block";
+                    linkedin.style.display = "block";
+                    resume.style.display = "block";
+                    slider.style.display = "block";
                 }
             }
             else {
                 theme[2].setAttribute('media', '');
                 theme[0].setAttribute('media', 'none');
                 theme[1].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "display: flex; font-family: monospace; background-color: darkslateblue; color: pink; margin-top: 0;");
+                bodyPic[0].setAttribute('style', "position: absolute; bottom: 0px;display: flex; font-family: monospace; background-color: darkslateblue; color: pink; margin-top: 0;");
                 startBar.style.display = "none";
                 bombSniffer.style.display = "none";
                 snifferWarning.style.display = "none";
@@ -1026,7 +1118,8 @@
                 resume.style.display = "none";
                 slider.style.display = "none";
                 sliderWindow.classList.add("initialCard");
-                sidebar.style.display = "block";
+                sidebar.style.display = "flex";
+                main.style.display = "flex";
             }
         }
 
