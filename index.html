@@ -399,9 +399,6 @@
                 #words {
                     width: 100%;
                 }
-                #spacing {
-                    display: none;
-                }
             }
 
             span[id$="link"] {
@@ -438,7 +435,6 @@
         </noscript>
 
         <div id="sidebar" style="display: none;">
-            <!-- <div style="float: right; height: 25px; width: 28px; background-color: transparent; padding-top: 10px; padding-right: 10px;"></div> -->
             <a id="toggler" class="toggled" href="" onclick="toggle(); return false;"><img src="/assets/images/arrow.png" /></a>
 
             <div id="toggleHide" style="display: flex; flex-direction: column; height: 100%;">
@@ -453,7 +449,7 @@
 
                 <h6>Or perhaps you were looking to get funky:</h6>
                 <ul style="margin-bottom: 200px;">
-                    <li><a style="cursor: pointer;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around with <br> the Nostalgia Slider</a></li>
+                    <li><a style="cursor: pointer;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around with <br> the Nostalgia <br> Slider</a></li>
                 </ul>
 
                 <h6 style="padding-bottom: 0;">Thank you for visiting ethanexline.com.</h6>
@@ -464,13 +460,11 @@
             <div id="words" class="col-9" style="text-align: center;">
                 <h1 style="padding-top: 25px; margin-bottom: 275px;">Welcome to ethanexline.com, home of, uh, ethanexline.com.</h1>
 
-                <h2 style="margin-bottom: 250px;">This site is maintained by Ethan Exline, who is a software engineer of little renown, but he's working on it.</h2>
+                <h2 style="margin-bottom: 250px;">This site is maintained by me, Ethan Exline. I'm a software engineer of little consequence, but I'm working on it.</h2>
 
                 <h4 style="padding-bottom: 20px;"><- There's a bunch of Ethan-relevant items and links right there in the sidebar. I encourage you to fiddle with everything and waste a few minutes
                 checking out the cool stuff I've built - might I recommend the nostalgia slider?</h4>
             </div>
-
-            <div id="spacing" class="col-3"></div>
         </div>
         
         
@@ -1107,7 +1101,7 @@
                 theme[2].setAttribute('media', '');
                 theme[0].setAttribute('media', 'none');
                 theme[1].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "position: absolute; bottom: 0px;display: flex; font-family: monospace; background-color: darkslateblue; color: pink; margin-top: 0;");
+                bodyPic[0].setAttribute('style', "overflow-x: clip; position: absolute; bottom: 0px;display: flex; font-family: monospace; background-color: darkslateblue; color: pink; margin-top: 0;");
                 startBar.style.display = "none";
                 bombSniffer.style.display = "none";
                 snifferWarning.style.display = "none";
@@ -1246,6 +1240,7 @@
 
         updateTime();
 
+        var body = document.getElementsByTagName("body")[0];
         var blogIcon = document.getElementById("blogIcon");
         var contactIcon = document.getElementById("contactIcon");
         var githubIcon = document.getElementById("githubIcon");
@@ -1253,12 +1248,18 @@
         var sliderIcon = document.getElementById("sliderIcon");
         var resumeIcon = document.getElementById("resumeIcon");
 
+        var bodyTap = new Hammer(body);
         var blogIconTap = new Hammer(blogIcon);
         var contactIconTap = new Hammer(contactIcon);
         var githubIconTap = new Hammer(githubIcon);
         var linkedinIconTap = new Hammer(linkedinIcon);
         var sliderIconTap = new Hammer(sliderIcon);
         var resumeIconTap = new Hammer(resumeIcon);
+
+        bodyTap.on('doubletap', function() {
+            dispelMenu98();
+            dispelMenuXP();
+        });
 
         blogIconTap.on('doubletap', function() {
             window.open(blogIcon.href, "_blank");

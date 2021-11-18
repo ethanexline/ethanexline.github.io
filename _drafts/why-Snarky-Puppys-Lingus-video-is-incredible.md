@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Why Snarky Puppy's Lingus video is incredible
-description: I wonder if anyone will ever read this
-summary: it's enrapturing
+title: Why Snarky Puppy's 'Lingus' is incredible
+description: dissecting a rare kind of recording
+summary: Once in a lifetime, sheer joy permits its capture for a few glorious moments
 tags: music life
 ---
 
