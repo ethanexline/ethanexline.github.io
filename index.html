@@ -407,6 +407,7 @@
 
             #slider.initialCard {
                 border: 3px solid black;
+                transition: transform 1s;
             }
 
             #slider.initialCard div.title-bar {
@@ -886,19 +887,23 @@
         function toggle() {
             var toggler = document.getElementById("toggler");
             var sidebar = document.getElementById("sidebar");
+            var slider = document.getElementById("slider");
             var main = document.getElementById("main");
 
             if (toggler.classList.contains("toggled")) {
                 toggler.style.transform = "rotate(-360deg)";
                 sidebar.style.transform = "revert";
                 main.style.transform = "translateX(200px)";
+                slider.style.transform = "translateX(200px)";
+
                 toggler.classList.toggle("toggled");
             }
             else {
                 toggler.style.transform = "rotate(540deg)";
+                toggler.style.marginLeft = "translateX(-200px)";
                 sidebar.style.transform = "translateX(-195px)";
-                main.style.marginLeft = "translateX(-200px)";
                 main.style.transform = "revert";
+                slider.style.transform ="revert";
 
                 toggler.classList.toggle("toggled");
             }
@@ -915,7 +920,8 @@
             }
             if (hours > 11) {
                 if (hours === 12) {
-                    hours = "12";
+                    hours = 12;
+                    clockCircle.style.marginLeft = "-16px";
                 }
                 else {
                     hours = hours - 12;
