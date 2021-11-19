@@ -437,20 +437,22 @@
         <div id="sidebar" style="display: none;">
             <a id="toggler" class="toggled" href="" onclick="toggle(); return false;"><img src="/assets/images/arrow.png" /></a>
 
-            <div id="toggleHide" style="display: flex; flex-direction: column; height: 100%;">
-                <h6>It's likely you want to do one of the following:</h6>
-                <ul>
-                    <li><a href="blog/">visit my blog</a></li>
-                    <li><a target="_blank" href="mailto:ethanexline@gmail.com">shoot me an email</a></li>
-                    <li><a target="_blank" href="https://github.com/ethanexline">peruse my Github</a></li>
-                    <li><a target="_blank" href="https://www.linkedin.com/in/ethan-exline-b9b369201/">investigate my Linkedin</a></li>
-                    <li><a target="_blank" href="https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true">ogle my resume</a></li>
-                </ul>
+            <div id="toggleHide" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+                <div>
+                    <h6>It's likely you want to do one of the following:</h6>
+                    <ul>
+                        <li><a href="blog/">visit my blog</a></li>
+                        <li><a target="_blank" href="mailto:ethanexline@gmail.com">shoot me an email</a></li>
+                        <li><a target="_blank" href="https://github.com/ethanexline">peruse my Github</a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/ethan-exline-b9b369201/">investigate my Linkedin</a></li>
+                        <li><a target="_blank" href="https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true">ogle my resume</a></li>
+                    </ul>
 
-                <h6>Or perhaps you were looking to get funky:</h6>
-                <ul style="margin-bottom: 200px;">
-                    <li><a style="cursor: pointer;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around with <br> the Nostalgia <br> Slider</a></li>
-                </ul>
+                    <h6>Or perhaps you were looking to get funky:</h6>
+                    <ul style="margin-bottom: 200px;">
+                        <li><a style="cursor: pointer;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around with <br> the Nostalgia <br> Slider</a></li>
+                    </ul>
+                </div>
 
                 <h6 style="padding-bottom: 0;">Thank you for visiting ethanexline.com.</h6>
             </div>
@@ -987,10 +989,7 @@
         }
 
         function linkedinNav() {
-            Object.assign(document.createElement('a'), {
-                target: '_blank',
-                href: 'https://www.linkedin.com/in/ethan-exline-b9b369201/',
-            }).click();
+            $("#linkedinIcon").trigger("dblclick");
         }
 
         function navigateTo(url) {
