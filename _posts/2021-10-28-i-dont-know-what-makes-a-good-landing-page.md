@@ -1,8 +1,8 @@
 ---
 layout: post
 title: I don't know what makes a good landing page
-description: Trying weird stuff
-summary: Trial by experimentation
+description: I'm hoping weirdness translates to eccentric talent
+summary: Creativity or insanity?
 tags: coding css javascript design learning
 ---
 
