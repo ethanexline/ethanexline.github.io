@@ -889,12 +889,15 @@
             var sidebar = document.getElementById("sidebar");
             var slider = document.getElementById("slider");
             var main = document.getElementById("main");
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
             if (toggler.classList.contains("toggled")) {
                 toggler.style.transform = "rotate(-360deg)";
                 sidebar.style.transform = "revert";
                 main.style.transform = "translateX(200px)";
-                slider.style.transform = "translateX(200px)";
+                if (vw <= 600) {
+                    slider.style.transform = "translateX(200px)";
+                }
 
                 toggler.classList.toggle("toggled");
             }
@@ -903,7 +906,9 @@
                 toggler.style.marginLeft = "translateX(-200px)";
                 sidebar.style.transform = "translateX(-195px)";
                 main.style.transform = "revert";
-                slider.style.transform ="revert";
+                if (vw <= 600) {
+                    slider.style.transform = "revert";
+                }
 
                 toggler.classList.toggle("toggled");
             }
