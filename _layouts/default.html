@@ -20,7 +20,7 @@ layout: compress
 
 <body>
   <main>
-    {% include anchor_headings.html html=content anchorBody="#" %}
+    {% include anchor_headings.html html=content anchorClass="putEmoji" anchorBody="#" %}
   </main>
 
   
@@ -82,11 +82,11 @@ layout: compress
         <i class="fa fa-twitter"></i>
       </a>
 
-      <a href="https://github.com/ethanexline" title="Github profile - I'm working on it." target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/ethanexline" title="Github profile" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-github" aria-hidden="true"></i>
       </a>
 
-      <a href="{{site.url}}{{ site.baseurl }}/atom.xml" title="Feed RSS" target="_blank" rel="noopener noreferrer">
+      <a href="{{site.url}}{{ site.baseurl }}/atom.xml" title="RSS feed" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-rss" aria-hidden="true"></i>
       </a>
 

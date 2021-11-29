@@ -40,3 +40,23 @@ layout: default
     {% endif %}
   </nav>
 </section>
+
+<script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
+<script>
+  function assignEmoji() {
+    var emojis = [];
+
+    $.getJSON('https://api.github.com/emojis', function(data) {
+
+      for (var line in data) {
+        emojis.push(":" + line + ":");
+      }
+    });
+    
+    var thisIsStupid = emojis[Math.floor(Math.random() * emojis.length)];
+    console.log(emojis);
+    return thisIsStupid;
+  }
+
+  console.log(assignEmoji());
+</script>

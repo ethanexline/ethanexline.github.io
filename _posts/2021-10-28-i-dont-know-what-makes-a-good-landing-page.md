@@ -14,7 +14,7 @@ If there's somebody who is definitively qualified to say whether or not coding c
 
 I write some music in my free time, and I have found 2 methods to force creativity out of myself, especially in the face of the types of feelings that I felt earlier today: where do I start, too many options, ***what do employers even dang want to see??*** 
 These 2 simple principles are:
-- create rules, stipulations, and boundaries, even if they're completely meaningless, to make your pool of options smaller
+- create rules, stipulations, and boundaries, even if they're completely meaningless, to make your pool of creative options smaller
 - sometimes just a subversion of an established, already-done idea can be a compelling place to start
 
 There's this assumption I've made in my life (you may have as well) that absolute freedom -> absolute creativity. In practice, however, scoping and reining in a creative project with rules lifts off a suffocating burden that often snuffs out the spark to pursue the project. I've fallen victim to this so many times - I'll simply _"I want to do this cool thing, but first I gotta choose when, and how, with what technology, using which resources etc. etc."_ a given project into oblivion. And to the second point, how many games (if you play games) could you list off the top of your head that are fundamentally just subtle subversions of, for example, the Metroid series? Without using Google I'll do it: Hollow Knight, Axiom Verge, the Castlevania series, Steamworld Dig, Megaman(?? definitely debatable but Samus did the arm cannon shtick first)... And a huge number of compelling games utilize that same basic gameplay loop that Metroid popularized where you:
@@ -69,4 +69,4 @@ The hardest parts of what I accomplished today were making convincing background
 ```
 The background pictures I ended up making are pretty hideous, they may change. But the little toggler works! Now I just have to figure out 1. what I actually want to present, and 2. how I'm gonna present it in the context of my design thesis. What's nice is that I should be able to design the layouts for all three styles at the same time, although I'm not so sure about the Bootstrap portion.
 
-I'll start worrying about that tommorow since I spent my whole afternoon making this post! 😅
+I'll start worrying about that tomorrow since I spent my whole afternoon making this post! :sweat_smile:

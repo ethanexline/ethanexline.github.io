@@ -7,7 +7,7 @@ layout: default
 <section class="posts">
   <div class="flex-row-between">
     <h1>Tag #{{page.tag}}</h1>
-    <a href="{{ site.url }}{{ site.baseurl }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+    <a href="/blog"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
   </div>
   <ul>
     {% for post in site.posts %}
@@ -27,8 +27,8 @@ layout: default
     <li>
 	    <a class="posts" href="{{ site.url }}{{ site.baseurl }}/tag/{{ tag | first | slugify }}/">{{ tag[0] | replace:'-', ' '
         }} ({{ tag | last | size
-        }}){% unless forloop.last %}, {% endunless %}
-      </a>
+        }})
+      </a>{% unless forloop.last %}, {% endunless %}
     </li>
   </ul>
   {% endfor %}
