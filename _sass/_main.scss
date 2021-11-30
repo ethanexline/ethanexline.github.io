@@ -985,6 +985,16 @@ $comment-font-size: --text-font !default;
 
 // Ethan's main contributions
 
+.putEmoji {
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+  display: inline-flex;
+  height: 64px;
+  width: 64px;
+  align-items: center;
+}
+
 .xp {
   color: white;
   background-color: blue;

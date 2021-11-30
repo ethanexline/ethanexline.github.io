@@ -43,30 +43,44 @@ layout: default
 
 <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
 <script>
-  async function assignEmoji() {
-    var emojis = [];
-
-    $.getJSON('https://api.github.com/emojis', function(data) {
-      var index = 0;
-
-      for (var line in data) {
-        emojis[index] = ":" + line + ":";
-        index += 1;
+  async function getEmojis () {
+    const response = await fetch('https://api.github.com/emojis', {
+      headers: {
+        "User-Agent": "https://github.com/ethanexline/ethanexline.github.io"
       }
-
-      var emoji = emojis[Math.floor(Math.random() * emojis.length)];
-      console.log(emoji);
-      return emoji;
     });
+
+    return response.json();
+  }
+
+  async function assignEmoji(numEmojis) {
+    const data = await getEmojis();
+    let emojis = [];
+    let selected = [];
+    let index = 0;
+
+    for (var line in data) {
+      emojis[index] = data[line];
+      index += 1;
+    }
+
+    for (var i = 0; i < numEmojis; i++) {
+      const random = Math.floor(Math.random() * emojis.length);
+      selected[i] = emojis[random];
+      emojis.splice(random, 1);
+    }
+
+    return selected;
   }
 
   async function emojiAnchors() {
     const anchors = document.getElementsByClassName('putEmoji');
+    const selected = await assignEmoji(anchors.length);
 
     for (var i = 0; i < anchors.length; i++) {
-      var anchor = anchors[i];
-      var emoji = await assignEmoji();
-      anchor.innerText = emoji;
+      const anchor = anchors[i];
+      const emoji = selected[i];
+      anchor.style.backgroundImage = "url(" + emoji + ")";
     }
   }
 
