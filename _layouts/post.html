@@ -41,14 +41,9 @@ layout: default
   </nav>
 </section>
 
-<script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
 <script>
   async function getEmojis () {
-    const response = await fetch('https://api.github.com/emojis', {
-      headers: {
-        "User-Agent": "https://github.com/ethanexline/ethanexline.github.io"
-      }
-    });
+    const response = await fetch('{{ site.url }}{{ site.baseurl }}/assets/emojis.json');
 
     return response.json();
   }
@@ -67,7 +62,6 @@ layout: default
     for (var i = 0; i < numEmojis; i++) {
       const random = Math.floor(Math.random() * emojis.length);
       selected[i] = emojis[random];
-      emojis.splice(random, 1);
     }
 
     return selected;
