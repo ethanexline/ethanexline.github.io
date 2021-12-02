@@ -990,9 +990,9 @@ $comment-font-size: --text-font !default;
   background-repeat: no-repeat;
   color: transparent;
   display: inline-flex;
-  height: 64px;
-  width: 64px;
+  width: 32px;
   align-items: center;
+  background-size: contain;
 }
 
 .xp {
