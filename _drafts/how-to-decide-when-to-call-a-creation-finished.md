@@ -12,3 +12,6 @@ I have decided that, pending another \**spark*\*, the landing page for my site i
 
 ###### How do "creatives" know when a "piece" is done?
 
+> A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.
+>
+> --Antoine de Saint-Exupéry
