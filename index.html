@@ -612,10 +612,7 @@
                             <td><input type="text" value="145" id="custom_mines" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
                         </tr>
                         <tr>
-                            <td><button id="newGame" type="submit" value="New Game" style="vertical-align: middle;">New Game</button></td>
-                            <td colspan="3">
-                                <input type="checkbox" id="marks" /><label style="margin-bottom: 0;"><strong style=" vertical-align: middle;">Marks (?)</strong></label>
-                            </td>
+                            <td colspan="4" style="text-align: center;"><button id="newGame" type="submit" value="New Game" style="vertical-align: middle;">New Game</button></td>
                         </tr>
                     </table>
                 </form>
@@ -643,11 +640,11 @@
                             </div>
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <td style="padding: 6px; border-top: 1px solid #AAA;">
+                    <tr>
+                        <td colspan=2 style="padding: 6px; text-align: center;">
                             <input type="checkbox" name="nightMode" id="nightMode" /><label for="nightMode"><strong>Night Mode</strong></label>
                         </td>
-                    </tr> -->
+                    </tr>
                 </table>
 
                 <table cellspacing="0" cellpadding="2" id="controls" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
@@ -1366,8 +1363,8 @@
 
             $('#' + gameType).attr('checked', true);
             $('#zoom' + zoom).attr('checked', true);
-            // $('#position-' + position).attr('checked', true);
-            // $('#nightMode').attr('checked', isNightMode);
+            $('#position-' + position).attr('checked', true);
+            $('#nightMode').attr('checked', isNightMode);
 
             document.getElementById('game-container').className = 'z' + zoom;
             setPosition(position);
@@ -1625,5 +1622,4 @@
             }
         });
 	</script>
-    
 </html>
