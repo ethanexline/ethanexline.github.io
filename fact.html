@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" class="faviconSwitch" href="/faviconDark.png">
+        <title>Fact</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Meow+Script&family=Moo+Lah+Lah&family=Rock+3D&family=Rubik+Beastly&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+        <style>
+            @media (max-width: 500px) {
+                body {
+                    height: auto !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body id="body" style="display: flex; justify-content: center; align-items: center; text-align: center; height: 100vh; width: 100vw; overflow: auto; margin: 0px;">
+        <h1 id="fact" style="color: white; font-size: xxx-large; font-weight: 100;"></h1>
+    </body>
+
+    <script>
+        async function randomize() {
+            const request = new Request("https://api.ethanexline.com/fact");
+            const response = await fetch(request);
+            const fact = await response.json();
+
+            const font = Math.floor(Math.random() * 6) + 1;
+            const background = Math.floor(Math.random() * 16777215).toString(16);
+
+            switch(font) {
+                case 1:
+                    document.getElementById("fact").style.fontFamily = '"DotGothic16", cursive';
+                    break;
+                case 2:
+                    document.getElementById("fact").style.fontFamily = '"Meow Script", cursive';
+                    break;
+                case 3:
+                    document.getElementById("fact").style.fontFamily = '"Moo Lah Lah", cursive';
+                    break;
+                case 4:
+                    document.getElementById("fact").style.fontFamily = '"Rock 3D", cursive';
+                    break;
+                case 5:
+                    document.getElementById("fact").style.fontFamily = '"Rubik Beastly", cursive';
+                    break;
+                case 6:
+                    document.getElementById("fact").style.fontFamily = '"ZCOOL KuaiLe", cursive';
+                    break;
+            }
+
+            document.getElementById("body").style.backgroundColor = "#" + background;
+            document.getElementById("fact").style.color = "#" + background;
+            document.getElementById("fact").style.filter = "invert(100%)";
+            document.getElementById("fact").innerHTML = fact['fact'];
+        }
+
+        randomize();
+    </script>
+</html>
