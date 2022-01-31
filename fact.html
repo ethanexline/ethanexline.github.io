@@ -1,61 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html style="margin: 0;">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" class="faviconSwitch" href="/faviconDark.png">
-        <title>Fact</title>
+        <title>Fact?</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Meow+Script&family=Moo+Lah+Lah&family=Rock+3D&family=Rubik+Beastly&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+        
         <style>
-            /* @media (max-width: 500px) {
-                body {
-                    height: auto !important;
-                }
-            } */
+            #body {
+                display: flex; 
+                justify-content: 
+                space-around; align-items: 
+                baseline; flex-direction: 
+                column; min-height: 100vh; 
+                width: 100vw; 
+                overflow: auto; 
+                margin: 0px;
+            }
+
+            #fact {
+                color: white; 
+                font-size: 40px; 
+                font-weight: 100; 
+                margin-top: 0px; 
+                margin-bottom: 50px;
+                text-align: center;
+            }
+
+            #return {
+                border-top: 3px solid black; 
+                background-color: black;
+                position: fixed; 
+                bottom: 0px; 
+                font-size: large; 
+                min-width: 100%; 
+                height: 50px;
+                display: flex; 
+                justify-content: center; 
+                align-items: center;
+                overflow-x: clip;
+            }
+
+            #back {
+                color: white; 
+            }
         </style>
     </head>
 
-    <body id="body" style="display: flex; justify-content: center; align-items: center; text-align: center; height: 100vh; width: 100vw; overflow: auto; margin: 0px;">
-        <h1 id="fact" style="color: white; font-size: xxx-large; font-weight: 100;"></h1>
+    <body id="body">
+        <p id="fact"></p>
     </body>
+    <footer id="return">
+        <a id="back" href="/">(Return to the main page)</a>
+    </footer>
+    
 
     <script>
         async function randomize() {
             const request = new Request("https://api.ethanexline.com/fact");
             const response = await fetch(request);
             const fact = await response.json();
+            let body = document.getElementById("body");
+            let factElement = document.getElementById("fact");
+            let returnElement = document.getElementById("return");
+            let back = document.getElementById("back");
 
-            const font = Math.floor(Math.random() * 6) + 1;
-            const background = Math.floor(Math.random() * 16777215).toString(16);
+            const font = await Math.floor(Math.random() * 6) + 1;
+            const background = await Math.floor(Math.random() * 16777215).toString(16);
 
             switch(font) {
                 case 1:
-                    document.getElementById("fact").style.fontFamily = '"DotGothic16", cursive';
+                    factElement.style.fontFamily = '"DotGothic16", cursive';
+                    back.style.fontFamily = '"DotGothic16", cursive';
                     break;
                 case 2:
-                    document.getElementById("fact").style.fontFamily = '"Meow Script", cursive';
+                    factElement.style.fontFamily = '"Meow Script", cursive';
+                    back.style.fontFamily = '"Meow Script", cursive';
                     break;
                 case 3:
-                    document.getElementById("fact").style.fontFamily = '"Moo Lah Lah", cursive';
+                    factElement.style.fontFamily = '"Moo Lah Lah", cursive';
+                    back.style.fontFamily = '"Moo Lah Lah", cursive';
                     break;
                 case 4:
-                    document.getElementById("fact").style.fontFamily = '"Rock 3D", cursive';
-                    document.getElementById("fact").style.fontWeight = 'bold';
+                    factElement.style.fontFamily = '"Rock 3D", cursive';
+                    factElement.style.fontWeight = 'bold';
+                    back.style.fontFamily = '"Rock 3D", cursive';
+                    back.style.fontWeight = 'bold';
                     break;
                 case 5:
-                    document.getElementById("fact").style.fontFamily = '"Rubik Beastly", cursive';
+                    factElement.style.fontFamily = '"Rubik Beastly", cursive';
+                    back.style.fontFamily = '"Rubik Beastly", cursive';
                     break;
                 case 6:
-                    document.getElementById("fact").style.fontFamily = '"ZCOOL KuaiLe", cursive';
+                    factElement.style.fontFamily = '"ZCOOL KuaiLe", cursive';
+                    back.style.fontFamily = '"ZCOOL KuaiLe", cursive';
                     break;
             }
 
-            document.getElementById("body").style.backgroundColor = "#" + background;
-            document.getElementById("fact").style.color = "#" + background;
-            document.getElementById("fact").style.filter = "invert(100%)";
-            document.getElementById("fact").innerHTML = fact['fact'];
+            body.style.backgroundColor = "#" + background;
+            factElement.style.color = "#" + background;
+            factElement.style.filter = "invert(100%)";
+            back.style.color = "#" + background;
+            returnElement.style.backgroundColor = "#" + invertHex(background);
+            factElement.innerHTML = fact['fact'];
+
+            while (factElement.offsetWidth > body.offsetWidth) {
+                var style = window.getComputedStyle(factElement, null).getPropertyValue('font-size');
+                var fontSize = parseInt(style);
+                factElement.style.fontSize = fontSize - 5 + "px";
+            }
+        }
+
+        function invertHex(hex) {
+            return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
         }
 
         randomize();
