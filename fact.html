@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="margin: 0;">
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,10 @@
         <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Meow+Script&family=Moo+Lah+Lah&family=Rock+3D&family=Rubik+Beastly&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
         
         <style>
+            * {
+                text-shadow: 1px 1px black !important;
+            }
+            
             @media (max-width: 600px) {
                 #fact {
                     margin-top: 70px !important;
@@ -215,6 +219,67 @@
             refresh.style.color = "#" + background;
             refresh.style.backgroundColor = "#" + invertHex(background);
             factElement.innerHTML = fact['fact'];
+
+            if (lightOrDark(background) === "light") {
+                factElement.style.textShadow = "1px 1px black";
+                back.style.textShadow = "1px 1px black";
+                refresh.style.textShadow = "1px 1px black";
+            } else {
+                factElement.style.textShadow = " 1px 1px white";
+                back.style.textShadow = " 1px 1px white";
+                refresh.style.textShadow = " 1px 1px white";
+            }
+
+            if (lightOrDark(invertHex(background)) === "light") {
+                factElement.style.textShadow = "1px 1px black";
+                back.style.textShadow = "1px 1px black";
+                refresh.style.textShadow = "1px 1px black";
+            } else {
+                factElement.style.textShadow = " 1px 1px white";
+                back.style.textShadow = " 1px 1px white";
+                refresh.style.textShadow = " 1px 1px white";
+            }
+        }
+
+        function lightOrDark(color) {
+            // Variables for red, green, blue values
+            var r, g, b, hsp;
+
+            // Check the format of the color, HEX or RGB?
+            if (color.match(/^rgb/)) {
+
+                // If RGB --> store the red, green, blue values in separate variables
+                color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+                
+                r = color[1];
+                g = color[2];
+                b = color[3];
+            } 
+            else {
+                
+                // If hex --> Convert it to RGB: http://gist.github.com/983661
+                color = +("0x" + color.slice(1).replace( 
+                color.length < 5 && /./g, '$&$&'));
+
+                r = color >> 16;
+                g = color >> 8 & 255;
+                b = color & 255;
+            }
+
+            // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+            hsp = Math.sqrt(
+            0.299 * (r * r) +
+            0.587 * (g * g) +
+            0.114 * (b * b)
+            );
+
+            // Using the HSP value, determine whether the color is light or dark
+            if (hsp>127.5) {
+                return 'light';
+            } 
+            else {
+                return 'dark';
+            }
         }
 
         function invertHex(hex) {
