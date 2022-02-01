@@ -10,15 +10,63 @@
         <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Meow+Script&family=Moo+Lah+Lah&family=Rock+3D&family=Rubik+Beastly&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
         
         <style>
+            @media (max-width: 600px) {
+                #fact {
+                    margin-top: 70px !important;
+                }
+            }
+            @keyframes rotateIn {
+                from {
+                    transform: rotate(0deg) scale(0);
+                }
+                to {
+                    transform: rotate(360deg) scale(1);
+                }
+            }
+
+            @keyframes getBig {
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes flipRev {
+                0% {
+                    transform: rotate(180deg) translateY(1000px);
+                }
+                50% {
+                    transform: rotate(180deg);
+                }
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
+
+            @keyframes flip {
+                0% {
+                    transform: rotate(180deg) translateY(-500%);
+                }
+                50% {
+                    transform: rotate(180deg);
+                }
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
+
             #body {
                 display: flex; 
                 justify-content: space-around; 
-                align-items: baseline; 
                 flex-direction: column; 
                 min-height: 100vh; 
                 width: 100vw; 
-                overflow: auto; 
+                overflow-x: clip; 
+                overflow-y: auto;
                 margin: 0px;
+                align-items: center;
             }
 
             #fact {
@@ -29,6 +77,8 @@
                 margin-bottom: 50px;
                 min-width: 100%;
                 text-align: center;
+                animation: getBig 2s ease-in-out;
+                overflow-wrap: anywhere;
             }
 
             #return {
@@ -48,10 +98,29 @@
             #back {
                 color: white; 
             }
+
+            #refresh {
+                background-color: black;
+                color: white;
+                border-radius: 30px;
+                border: 3px solid black;
+                height: 60px;
+                width: 200px;
+                position: fixed;
+                top: 10px;
+                font-size: 20px;
+                z-index: 100;
+            }
+
+            #refresh:hover {
+                opacity: 50%;
+                transition: ease-in-out .25s;
+            }
         </style>
     </head>
 
     <body id="body">
+        <button id="refresh" onclick="window.location.reload();">Get a Fresh Fact</button>
         <p id="fact"></p>
     </body>
     <footer id="return">
@@ -68,36 +137,61 @@
             let factElement = document.getElementById("fact");
             let returnElement = document.getElementById("return");
             let back = document.getElementById("back");
+            let refresh = document.getElementById("refresh");
 
             const font = await Math.floor(Math.random() * 6) + 1;
             const background = await Math.floor(Math.random() * 16777215).toString(16);
+            const animation = await Math.floor(Math.random() * 4) + 1;
 
             switch(font) {
                 case 1:
                     factElement.style.fontFamily = '"DotGothic16", cursive';
                     back.style.fontFamily = '"DotGothic16", cursive';
+                    refresh.style.fontFamily = '"DotGothic16", cursive';
                     break;
                 case 2:
                     factElement.style.fontFamily = '"Meow Script", cursive';
                     back.style.fontFamily = '"Meow Script", cursive';
+                    refresh.style.fontFamily = '"Meow Script", cursive';
                     break;
                 case 3:
                     factElement.style.fontFamily = '"Moo Lah Lah", cursive';
                     back.style.fontFamily = '"Moo Lah Lah", cursive';
+                    refresh.style.fontFamily = '"Moo Lah Lah", cursive';
                     break;
                 case 4:
                     factElement.style.fontFamily = '"Rock 3D", cursive';
                     factElement.style.fontWeight = 'bold';
                     back.style.fontFamily = '"Rock 3D", cursive';
                     back.style.fontWeight = 'bold';
+                    refresh.style.fontFamily = '"Rock 3D", cursive';
+                    refresh.style.fontWeight = 'bold';
+                    refresh.style.fontSize = '15px';
                     break;
                 case 5:
                     factElement.style.fontFamily = '"Rubik Beastly", cursive';
                     back.style.fontFamily = '"Rubik Beastly", cursive';
+                    refresh.style.fontFamily = '"Rubik Beastly", cursive';
                     break;
                 case 6:
                     factElement.style.fontFamily = '"ZCOOL KuaiLe", cursive';
                     back.style.fontFamily = '"ZCOOL KuaiLe", cursive';
+                    refresh.style.fontFamily = '"ZCOOL KuaiLe", cursive';
+                    break;
+            }
+
+            switch(animation) {
+                case 1:
+                    factElement.style.animation = 'rotateIn 2s ease-in-out';
+                    break;
+                case 2:
+                    factElement.style.animation = 'getBig 2s ease-in-out';
+                    break;
+                case 3:
+                    factElement.style.animation = 'flipRev 2s ease-in-out';
+                    break;
+                case 4:
+                    factElement.style.animation = 'flip 2s ease-in-out';
                     break;
             }
 
@@ -106,13 +200,9 @@
             factElement.style.filter = "invert(100%)";
             back.style.color = "#" + background;
             returnElement.style.backgroundColor = "#" + invertHex(background);
+            refresh.style.color = "#" + background;
+            refresh.style.backgroundColor = "#" + invertHex(background);
             factElement.innerHTML = fact['fact'];
-
-            while (factElement.offsetWidth > body.offsetWidth) {
-                var style = window.getComputedStyle(factElement, null).getPropertyValue('font-size');
-                var fontSize = parseInt(style);
-                factElement.style.fontSize = fontSize - 5 + "px";
-            }
         }
 
         function invertHex(hex) {
