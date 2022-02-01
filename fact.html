@@ -216,7 +216,7 @@
             refresh.style.backgroundColor = "#" + invertHex(background);
             factElement.innerHTML = fact['fact'];
 
-            if (lightOrDark(background) === "light") {
+            if (lightOrDark(invertHex(background)) === "light") {
                 factElement.style.textShadow = "1px 1px black";
                 back.style.textShadow = "1px 1px black";
                 refresh.style.textShadow = "1px 1px black";
