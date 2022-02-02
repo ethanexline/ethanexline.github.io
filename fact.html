@@ -144,7 +144,7 @@
         <div id="loader">
             <img src="assets/images/loaderDark.gif" />
             <br>
-            <p>loading ...</p>
+            <p id="loadText">loading ...</p>
         </div>
         <p id="fact"></p>
     </body>
@@ -235,8 +235,7 @@
         }
 
         document.onreadystatechange = function() {
-            await randomize();
-            document.querySelector("#loader").style.display = "none";
+            randomize().then(document.querySelector("#loader").style.display = "none", document.querySelector("#loadText").innerHTML = "Uh, something went wrong.");
         };
     </script>
 </html>
