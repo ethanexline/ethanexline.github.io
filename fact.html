@@ -128,11 +128,24 @@
                 transform: translateX(6px) translateY(8px);
                 animation: press .25s;
             }
+
+            #loader {
+                border: 3px solid black;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 20px;
+                font-family: cursive;
+            }
         </style>
     </head>
 
     <body id="body">
         <button id="refresh" onclick="window.location.reload();">Get a Fresh Fact</button>
+        <div id="loader">
+            <img src="assets/images/loaderDark.gif" />
+            <br>
+            <p>loading ...</p>
+        </div>
         <p id="fact"></p>
     </body>
     <footer id="return">
@@ -221,6 +234,9 @@
             return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
         }
 
-        randomize();
+        document.onreadystatechange = function() {
+            await randomize();
+            document.querySelector("#loader").style.display = "none";
+        };
     </script>
 </html>
