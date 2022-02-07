@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Figuring out how to blog
-description: Seriously, I don't know what I'm doing
-summary: I don't know what I'm doing
+description: Archived cause I hate it but posterity
+summary: I didn't know what I was doing
 tags: updates life
 ---
 
