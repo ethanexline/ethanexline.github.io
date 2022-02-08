@@ -1223,7 +1223,7 @@
                 startBar.style.display = "none";
                 bombSniffer.style.display = "none";
                 snifferWarning.style.display = "none";
-                spaceCadet.style.top = "2000px";
+                spaceCadet.style.top = "200%";
                 spaceWarning.style.display = "none";
                 blog.style.display = "none";
                 contact.style.display = "none";
@@ -1303,12 +1303,7 @@
                 e = e || window.event;
                 e.preventDefault();
                 elmnt.focus();
-
-                if (elmnt.style.zIndex == '') {
-                    elmnt.style.zIndex = "1";
-                } else {
-                    elmnt.style.zIndex = (getHighest() + 1).toString();
-                }
+                elmnt.style.zIndex = (getHighest() + 1).toString();
                 
                 // get the mouse cursor position at startup:
                 pos3 = e.clientX || e.targetTouches[0].clientX;
