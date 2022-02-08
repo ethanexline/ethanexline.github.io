@@ -440,7 +440,7 @@
         </style>
     </head>
 
-    <body>
+    <body style>
         <noscript>
             <strong>This site is going to not work and be boring unless you enable javascript. C'mon, everyone's doing it!</strong>
         </noscript>
@@ -733,7 +733,7 @@
             </div>
         </div>
 
-        <div id="SpaceCadet" class="window" style="display: flex; width: fit-content; position: absolute; left: 15%; height: 466px; top: 2000px;">
+        <div id="SpaceCadet" class="window" style="display: flex; width: fit-content; position: absolute; left: 200%; height: 466px;">
             <div id="spaceWarning" class="noMobile2">
                 <div class="window" style="position: fixed; top: 20px; right: 20px; left: 20px;">
                     <div class="title-bar">
@@ -1251,7 +1251,7 @@
         }
 
         function unloadSpaceCadet() {
-            document.getElementById("SpaceCadet").style.top = "2000px";
+            document.getElementById("SpaceCadet").style.left = "200%";
         }
 
         function getHighest() {
