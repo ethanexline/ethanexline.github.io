@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" class="faviconSwitch" href="/faviconDark.png">
         <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css">
         <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css/dist/98.css">
@@ -158,7 +159,7 @@
                 line-height: 1;
                 padding: 4px 8px;
                 position: absolute;
-                top: 300px;
+                top: 340px;
                 -webkit-transform: rotate(-90deg);
                 transform: rotate(-90deg);
                 -webkit-transform-origin: 0 0;
@@ -377,8 +378,20 @@
                 }
             }
 
+            @media (max-width: 620px) {
+                #game-container2 {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 620px) {
+                .noMobile2 {
+                    display: none !important;;
+                }
+            }
+
             @media (min-width: 1000px) {
-                #noMobile {
+                .noMobile {
                     display: none !important;;
                 }
             }
@@ -448,7 +461,7 @@
 
                     <h6>Or perhaps you were looking to get funky:</h6>
                     <ul>
-                        <li><a style="cursor: pointer; text-decoration: underline;" onclick="document.getElementById('slider').style.display = 'block'; return false;">monkey around <br> with the <br> Nostalgia Slider</a></li>
+                        <li><a style="cursor: pointer; text-decoration: underline;" onclick="document.getElementById('slider').style.display = 'block'; this.style.zIndex = (getHighest() + 1).toString(); return false;">monkey around <br> with the <br> Nostalgia Slider</a></li>
                         <li><a style="cursor: pointer; text-decoration: underline;" href="/fact.html" target="_blank">sample my <br><i>very</i> dumb <br> Fact API</a></li>
                     </ul>
                 </div>
@@ -513,7 +526,7 @@
             </div>
         </a>
 
-        <a id="sliderIcon" class="drag" onclick="return false" ondblclick="document.getElementById('slider').style.display = 'block';" tabindex="4" style="left: 75px">
+        <a id="sliderIcon" class="drag" onclick="return false" ondblclick="document.getElementById('slider').style.display = 'block'; this.style.zIndex = (getHighest() + 1).toString();" tabindex="4" style="left: 75px">
             <div class="icon">
                 <div class="icon__inner">
                     <div class="icon__image">
@@ -547,7 +560,7 @@
         </a>
 
         <div id="Bombsniffer" class="window" style="width: auto; position: absolute; left: 12%; display: none;">
-            <div id="noMobile">
+            <div id="sniffWarning" class="noMobile">
                 <div class="window" style="position: fixed; top: 20px; right: 20px; left: 20px;">
                     <div class="title-bar">
                         <div class="title-bar-text">You Rapscallion, You</div>
@@ -720,6 +733,34 @@
             </div>
         </div>
 
+        <div id="SpaceCadet" class="window" style="display: flex; width: fit-content; position: absolute; left: 15%; height: 466px; top: 2000px;">
+            <div id="spaceWarning" class="noMobile2">
+                <div class="window" style="position: fixed; top: 20px; right: 20px; left: 20px;">
+                    <div class="title-bar">
+                        <div class="title-bar-text">Sorry, mobile-accessing pinball enthusiast</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Close" onclick="unloadSpaceCadet();"></button>
+                        </div>
+                    </div>
+                    <p style="padding: 10px;">This definitely ain't gonna work on mobile. It'll turn your phone's processor into fried eggs.</p>
+                </div>
+            </div>
+
+            <div id="game-container2">
+                <div id="SpaceCadetheader" class="title-bar">
+                    <div class="title-bar-text">3D Pinball for Windows - Space Cadet (audio removed cause it was annoying)</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Close" onclick="unloadSpaceCadet();"></button>
+                    </div>
+                </div>
+                <div class="emscripten" id="status" style="display: none !important;"></div>
+                <div class="emscripten">
+                    <progress id="progress" max="1" value="0" hidden="" style="display: none;"></progress>
+                </div>
+                <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style="cursor: default;" tabindex="-1" width="600" height="440"></canvas>
+            </div>
+        </div>
+
         <div id="slider" class="window card" style="width: 320px; position: absolute; top: 20px; right: 20px; display: none;">
             <div class="title-bar" id="sliderheader">
                 <div class="title-bar-text card-header">Nostalgia Slider (draggable, try it)</div>
@@ -784,7 +825,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenuXP();" ontouchstart="document.getElementById('slider').style.display = 'block'; dispelMenuXP();">
+                    <a class="start-item__buttonXP" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenuXP(); document.getElementById('slider').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; dispelMenuXP();">
                         <div class="start-item__icon">
                             <img id="sliderStart" src="assets/images/sliderXP.png" alt="Nostalgia Slider">
                         </div>
@@ -800,11 +841,19 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" onmousedown="document.getElementById('Bombsniffer').style.display = 'block';" ontouchstart="document.getElementById('Bombsniffer').style.display = 'block'; dispelMenuXP();">
+                    <a class="start-item__buttonXP" onmousedown="document.getElementById('Bombsniffer').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('Bombsniffer').style.display = 'block'; dispelMenuXP();">
                         <div class="start-item__icon">
-                            <img id="sliderStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
+                            <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                         </div>
                         <span>Bombsniffer</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__buttonXP" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (getHighest() + 1).toString();" ontouchstart="loadSpaceCadet(); dispelMenuXP();">
+                        <div class="start-item__icon">
+                            <img id="spaceStart" src="assets/images/SpaceCadetXP.png" alt="Space Cadet Pinball">
+                        </div>
+                        <span>Space Cadet Pinball</span>
                     </a>
                 </li>
             </ul>
@@ -855,7 +904,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu98();" ontouchstart="document.getElementById('slider').style.display = 'block'; dispelMenu98();">
+                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu98(); document.getElementById('slider').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; dispelMenu98();">
                         <div class="start-item__icon">
                             <img id="sliderStart" src="assets/images/slider.png" alt="Nostalgia Slider">
                         </div>
@@ -871,11 +920,19 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="document.getElementById('Bombsniffer').style.display = 'block';" ontouchstart="document.getElementById('Bombsniffer').style.display = 'block'; dispelMenu98();">
+                    <a class="start-item__button" onmousedown="document.getElementById('Bombsniffer').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('Bombsniffer').style.display = 'block'; dispelMenu98();">
                         <div class="start-item__icon">
-                            <img id="sliderStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
+                            <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                         </div>
                         <span>Bombsniffer</span>
+                    </a>
+                </li>
+                <li class="start-item">
+                    <a class="start-item__button" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (getHighest() + 1).toString();" ontouchstart="loadSpaceCadet(); dispelMenu98();">
+                        <div class="start-item__icon">
+                            <img id="snifferStart" src="assets/images/SpaceCadet.png" alt="Space Cadet Pinball">
+                        </div>
+                        <span>Space Cadet Pinball</span>
                     </a>
                 </li>
             </ul>
@@ -1075,9 +1132,11 @@
 
             var Bombsnifferheader = document.getElementById('Bombsnifferheader');
             var bombSniffer = document.getElementById('Bombsniffer');
-            var snifferWarning = document.getElementById('noMobile');
+            var spaceCadet = document.getElementById('SpaceCadet');
+            var snifferWarning = document.getElementById('sniffWarning');
+            var spaceWarning = document.getElementById('spaceWarning');
             var optionsHeader = document.getElementById('optionsheader');
-  
+
             // Change the value of media attribute
             // to change the active css stylesheet.
             if (styleChanger.value == '1') {
@@ -1102,6 +1161,7 @@
                 factIcon.src = "/assets/images/fact.png";
                 Bombsnifferheader.style.width = "calc(100% + 14px)";
                 snifferWarning.style.display = "block";
+                spaceWarning.style.display = "block";
                 optionsHeader.style.marginRight = "-134px";
 
                 if (sliderWindow.classList.contains("initialCard")) {
@@ -1139,6 +1199,7 @@
                 factIcon.src = "/assets/images/factXP.png";
                 Bombsnifferheader.style.width = "calc(100% + 10px)";
                 snifferWarning.style.display = "block";
+                spaceWarning.style.display = "block";
                 optionsHeader.style.marginRight = "-138px";
 
                 if (sliderWindow.classList.contains("initialCard")) {
@@ -1162,6 +1223,8 @@
                 startBar.style.display = "none";
                 bombSniffer.style.display = "none";
                 snifferWarning.style.display = "none";
+                spaceCadet.style.top = "2000px";
+                spaceWarning.style.display = "none";
                 blog.style.display = "none";
                 contact.style.display = "none";
                 github.style.display = "none";
@@ -1175,6 +1238,41 @@
             }
         }
 
+        function loadSpaceCadet() {
+            document.getElementById("SpaceCadet").style.top = "15px";
+            document.getElementById("SpaceCadet").style.left = "15%";
+
+            if (window.innerWidth > 620) {
+                if (document.getElementById("scadet") == null) {
+                    $("body").append('<script id=\"loading\">var statusElement=document.getElementById(\"status\"),progressElement=document.getElementById(\"progress\"),Module={preRun:[],postRun:[],print:function(){var e=document.getElementById(\"output\");return e&&(e.value=\"\"),function(e){arguments.length>1&&(e=Array.prototype.slice.call(arguments).join(\" \")),console.log(e)}}(),printErr:function(e){arguments.length>1&&(e=Array.prototype.slice.call(arguments).join(\" \")),console.error(e)},canvas:function(){var e=document.getElementById(\"canvas\");return e.addEventListener(\"webglcontextlost\",(function(e){alert(\"WebGL context lost. You will need to reload the page.\"),e.preventDefault()}),!1),e}(),setStatus:function(e){if(Module.setStatus.last||(Module.setStatus.last={time:Date.now(),text:\"\"}),e!==Module.setStatus.last.text){var t=e.match(\/([^(]+)\\((\\d+(\\.\\d+)?)\\\/(\\d+)\\)\/),n=Date.now();if(!(t&&n-Module.setStatus.last.time<30)){if(Module.setStatus.last.time=n,Module.setStatus.last.text=e,t)e=t[1],progressElement.value=100*parseInt(t[2]),progressElement.max=100*parseInt(t[4]),progressElement.hidden=!1;else progressElement.value=null,progressElement.max=null,progressElement.hidden=!0,document.getElementById(\"canvas\").style.display=\"\";statusElement.innerHTML=e,\"\"===e?(statusElement.style.display=\"none\",progressElement.style.display=\"none\"):(statusElement.style.display=\"\",progressElement.style.display=\"\")}}},totalDependencies:0,monitorRunDependencies:function(e){this.totalDependencies=Math.max(this.totalDependencies,e),Module.setStatus(e?\"Preparing... (\"+(this.totalDependencies-e)+\"\/\"+this.totalDependencies+\")\":\"All downloads complete.\")}};Module.setStatus(\"Downloading...\"),window.onerror=function(){Module.setStatus(\"Exception thrown, see JavaScript console\"),Module.setStatus=function(e){e&&Module.printErr(\"[post-exception status] \"+e)}}<\/script>');
+                    $("body").append('<script id=\"scadet\" async src=\"assets\/SpaceCadet\/SpaceCadetPinball.js\"><\/script>');
+                }
+            }
+        }
+
+        function unloadSpaceCadet() {
+            document.getElementById("SpaceCadet").style.top = "2000px";
+        }
+
+        function getHighest() {
+            var sniff = document.getElementById("Bombsniffer");
+            var space = document.getElementById("SpaceCadet");
+            var slide = document.getElementById("slider");
+            var max = 0;
+
+            if (parseInt(sniff.style.zIndex) > parseInt(space.style.zIndex)) {
+                max = parseInt(sniff.style.zIndex);
+            } else {
+                max = parseInt(space.style.zIndex);
+            }
+
+            if (parseInt(slide.style.zIndex) > max) {
+                max = parseInt(slide.style.zIndex);
+            }
+
+            return max > 0 ? max : 1;
+        }
+
         // Make stuff draggable:
         dragElement(document.getElementById("blogIcon"));
         dragElement(document.getElementById("contactIcon"));
@@ -1184,6 +1282,7 @@
         dragElement(document.getElementById("resumeIcon"));
         dragElement(document.getElementById("factIcon"));
         dragWindow(document.getElementById("Bombsniffer"));
+        dragWindow(document.getElementById("SpaceCadet"));
         dragWindow(document.getElementById("options"));
         dragWindow(document.getElementById("display"));
         dragWindow(document.getElementById("controls"));
@@ -1193,6 +1292,7 @@
 
         function dragWindow(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
             if (document.getElementById(elmnt.id + "header")) {
                 document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
             } else {
@@ -1203,6 +1303,12 @@
                 e = e || window.event;
                 e.preventDefault();
                 elmnt.focus();
+
+                if (elmnt.style.zIndex == '') {
+                    elmnt.style.zIndex = "1";
+                } else {
+                    elmnt.style.zIndex = (getHighest() + 1).toString();
+                }
                 
                 // get the mouse cursor position at startup:
                 pos3 = e.clientX || e.targetTouches[0].clientX;
@@ -1390,6 +1496,10 @@
                 if (parseInt(draggables[i].style.top) >= window.innerHeight - 100) {
                     draggables[i].style.top = (window.innerHeight - 150) + 'px';
                 }
+            }
+
+            if (window.innerWidth > 620) {
+                unloadSpaceCadet();
             }
         }
     </script>
@@ -1680,4 +1790,55 @@
             }
         });
 	</script>
+
+    <!-- Space Cadet stuff -->
+    <!-- <script>
+        var statusElement = document.getElementById("status")
+        var progressElement = document.getElementById("progress")
+        Module = {
+            preRun: [],
+            postRun: [],
+            print: function() {
+                var e = document.getElementById("output");
+                return e && (e.value = ""),
+                    function(e) {
+                        arguments.length > 1 && (e = Array.prototype.slice.call(arguments).join(" ")), console.log(e)
+                    }
+            }(),
+            printErr: function(e) {
+                arguments.length > 1 && (e = Array.prototype.slice.call(arguments).join(" ")), console.error(e)
+            },
+            canvas: function() {
+                var e = document.getElementById("canvas");
+                return e.addEventListener("webglcontextlost", (function(e) {
+                    alert("WebGL context lost. You will need to reload the page."), e.preventDefault()
+                }), !1), e
+            }(),
+            setStatus: function(e) {
+                if (Module.setStatus.last || (Module.setStatus.last = {
+                        time: Date.now(),
+                        text: ""
+                    }), e !== Module.setStatus.last.text) {
+                    var t = e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/),
+                        n = Date.now();
+                    if (!(t && n - Module.setStatus.last.time < 30)) {
+                        if (Module.setStatus.last.time = n, Module.setStatus.last.text = e, t) e = t[1], progressElement.value = 100 * parseInt(t[2]), progressElement.max = 100 * parseInt(t[4]), progressElement.hidden = !1;
+                        else progressElement.value = null, progressElement.max = null, progressElement.hidden = !0, document.getElementById("canvas").style.display = "";
+                        statusElement.innerHTML = e, "" === e ? (statusElement.style.display = "none", progressElement.style.display = "none") : (statusElement.style.display = "", progressElement.style.display = "")
+                    }
+                }
+            },
+            totalDependencies: 0,
+            monitorRunDependencies: function(e) {
+                this.totalDependencies = Math.max(this.totalDependencies, e), Module.setStatus(e ? "Preparing... (" + (this.totalDependencies - e) + "/" + this.totalDependencies + ")" : "All downloads complete.")
+            }
+        };
+        Module.setStatus("Downloading..."), window.onerror = function() {
+            Module.setStatus("Exception thrown, see JavaScript console"), Module.setStatus = function(e) {
+                e && Module.printErr("[post-exception status] " + e)
+            }
+        } 
+    </script>
+
+    <script async src="assets/SpaceCadet/SpaceCadetPinball.js"></script> -->
 </html>
