@@ -1,8 +1,8 @@
 ---
 layout: post
 title: On the Value of an Opinion
-description: What does and doesn't matter?
-summary: I know nobody will ever read this, buuuut...
+description: My opinion is that opinions are dumb
+summary: What does and doesn't matter?
 tags: life updates serious ruminations
 ---
 
