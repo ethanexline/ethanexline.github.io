@@ -6,7 +6,7 @@ summary: What does and doesn't matter?
 tags: life updates serious ruminations
 ---
 
-##### I finished that last post in what, November?
+##### I finished that last post in what, December?
 
 There has been a big gap between posts, yes, but I've stayed busy adding tons of dumb garbage to the landing page (and of course, actually doing things I get paid to do). Tentatively, and deep down I know that I'm lying, but I'm finished adding non-blog stuff to this site. If only I could stop finding extremely cool projects like [this one](https://alula.github.io/SpaceCadetPinball/)! (I've already got a version of this running in the landing page, go check that out cause it was really dang hard to get running like I wanted)
 
