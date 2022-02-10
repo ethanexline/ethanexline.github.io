@@ -54,7 +54,9 @@ More than anything, I encourage you to take stock of and vet your set of beliefs
 ...Y'know, if it was a perfect world. 
 
 I recognize as well that this is all an opinion on the same level as any other. I encourage you to scrutize this take thusly, and determine its worth by your own metrics, without any influence from something that stands to profit off your beliefs. And then, should you subscribe to it, put it into practice and see if any good fruit comes of it. That would be nice, wouldn't it?
+
 ___
+
 The irony of my critique of the value of personal opinions in the form of an opinion piece aside, I feel the need to qualify all this with the encouragement that although this sort of self-skepticism can be confusing and scary, the ultimate result that comes out of purging your life of presumptive belief, dishonesty, and the lies we tell ourselves, plus renewing your confidence in the things which are truly important, can only be positive. 
 
 To that end, I want to keep writing here. Not because it matters, or because anybody cares, but because I want to understand myself better, purge lies from my brain, communicate and relate more meaningfully with the people around me, and perhaps brush up against the actual truth that accompanies recognizing meaningless convictions as meaningless (and conversely, meaningful convictions as meaningful). That seems perfectly reasonable.
