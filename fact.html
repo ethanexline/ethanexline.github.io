@@ -264,8 +264,9 @@
             return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
         }
 
-        document.onreadystatechange = function() {
-            randomize().then(document.querySelector("#loader").style.display = "none", document.querySelector("#loadText").innerHTML = "Uh, something went wrong.");
+        document.onreadystatechange = async function() {
+            await randomize();
+            document.querySelector("#loader").style.display = "none"
         };
     </script>
 </html>
