@@ -255,7 +255,8 @@ function toggleTheme() {
         theme[3].setAttribute('media', 'none');
         bodyPic[0].setAttribute('style', "overflow: hidden; font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; " +
             "background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; " +
-            "background-size: 100vw 100vh; background-color: white; background-image: url('assets/images/win98.webp'); max-width: 100vw;");
+            "background-size: " + $(window).width + "px " + $(window).height + "px; background-color: white; background-image: url('assets/images/win98.webp'); " +
+            "max-width: 100vw;");
         startBar.style.display = "flex";
         startBar.className = "";
         startBar.className = "win98";
@@ -307,7 +308,8 @@ function toggleTheme() {
         theme[3].setAttribute('media', 'none');
         bodyPic[0].setAttribute('style', "overflow: hidden; font-family: 'Franklin Gothic', sans-serif; min-height: 100%; background-repeat: no-repeat; " +
             "background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; " +
-            "background-size: cover; background-size: 100vw 100vh; background-color: white; background-image: url('assets/images/bliss.webp'); max-width: 100vw;");
+            "background-size: cover; background-size: " + $(window).width + "px " + $(window).height + "px; background-color: white; " +
+            "background-image: url('assets/images/bliss.webp'); max-width: 100vw;");
         startBar.style.display = "flex";
         startBar.className = "";
         startBar.className = "xp";
@@ -359,7 +361,7 @@ function toggleTheme() {
         theme[3].setAttribute('media', 'none');
         bodyPic[0].setAttribute('style', "overflow: hidden; font-family: 'Segoe UI', sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; " +
             "background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; " +
-            "background-size: 100vw 100vh; background-color: white; background-image: url('assets/images/win7default.webp'); max-width: 100vw;");
+            "background-size: " + $(window).width + "px " + $(window).height + "px; background-color: white; background-image: url('assets/images/win7default.webp'); max-width: 100vw;");
         startBar.style.display = "flex";
         startBar.className = "";
         startBar.className = "seven window glass";
@@ -410,7 +412,7 @@ function toggleTheme() {
         theme[2].setAttribute('media', 'none');
         theme[3].setAttribute('media', '');
         bodyPic[0].setAttribute('style', "overflow-x: hidden; position: absolute; bottom: 0px; display: flex; font-family: monospace; background-color: darkslateblue; " +
-            "color: pink; margin-top: 0; max-width: 100vw;");
+            "color: pink; margin-top: 0; max-width: 100%;");
         startBar.style.display = "none";
         bombSniffer.style.display = "none";
         snifferWarning.style.display = "none";
