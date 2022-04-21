@@ -4,16 +4,23 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" class="faviconSwitch" href="/faviconDark.png">
-        <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css">
-        <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css/dist/98.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" class="themeChanger" media="" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">        
+        
+        <link rel="stylesheet" href="/assets/css/index.css">
+        <link rel="stylesheet" href="/assets/css/minesweeper.min.css">
+
+        <!-- toggling stylesheets -->
+        <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css/dist/98.css" />  
+        <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/xp.css" />      
+        <link rel="stylesheet" class="themeChanger" media="none" href="https://unpkg.com/7.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" class="themeChanger" media="" 
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
         <title>Time to get weird.</title>
 
+        <!-- extra javascript -->
         <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="/assets/js/hammer.min.js"></script>
-
-        <link rel="stylesheet" href="/assets/css/minesweeper.min.css">
-        <script src="assets/js/minesweeper.min.js"></script>
+        <script type="text/javascript" src="assets/js/minesweeper.min.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKR0BCC8S2"></script>
@@ -24,435 +31,11 @@
 
             gtag('config', 'G-CKR0BCC8S2');
         </script>
-
-        <style>
-            #main {
-                width: 100%;
-                height: 100%;
-                transition: transform 1s;
-            }
-            #sidebar {
-                height: 100%;
-                width: 240px;
-                border-right: solid 3px black;
-                background-color: #2d2b55;
-                color: white;
-                position: absolute;
-                bottom: 0;
-                top: 0;
-                left: 0;
-                overflow-y: auto;
-                z-index: 5;
-                display: flex;
-                flex-direction: row-reverse;
-                transform: translateX(-195px);
-                transition: transform 1s;
-            }
-
-            #sidebar h6 {
-                color: white; 
-                padding: 50px 10px;
-            }
-
-            #sidebar ul li a {
-                font-size: 14px;
-                color: pink;
-            }
-
-            #sidebar ul li {
-                padding-bottom: 15px;
-                list-style-type: disclosure-closed;
-                color: mediumpurple;
-            }
-
-            .win98Btn {
-                background-color: silver;
-                border-bottom: 1px solid #22292f;
-                border-left: 1px solid #fff;
-                border-right: 1px solid #22292f;
-                border-top: 1px solid #fff;
-                display: inline-block;
-                image-rendering: optimizeSpeed;
-                image-rendering: -moz-crisp-edges;
-                image-rendering: -o-crisp-edges;
-                image-rendering: -webkit-crisp-edges;
-                image-rendering: crisp-edges;
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: -o-pixelated;
-                image-rendering: pixelated;
-                -ms-interpolation-mode: nearest-neighbor;
-                margin: 2px;
-                overflow: hidden;
-                padding: 2px 4px;
-                text-overflow: ellipsis;
-                vertical-align: middle;
-                white-space: nowrap;
-            }
-
-            .xp {
-                color: white;
-                background: linear-gradient(0deg, rgba(8,27,203,1) 0%, rgba(37,97,221,255) 10%, rgba(33,87,213,255) 85%, rgba(93,179,255,1) 100%);
-                height: 41px !important;
-            }
-
-            #xpClock {
-                background: linear-gradient(0deg, rgba(0,98,234,1) 0%, rgba(12,161,241,255) 10%, rgba(20,152,237,255) 85%, rgba(156,220,255,1) 100%);
-                height: 41px !important;
-                margin-right: 0;
-                width: 100px;
-                text-align: center;
-                white-space: nowrap;
-                border-left: solid rgba(0,98,234,1) 1px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .win98 {
-                color: black;
-                background-color: silver;
-            }
-
-            #clockCircle {
-                margin-left: -22px;
-            }
-
-            #start-menu {
-                font-family: VT323,monospace;
-                background: linear-gradient(#1084d0, navy);
-                border-left: 1px solid #fff;
-                border-top: 1px solid #fff;
-                bottom: 30px;
-                -webkit-box-shadow: 1px 1px 0 0 #22292f;
-                box-shadow: 1px 1px 0 0 #22292f;
-                left: 4px;
-                margin-bottom: -2px;
-                position: fixed;
-                -webkit-transition: -webkit-transform .25s;
-                transition: -webkit-transform .25s;
-                transition: transform .25s;
-                transition: transform .25s,-webkit-transform .25s;
-                z-index: 2;
-            }
-
-            #start-menuXP {
-                border-top-left-radius: 8px;
-                border-top-right-radius: 8px;
-                border: 1px solid rgba(0,51,153,1);
-                font-family: VT323,monospace;
-                bottom: 44px;
-                -webkit-box-shadow: 1px 1px 0 0 #22292f;
-                box-shadow: 1px 1px 0 0 #22292f;
-                margin-bottom: -2px;
-                position: fixed;
-                -webkit-transition: -webkit-transform .25s;
-                transition: -webkit-transform .25s;
-                transition: transform .25s;
-                transition: transform .25s,-webkit-transform .25s;
-                z-index: 2;
-            }
-
-            #start-menu:focus {
-                display: unset !important;
-            }
-
-            #start-menuXP:focus {
-                display: unset !important;
-            }
-
-            .start-menu__bar {
-                font-family: Times NR MT W01 Regular,Times New Roman,TimesNewRoman,Times,serif;
-                color: #fff;
-                font-size: 22px;
-                height: 30px;
-                left: 0;
-                line-height: 1;
-                padding: 4px 8px;
-                position: absolute;
-                top: 340px;
-                -webkit-transform: rotate(-90deg);
-                transform: rotate(-90deg);
-                -webkit-transform-origin: 0 0;
-                transform-origin: 0 0;
-                font-weight: lighter;
-            }
-
-            .start-menu__list {
-                background-color: silver;
-                position: relative;
-                list-style: none;
-                margin-left: 30px;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                padding-left: 0px;
-            }
-
-            .start-menu__listXP {
-                width: 210px;
-                background-color: white;
-                color: white;
-                position: relative;
-                list-style: none;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                padding-left: 0px;
-            }
-
-            .start-item {
-                color: black;
-                font-family: 'Pixelated MS Sans Serif', Arial;
-                position: relative;
-            }
-
-            .start-item__button:hover {
-                color: white;
-                background-color: #000082 !important;
-            }
-
-            .start-item__buttonXP:hover {
-                color: white;
-                background-color: #316AC5 !important;
-            }
-
-            .start-item__button, .start-item__icon {
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-            }
-
-            .start-item__button {
-                background-color: silver;
-                height: 40px;
-                overflow: hidden;
-                padding: 0 10px;
-                position: relative;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                width: 160px;
-                text-decoration: none;
-                color: black;
-            }
-
-            .start-item__buttonXP {
-                background-color: white;
-                height: 40px;
-                overflow: hidden;
-                padding: 0 10px;
-                position: relative;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                width: 160px;
-                text-decoration: none;
-                color: black;
-                width: 210px;
-            }
-
-            .start-item__icon {
-                height: 35px;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                justify-content: center;
-                margin-right: 10px;
-                width: 35px;
-            }
-
-            .start-item__button, .start-item__buttonXP, .start-item__icon {
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-            }
-
-            .start-item__icon img {
-                max-height: 100%;
-                max-width: 100%;
-                display: inline-block;
-            }
-
-            .icon {
-                margin-left: 0.25rem;
-                margin-right: 0.25rem;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
-                cursor: pointer!important; 
-                display: inline-block;
-                position: absolute;
-                text-align: center;
-                vertical-align: middle;
-            }
-
-            .icon, .icon * {
-                -ms-touch-action: none;
-                touch-action: none;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            @media (min-width: 640px) {
-                .icon__inner {
-                    width: 90px;
-                }
-            }
-
-            .icon__image, .icon__inner {
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                justify-content: center;
-            }
-
-            .icon__inner {
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                flex-direction: column;
-                position: relative;
-                width: 65px;
-            }
-
-            @media (min-width: 860px) {
-                .icon__image {
-                    height: 42px;
-                    width: 42px;
-                }
-            }
-
-            .icon__image {
-                height: 36px;
-                width: 36px;
-            }
-
-            .icon__image img {
-                height: auto;
-                max-height: 100%;
-                max-width: 100%;
-                width: auto;
-            }
-
-            .icon__title {
-                display: inline-block;
-                font-size: 13px;
-                line-height: 1.2;
-                margin-top: 6px;
-                padding: 2px 6px 4px;
-                text-decoration: none;
-                color: black;
-                text-shadow: 1px 1px 0 #fff;
-                width: 85%
-            }
-
-            a:focus .icon__title {
-                background-color: mediumblue;
-                color: white;
-                text-shadow: none;
-            }
-
-            a:focus .icon {
-                outline: 1px dotted #00f;
-            }
-
-            a:focus {
-                outline: none;
-            }
-
-            a.drag {
-                position: absolute;
-                cursor: move;
-            }
-
-            td:not(.title-bar > td) {
-                padding: 5px;
-            }
-
-            span[id$="link"] {
-                text-decoration: none !important;
-                color: black !important;
-                padding-right: 5px;
-            }
-
-            @media (max-width: 1000px) {
-                #game-container {
-                    display: none;
-                }
-            }
-
-            /* @media (max-width: 620px) {
-                #SpaceCadet {
-                    display: none;
-                }
-            }
-
-            @media (min-width: 620px) {
-                .noMobile2 {
-                    display: none !important;;
-                }
-            } */
-
-            @media (min-width: 1000px) {
-                .noMobile {
-                    display: none !important;;
-                }
-            }
-
-            @media (max-width: 600px) {
-                #slider {
-                    left: 20px;
-                    width: unset !important;
-                }
-                #slider.initialCard {
-                    left: 55px; 
-                    right: 10px !important;
-                    width: unset !important;
-                }
-                #main {
-                    padding-top: 145px;
-                    margin-left: 70px;
-                }
-                #words {
-                    width: 100%;
-                }
-            }
-
-            #slider.initialCard {
-                border: 3px solid black;
-                transition: transform 1s;
-            }
-
-            #slider.initialCard div.title-bar {
-                background-color: rebeccapurple;
-            }
-
-            #slider.initialCard div.card-body {
-                background-color: mediumpurple;
-            }
-
-            #toggler {
-                position: sticky; 
-                top: 10px; 
-                left: 205px; 
-                height: 25px; 
-                margin-right: 10px;
-                transform: rotate(540deg);
-                transition: transform 1s;
-            }
-        </style>
     </head>
 
-    <body style>
+    <body>
         <noscript>
-            <strong>This site is going to not work and be boring unless you enable javascript. C'mon, everyone's doing it!</strong>
+            <strong>This site is going to be horrifying unless you enable javascript. C'mon, everyone's doing it!</strong>
         </noscript>
 
         <div id="sidebar" style="display: none;">
@@ -569,19 +152,19 @@
             </div>
         </a>
 
-        <div id="Bombsniffer" class="window" style="width: auto; position: absolute; left: 12%; display: none;">
-            <div id="sniffWarning" class="noMobile">
-                <div class="window" style="position: fixed; top: 20px; right: 20px; left: 20px;">
-                    <div class="title-bar">
-                        <div class="title-bar-text">You Rapscallion, You</div>
-                        <div class="title-bar-controls">
-                            <button aria-label="Close" onclick="document.getElementById('Bombsniffer').style.display = 'none';"></button>
-                        </div>
+        <div id="sniffWarning" style="display: none;">
+            <div class="window glass" style="position: fixed; top: 20px; right: 20px; left: 20px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">You Rapscallion, You</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Close" onclick="document.getElementById('sniffWarning').style.display = 'none';"></button>
                     </div>
-                    <p style="padding: 10px;">I refuse to let you try to play Bombsniffer on mobile. It's just not gonna look good or play right. Try this: <a href="https://itunes.apple.com/us/app/minesweeper-ol/id670307706?mt=8&uo=4" target="itunes_store">Minesweeper for iOS</a></p>
                 </div>
+                <p class="window-body" style="padding: 10px;">I refuse to let you try to play Bombsniffer on mobile. It's just not gonna look good or play right. Try this: <a href="https://itunes.apple.com/us/app/minesweeper-ol/id670307706?mt=8&uo=4" target="itunes_store">Minesweeper for iOS</a></p>
             </div>
+        </div>
 
+        <div id="Bombsniffer" class="window glass" style="width: auto; position: absolute; left: 12%; display: none;">
             <div id="game-container" class="z100" style="height: auto; min-width: 162px;">
                 <div id="Bombsnifferheader" class="title-bar" style="width: calc(100% + 10px);">
                     <div style="display: flex; align-items: center; flex-direction: row;">
@@ -593,7 +176,7 @@
                     </div>
                 </div>
 
-                <div style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial; display: flex; align-items: center; height: 20px;">
+                <div id="bombMenuElse" style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial; display: flex; align-items: center; height: 20px;">
                     <span id="options-link" title="game options">Game</span>
                     <span id="display-link" title="zoom level">Display</span>
                     <span id="controls-link" title="keyboard/mouse controls">Controls</span> 
@@ -601,12 +184,20 @@
                     <span id="export-link" title="save a game for later">Export</span>
                 </div>
 
+                <ul id="bombMenu7" role="menubar" style="width: 100%; height: 20px; align-items: center; margin-top: 5px; margin-left: 10px; overflow: clip;">
+                    <li role="menuitem" id="options-link" title="game options">Game</li>
+                    <li role="menuitem" id="display-link" title="zoom level">Display</li>
+                    <li role="menuitem" id="controls-link" title="keyboard/mouse controls">Controls</li> 
+                    <li role="menuitem" id="import-link" title="load previously exported game">Import</li> 
+                    <li role="menuitem" id="export-link" title="save a game for later">Export</li>
+                </ul>
+
                 <div style="width: calc(100% + 15px); display: flex; justify-content: center;">
                     <div id="game" oncontextmenu="return false;" ondrag="return false;" ondragstart="return false;" style="margin-left: 1%;"></div>
                 </div>
 
                 <form id="options-form">
-                    <table id="options" class="window" style="width: 250px; position: absolute; top: 100px; left: 100px; border-spacing: unset; display: none;">
+                    <table id="options" class="window glass" style="width: 250px; position: absolute; top: 100px; left: 100px; border-spacing: unset; display: none;">
                         <tr class="title-bar" id="optionsheader" style="border-top-style: none; border-left-style: none; margin-right: -134px;">
                             <td class="title-bar-text">Game</td>
                             <td colspan="3" class="title-bar-controls" style="text-align: right;">
@@ -649,7 +240,7 @@
                     </table>
                 </form>
 
-                <table cellspacing="0" cellpadding="2" id="display" class="window" style="display: none; position: absolute; width: 109px; top: 100px; left: 100px;">
+                <table cellspacing="0" cellpadding="2" id="display" class="window glass" style="display: none; position: absolute; width: 109px; top: 100px; left: 100px;">
                     <tr class="title-bar" id="displayheader" style="margin-right: -57px;">
                         <td class="title-bar-text">Display</td>
                         <td class="title-bar-controls" style="text-align: right;">
@@ -679,7 +270,7 @@
                     </tr>
                 </table>
 
-                <table cellspacing="0" cellpadding="2" id="controls" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
+                <table cellspacing="0" cellpadding="2" id="controls" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
                     <tr class="title-bar" id="controlsheader">
                         <td class="title-bar-text">Controls</td>
                         <td class="title-bar-controls" style="text-align: right;">
@@ -700,7 +291,7 @@
                 </table>
 
                 <form id="import-form">
-                    <table cellspacing="0" cellpadding="2" id="import" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
+                    <table cellspacing="0" cellpadding="2" id="import" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
                         <tr class="title-bar" id="importheader">
                             <td class="title-bar-text">Import</td>
                             <td class="title-bar-controls" style="text-align: right;">
@@ -722,7 +313,7 @@
                     </table>
                 </form>
 
-                <table cellspacing="0" cellpadding="2" id="export" class="window" style="display: none; position: absolute; top: 100px; left: 100px;">
+                <table cellspacing="0" cellpadding="2" id="export" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
                     <tr class="title-bar" id="exportheader">
                         <td class="title-bar-text">Export</td>
                         <td class="title-bar-controls" style="text-align: right;">
@@ -743,19 +334,19 @@
             </div>
         </div>
 
-        <div id="spaceWarning" class="noMobile2" style="display: none;">
-            <div class="window" style="position: fixed; top: 20px; right: 20px; left: 20px;">
+        <div id="spaceWarning" style="display: none;">
+            <div class="window glass" style="position: fixed; top: 20px; right: 20px; left: 20px;">
                 <div class="title-bar">
                     <div class="title-bar-text">Ain't happenin, mobile pinball guy</div>
                     <div class="title-bar-controls">
                         <button aria-label="Close" onclick="dispelWarning();"></button>
                     </div>
                 </div>
-                <p style="padding: 10px;">Space Cadet Pinball definitely ain't gonna work on mobile. It'll turn your phone's processor into fried eggs. (sorry)</p>
+                <p class="window-body" style="padding: 10px;">Space Cadet Pinball definitely ain't gonna work on mobile. It'll turn your phone's processor into fried eggs. (sorry)</p>
             </div>
         </div>
 
-        <div id="SpaceCadet" class="window" style="display: flex; flex-direction: column; height: fit-content; position: absolute; left: 200%;">
+        <div id="SpaceCadet" class="window glass" style="display: flex; flex-direction: column; height: fit-content; position: absolute; left: 200%;">
             <div id="SpaceCadetheader" class="title-bar">
                 <div class="title-bar-text">3D Pinball for Windows - Space Cadet (audio removed cause it was annoying)</div>
                 <div class="title-bar-controls">
@@ -769,7 +360,7 @@
             <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style="cursor: default;" tabindex="-1" width="600" height="440"></canvas>
         </div>
 
-        <div id="slider" class="window card" style="width: 320px; position: absolute; top: 20px; right: 20px; display: none;">
+        <div id="slider" class="window glass card" style="width: 320px; position: absolute; top: 20px; right: 20px; font-size: medium; display: none;">
             <div class="title-bar" id="sliderheader">
                 <div class="title-bar-text card-header">Nostalgia Slider (draggable, try it)</div>
                 <div class="title-bar-controls d-none">
@@ -778,9 +369,147 @@
             </div>
             <div class="window-body card-body" >
                 <div class="field-row" style="height: 50px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
-                    <label for="styleRange" style="margin-right: 5px;">Classic</label>
-                    <input id="styleRange" type="range" onchange="toggleTheme();" min="1" max="3" value="3" />
+                    <label for="styleRange" style="margin-right: 5px; margin-left: 5px;">Classic</label>
+                    <input id="styleRange" type="range" onchange="toggleTheme();" min="1" max="4" value="4" />
                     <label for="range27" style="margin-left: 5px;">Not Classic</label>
+                </div>
+            </div>
+        </div>
+
+        <div tabindex="-1" id="start-menu7" class="start-menu7 window glass" style="display: none;">
+            <div class="glass-body" style="padding: 5px; display: flex; flex-direction: row; width: 320px;">
+                <div style="width: 170px; display: flex; flex-direction: column;">
+                    <ul class="start-menu__list7" style="border: 1px solid darkslategrey; border-radius: 5px; overflow: clip;">
+                        <li class="start-item">
+                            <a id="first" class="start-item__button7" onmousedown="navigateTo('blog/');">
+                                <div class="start-item__icon">
+                                    <img id="blogStart" src="assets/images/blog7.png" alt="Blog">
+                                </div>
+                                <span>Blog</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" target="_blank" onmousedown="navigateTo('https://github.com/ethanexline');" ontouchstart="navigateTo('https://github.com/ethanexline');">
+                                <div class="start-item__icon">
+                                    <img id="githubStart" src="assets/images/github7.png" alt="Github">
+                                </div>
+                                <span>Github</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" target="_blank" onmousedown="navigateTo('https://www.linkedin.com/in/ethan-exline-b9b369201/');" ontouchstart="linkedinNav();">
+                                <div class="start-item__icon">
+                                    <img id="linkedinStart" src="assets/images/linkedin7.png" alt="Linkedin">
+                                </div>
+                                <span>Linkedin</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" target="_blank" onmousedown="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');" ontouchstart="navigateTo('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true');">
+                                <div class="start-item__icon">
+                                    <img id="resumeStart" src="assets/images/resume7.png" alt="Resume">
+                                </div>
+                                <span>Resume</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" onmousedown="navigateTo('mailto:ethanexline@gmail.com');" ontouchstart="navigateTo('mailto:ethanexline@gmail.com');">
+                                <div class="start-item__icon">
+                                    <img id="contactStart" src="assets/images/contact7.png" alt="Contact">
+                                </div>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu7(); document.getElementById('slider').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (getHighest() + 1).toString(); dispelMenu7();">
+                                <div class="start-item__icon">
+                                    <img id="sliderStart" src="assets/images/slider7.png" alt="Nostalgia Slider">
+                                </div>
+                                <span>Nostalgia Slider</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" target="_blank" onmousedown="navigateTo('/fact.html');" ontouchstart="navigateTo('/fact.html');">
+                                <div class="start-item__icon">
+                                    <img id="factStart" src="assets/images/fact7.png" alt="Random Fact">
+                                </div>
+                                <span>Random Fact</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a class="start-item__button7" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString(); dispelMenu7();">
+                                <div class="start-item__icon">
+                                    <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
+                                </div>
+                                <span>Bombsniffer</span>
+                            </a>
+                        </li>
+                        <li class="start-item">
+                            <a id="last" class="start-item__button7" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (getHighest() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (getHighest() + 1).toString(); dispelMenu7();">
+                                <div class="start-item__icon">
+                                    <img id="spaceStart" src="assets/images/SpaceCadetXP.png" alt="Space Cadet Pinball">
+                                </div>
+                                <span>Space Cadet Pinball</span>
+                            </a>
+                        </li>
+                        <li class="start-item" style="padding: 10px; border-top: solid darkgrey 2px; background-color: aliceblue;">
+                            <input id="fakeInput" type="text" placeholder="just here for aesthetic" style="width: 100%;" >
+                            <img src="/assets/images/mag7.gif" style="position: absolute; top: 14px; right: 15px;">
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="width: 160px; display: flex; flex-direction: column; align-items: center;">
+                    <div class="window glass" style="margin-top: -40px; height: 66px;">
+                        <img src="/assets/images/profile7.jpg" alt="edgy" style="height: 60px; width: 60px; padding: 3px; border-radius: 5px;" />
+                    </div>
+                    
+                    <div style="text-align: left; margin-left: 5px;">
+                        <ul id="nowhereTabs" style="list-style-type: none; padding-left: 0px;">
+                            <li id="a" onmouseover="windowWrap('a');" onmouseleave="windowUnwrap('a');">
+                                <span style="color: white;">edgyteen@hotmail.com</span>
+                            </li>
+
+                            <li id="b" onmouseover="windowWrap('b');" onmouseleave="windowUnwrap('b');">
+                                <span style="color: white;">Junk</span>
+                            </li>
+
+                            <li id="c" onmouseover="windowWrap('c');" onmouseleave="windowUnwrap('c');">
+                                <span style="color: white;">Trash</span>
+                            </li>
+
+                            <li id="d" onmouseover="windowWrap('d');" onmouseleave="windowUnwrap('d');">
+                                <span style="color: white;">Garbage</span>
+                            </li>
+
+                            <hr>
+
+                            <li id="e" onmouseover="windowWrap('e');" onmouseleave="windowUnwrap('e');">
+                                <span style="color: white;">Waste</span>
+                            </li>
+
+                            <li id="f" onmouseover="windowWrap('f');" onmouseleave="windowUnwrap('f');">
+                                <span style="color: white;">Refuse</span>
+                            </li>
+
+                            <hr>
+
+                            <li id="g" onmouseover="windowWrap('g');" onmouseleave="windowUnwrap('g');">
+                                <span style="color: white;">Rubbish</span>
+                            </li>
+
+                            <li id="h" onmouseover="windowWrap('h');" onmouseleave="windowUnwrap('h');">
+                                <span style="color: white;">Leavings</span>
+                            </li>
+
+                            <hr>
+
+                            <li id="i" onmouseover="windowWrap('i');" onmouseleave="windowUnwrap('i');">
+                                <span style="color: white;">Dregs</span>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -788,7 +517,7 @@
         <div tabindex="-1" id="start-menuXP" class="start-menuXP" style="display: none;">
             <div id="XPStartMenuHeader" style="width: 230px; height: 75px; display: flex; align-items: center; background: linear-gradient(0deg, rgba(47,181,255,1) 0%, rgba(59,141,255,1) 40%, rgba(0,51,153,1) 95%, rgba(140,170,230,1) 99%);">
                 <img src="/assets/images/profile.jpg" alt="pending" style="margin-left: 10px; height: 60px; width: 60px; border-radius: 5px; border: 1px solid white; box-shadow: 1px 1px darkslategrey; box-sizing: border-box;" />
-                <h4 style="color: white; font-weight: 100; margin-left: 10px; font-size: 16px; text-shadow: 1px 2px darkslategrey;">xXrocklover69Xx</h4>
+                <h4 style="color: white; font-weight: 100; margin-left: 10px; font-size: 16px; text-shadow: 1px 2px darkslategrey;">xXrocklover95Xx</h4>
             </div>
             <div style="height:2px; width: 230px; background: linear-gradient(90deg, rgba(47,181,255,1) 0%, #FF9933 45%, #FF9933 55%, rgba(47,181,255,1) 100%);"></div>
             <ul class="start-menu__listXP">
@@ -849,7 +578,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" onmousedown="document.getElementById('Bombsniffer').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('Bombsniffer').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString(); dispelMenuXP();">
+                    <a class="start-item__buttonXP" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString(); dispelMenuXP();">
                         <div class="start-item__icon">
                             <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                         </div>
@@ -928,7 +657,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="document.getElementById('Bombsniffer').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('Bombsniffer').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString(); dispelMenu98();">
+                    <a class="start-item__button" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (getHighest() + 1).toString(); dispelMenu98();">
                         <div class="start-item__icon">
                             <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                         </div>
@@ -956,6 +685,12 @@
                 <img id="gripper" src="/assets/images/gripper.png" alt="gripper" style="margin-bottom: 2px;">
             </div>
 
+            <div id="7Start" style="margin-bottom: 1px;">
+                <a id="7Tag" href="" onclick="menu7(); return false;" onblur="dispelMenu7();">
+                    <img src="/assets/images/win7StartClosed.png" onmouseleave="unHoverStyle();" onmouseover="hoverStyle();" id="7Button" style="margin-bottom: -2px; margin-left: 5px;" />
+                </a>
+            </div>
+
             <div id="98clock" class="status-bar" style="margin-right: 22px; display: none;">
                 <p class="status-bar-field" id="clock1" style="padding: 6px; font-family: 'Pixelated MS Sans Serif', Arial;"></p>
             </div>
@@ -964,898 +699,20 @@
                 <img id="clockCircle" src="/assets/images/clockCircle.png">
                 <p id="clock2" style="padding: 6px; margin-right: 22px; font-family: Tahoma;"></p>
             </div>
+
+            <div id="7Clock" style="display: none; flex-direction: column; text-align: center;">
+                <p id="clock3" style="color: white; font-size: 13px; margin: 1px 8px;"></p>
+                <p id="date7" style="color: white; font-size: 13px; margin: 1px 8px;"></p>
+            </div>
         </nav>
     </body>
 
-    <script>
-        document.onreadystatechange = function() {
-            if (document.readyState !== "complete") {
-                document.getElementById('styleRange').value = '3';
-            } else {
-                document.getElementById('styleRange').value = '3';
-            }
-        }; 
-        toggleTheme();
+    <!-- Space Cadet functionality script -->
+    <script type="text/javascript" src="/assets/js/spaceUtils.js"></script>
 
-        setInterval(updateTime, 1000);
+    <!-- bombsniffer functionality script -->
+    <script type="text/javascript" src="/assets/js/sniffUtils.js"></script>
 
-        function toggle() {
-            var toggler = document.getElementById("toggler");
-            var sidebar = document.getElementById("sidebar");
-            var slider = document.getElementById("slider");
-            var main = document.getElementById("main");
-            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-
-            if (toggler.classList.contains("toggled")) {
-                toggler.style.transform = "rotate(-360deg)";
-                sidebar.style.transform = "revert";
-                main.style.transform = "translateX(200px)";
-                if (vw <= 600) {
-                    slider.style.transform = "translateX(200px)";
-                }
-
-                toggler.classList.toggle("toggled");
-            }
-            else {
-                toggler.style.transform = "rotate(540deg)";
-                toggler.style.marginLeft = "translateX(-200px)";
-                sidebar.style.transform = "translateX(-195px)";
-                main.style.transform = "revert";
-                if (vw <= 600) {
-                    slider.style.transform = "revert";
-                }
-
-                toggler.classList.toggle("toggled");
-            }
-        }
-
-        function updateTime() {
-            var clockCircle = document.getElementById("clockCircle");
-            var currentTime = new Date();
-            var hours = currentTime.getHours();
-            var minutes = currentTime.getMinutes();
-            
-            if (minutes < 10){
-                minutes = "0" + minutes
-            }
-            if (hours > 11) {
-                if (hours === 12) {
-                    hours = 12;
-                    clockCircle.style.marginLeft = "-16px";
-                }
-                else {
-                    hours = hours - 12;
-                    if (hours >= 10) {
-                        clockCircle.style.marginLeft = "-16px";
-                    }
-                    else {
-                        clockCircle.style.marginLeft = "-22px";
-                    }
-                }
-                t_str = hours + ":" + minutes + " " + "PM";
-            } 
-            else {
-                if (hours === 0) {
-                    hours = 12;
-                }
-                if (hours >= 10) {
-                    clockCircle.style.marginLeft = "-16px"
-                }
-                else {
-                    clockCircle.style.marginLeft = "-22px"
-                }
-                t_str = hours + ":" + minutes + " " + "AM";
-            }
-
-            document.getElementById('clock1').innerText = t_str;
-            document.getElementById('clock2').innerText = t_str;
-        }
-
-        function menu98() {
-            var menu = document.getElementById('start-menu');
-
-            if (menu.style.display === 'none') {
-                menu.style.display = 'unset';
-            }
-            else {
-                menu.style.display = 'none';
-            }
-        }
-
-        function dispelMenu98() {
-            var menu = document.getElementById('start-menu');
-            
-            if (menu.style.display !== 'none') {
-                menu.style.display = 'none';
-            }
-        }
-
-        function menuXP() {
-            var menu = document.getElementById('start-menuXP');
-            var button = document.getElementById('xpButton');
-
-            if (menu.style.display === 'none') {
-                menu.style.display = 'unset';
-                button.src = "/assets/images/xpStartBtnPost.png";
-            }
-            else {
-                menu.style.display = 'none';
-                button.src = "/assets/images/xpStartBtnPre.png";
-            }
-        }
-
-        function dispelMenuXP() {
-            var menu = document.getElementById('start-menuXP');
-            var button = document.getElementById('xpButton');
-
-            if (menu.style.display !== 'none') {
-                menu.style.display = 'none';
-                button.src = "/assets/images/xpStartBtnPre.png";
-            }
-        }
-
-        function linkedinNav() {
-            dispelMenu98();
-            dispelMenuXP();
-            $("#linkedinIcon").trigger("dblclick");
-        }
-
-        function navigateTo(url) {
-            window.open(url, '_blank').focus();
-            dispelMenu98();
-            dispelMenuXP();
-        }
-
-        function toggleTheme() {
-            var theme = document.getElementsByClassName('themeChanger');
-            var bodyPic = document.getElementsByTagName('body');
-            var styleChanger = document.getElementById('styleRange');
-            var sliderWindow = document.getElementById('slider');
-            var sidebar = document.getElementById('sidebar');
-            var main = document.getElementById('main');
-
-            var startBar = document.getElementById('startBar');
-            var start98 = document.getElementById('startButton98');
-            var clock98 = document.getElementById('98clock');
-            
-            var xpClock = document.getElementById('xpClock');
-            var startXP = document.getElementById('xpStart');
-            var gripper = document.getElementById('gripper');
-
-            var blogIcon = document.getElementById('blogImage');
-            var contactIcon = document.getElementById('contactImage');
-            var githubIcon = document.getElementById('githubImage');
-            var linkedinIcon = document.getElementById('linkedinImage');
-            var resumeIcon = document.getElementById('resumeImage');
-            var sliderIcon = document.getElementById('sliderImage');
-            var factIcon = document.getElementById('factImage');
-
-            var blog = document.getElementById('blogIcon');
-            var contact = document.getElementById('contactIcon');
-            var github = document.getElementById('githubIcon');
-            var linkedin = document.getElementById('linkedinIcon');
-            var resume = document.getElementById('resumeIcon');
-            var slider = document.getElementById('sliderIcon');
-            var fact = document.getElementById('factIcon');
-
-            var Bombsnifferheader = document.getElementById('Bombsnifferheader');
-            var bombSniffer = document.getElementById('Bombsniffer');
-            var spaceCadet = document.getElementById('SpaceCadet');
-            var snifferWarning = document.getElementById('sniffWarning');
-            var spaceWarning = document.getElementById('spaceWarning');
-            var optionsHeader = document.getElementById('optionsheader');
-
-            // Change the value of media attribute
-            // to change the active css stylesheet.
-            if (styleChanger.value == '1') {
-                theme[0].setAttribute('media', 'none');
-                theme[1].setAttribute('media', '');
-                theme[2].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "overflow: clip; font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/win98.webp');");
-                startBar.style.display = "flex";
-                startBar.className = "";
-                startBar.className = "win98";
-                start98.style.display = "flex";
-                startXP.style.display = "none";
-                gripper.style.display = "none";
-                xpClock.style.display = "none";
-                clock98.style.display = "flex";
-                blogIcon.src = "/assets/images/blog.png";
-                contactIcon.src = "/assets/images/contact.png";
-                githubIcon.src = "/assets/images/github.png";
-                linkedinIcon.src = "/assets/images/linkedin.png";
-                resumeIcon.src = "/assets/images/resume.png";
-                sliderIcon.src = "/assets/images/slider.png";
-                factIcon.src = "/assets/images/fact.png";
-                Bombsnifferheader.style.width = "calc(100% + 14px)";
-                snifferWarning.style.display = "block";
-                optionsHeader.style.marginRight = "-134px";
-
-                if (sliderWindow.classList.contains("initialCard")) {
-                    sliderWindow.classList.remove("initialCard");
-                    sidebar.style.display = "none";
-                    main.style.display = "none";
-                    blog.style.display = "block";
-                    contact.style.display = "block";
-                    github.style.display = "block";
-                    linkedin.style.display = "block";
-                    resume.style.display = "block";
-                    slider.style.display = "block";
-                    fact.style.display = "block";
-                }
-            } 
-            else if (styleChanger.value == '2') {
-                theme[1].setAttribute('media', 'none');
-                theme[0].setAttribute('media', '');
-                theme[2].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "overflow: clip; font-family: 'Franklin Gothic', sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-size: 100% 100%; background-color: white; background-image: url('assets/images/bliss.webp');");
-                startBar.style.display = "flex";
-                startBar.className = "";
-                startBar.className = "xp";
-                start98.style.display = "none";
-                startXP.style.display = "block";
-                gripper.style.display = "unset";
-                clock98.style.display = "none";
-                xpClock.style.display = "flex";
-                blogIcon.src = "/assets/images/blogXP.png";
-                contactIcon.src = "/assets/images/contactXP.png";
-                githubIcon.src = "/assets/images/githubXP.png";
-                linkedinIcon.src = "/assets/images/linkedinXP.png";
-                resumeIcon.src = "/assets/images/resumeXP.png";
-                sliderIcon.src = "/assets/images/sliderXP.png";
-                factIcon.src = "/assets/images/factXP.png";
-                Bombsnifferheader.style.width = "calc(100% + 10px)";
-                snifferWarning.style.display = "block";
-                optionsHeader.style.marginRight = "-138px";
-
-                if (sliderWindow.classList.contains("initialCard")) {
-                    sliderWindow.classList.remove("initialCard");
-                    sidebar.style.display = "none";
-                    main.style.display = "none";
-                    blog.style.display = "block";
-                    contact.style.display = "block";
-                    github.style.display = "block";
-                    linkedin.style.display = "block";
-                    resume.style.display = "block";
-                    slider.style.display = "block";
-                    fact.style.display = "block";
-                }
-            }
-            else {
-                theme[2].setAttribute('media', '');
-                theme[0].setAttribute('media', 'none');
-                theme[1].setAttribute('media', 'none');
-                bodyPic[0].setAttribute('style', "overflow-x: clip; position: absolute; bottom: 0px;display: flex; font-family: monospace; background-color: darkslateblue; color: pink; margin-top: 0;");
-                startBar.style.display = "none";
-                bombSniffer.style.display = "none";
-                snifferWarning.style.display = "none";
-                spaceCadet.style.left = "200%";
-                spaceWarning.style.display = "none";
-                blog.style.display = "none";
-                contact.style.display = "none";
-                github.style.display = "none";
-                linkedin.style.display = "none";
-                resume.style.display = "none";
-                slider.style.display = "none";
-                fact.style.display = "none";
-                sliderWindow.classList.add("initialCard");
-                sidebar.style.display = "flex";
-                main.style.display = "flex";
-            }
-        }
-
-        function loadSpaceCadet() {
-
-            if (window.innerWidth > 620) {
-                document.getElementById("SpaceCadet").style.top = "15px";
-                document.getElementById("SpaceCadet").style.left = "15%";
-
-                if (document.getElementById("scadet") == null) {
-                    $("body").append('<script id=\"loading\">var statusElement=document.getElementById(\"status\"),progressElement=document.getElementById(\"progress\"),Module={preRun:[],postRun:[],print:function(){var e=document.getElementById(\"output\");return e&&(e.value=\"\"),function(e){arguments.length>1&&(e=Array.prototype.slice.call(arguments).join(\" \")),console.log(e)}}(),printErr:function(e){arguments.length>1&&(e=Array.prototype.slice.call(arguments).join(\" \")),console.error(e)},canvas:function(){var e=document.getElementById(\"canvas\");return e.addEventListener(\"webglcontextlost\",(function(e){alert(\"WebGL context lost. You will need to reload the page.\"),e.preventDefault()}),!1),e}(),setStatus:function(e){if(Module.setStatus.last||(Module.setStatus.last={time:Date.now(),text:\"\"}),e!==Module.setStatus.last.text){var t=e.match(\/([^(]+)\\((\\d+(\\.\\d+)?)\\\/(\\d+)\\)\/),n=Date.now();if(!(t&&n-Module.setStatus.last.time<30)){if(Module.setStatus.last.time=n,Module.setStatus.last.text=e,t)e=t[1],progressElement.value=100*parseInt(t[2]),progressElement.max=100*parseInt(t[4]),progressElement.hidden=!1;else progressElement.value=null,progressElement.max=null,progressElement.hidden=!0,document.getElementById(\"canvas\").style.display=\"\";statusElement.innerHTML=e,\"\"===e?(statusElement.style.display=\"none\",progressElement.style.display=\"none\"):(statusElement.style.display=\"\",progressElement.style.display=\"\")}}},totalDependencies:0,monitorRunDependencies:function(e){this.totalDependencies=Math.max(this.totalDependencies,e),Module.setStatus(e?\"Preparing... (\"+(this.totalDependencies-e)+\"\/\"+this.totalDependencies+\")\":\"All downloads complete.\")}};Module.setStatus(\"Downloading...\"),window.onerror=function(){Module.setStatus(\"Exception thrown, see JavaScript console\"),Module.setStatus=function(e){e&&Module.printErr(\"[post-exception status] \"+e)}}<\/script>');
-                    $("body").append('<script id=\"scadet\" async src=\"assets\/SpaceCadet\/SpaceCadetPinball.js\"><\/script>');
-                }
-            } else {
-                document.getElementById("spaceWarning").style.display = "block";
-            }
-        }
-
-        function unloadSpaceCadet() {
-            document.getElementById("SpaceCadet").style.left = "200%";
-        }
-
-        function dispelWarning() {
-            document.getElementById("spaceWarning").style.display = "none";
-        }
-
-        function getHighest() {
-            var sniff = document.getElementById("Bombsniffer");
-            var space = document.getElementById("SpaceCadet");
-            var slide = document.getElementById("slider");
-            var max = 0;
-
-            if (parseInt(sniff.style.zIndex) > parseInt(space.style.zIndex)) {
-                max = parseInt(sniff.style.zIndex);
-            } else {
-                max = parseInt(space.style.zIndex);
-            }
-
-            if (parseInt(slide.style.zIndex) > max) {
-                max = parseInt(slide.style.zIndex);
-            }
-
-            return max > 0 ? max : 1;
-        }
-
-        // Make stuff draggable:
-        dragElement(document.getElementById("blogIcon"));
-        dragElement(document.getElementById("contactIcon"));
-        dragElement(document.getElementById("githubIcon"));
-        dragElement(document.getElementById("linkedinIcon"));
-        dragElement(document.getElementById("sliderIcon"));
-        dragElement(document.getElementById("resumeIcon"));
-        dragElement(document.getElementById("factIcon"));
-        dragWindow(document.getElementById("Bombsniffer"));
-        dragWindow(document.getElementById("SpaceCadet"));
-        dragWindow(document.getElementById("options"));
-        dragWindow(document.getElementById("display"));
-        dragWindow(document.getElementById("controls"));
-        dragWindow(document.getElementById("import"));
-        dragWindow(document.getElementById("export"));
-        dragWindow(document.getElementById("slider"));
-
-        function dragWindow(elmnt) {
-            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-            if (document.getElementById(elmnt.id + "header")) {
-                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-            } else {
-                elmnt.onmousedown = dragMouseDown;
-            }
-
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                elmnt.focus();
-                elmnt.style.zIndex = (getHighest() + 1).toString();
-                
-                // get the mouse cursor position at startup:
-                pos3 = e.clientX || e.targetTouches[0].clientX;
-                pos4 = e.clientY || e.targetTouches[0].clientY;;
-                document.addEventListener('mouseup', closeDragElement, false);
-
-                // call a function whenever the cursor moves:
-                document.addEventListener('mousemove', elementDrag, false);
-            }
-
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-
-                // calculate the new cursor position:
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-
-                // set the element's new position:
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            }
-
-            function closeDragElement() {
-                document.removeEventListener('mouseup', closeDragElement, false);
-                document.removeEventListener('mousemove', elementDrag, false);
-            }
-        }
-
-        function dragElement(elmnt) {
-            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            elmnt.addEventListener('mousedown', dragMouseDown, false);
-            elmnt.addEventListener('touchstart', dragMouseDownMob, false);
-
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                elmnt.focus();
-                
-                // get the mouse cursor position at startup:
-                pos3 = e.clientX || e.targetTouches[0].clientX;
-                pos4 = e.clientY || e.targetTouches[0].clientY;;
-                document.addEventListener('mouseup', closeDragElement, false);
-                // call a function whenever the cursor moves:
-                document.addEventListener('mousemove', elementDrag, false);
-            }
-
-            function dragMouseDownMob(e) {
-                e = e || window.event;
-                e.preventDefault();
-                elmnt.focus();
-
-                // get the touch location at startup:
-                pos3 = e.targetTouches[0].clientX;
-                pos4 = e.targetTouches[0].clientY;;
-                document.addEventListener('touchend', closeDragElement, false);
-                document.addEventListener('mouseup', closeDragElement, false);
-
-                // call a function when the finger moves:
-                document.addEventListener('touchmove', elementDragMob, false);
-            }
-
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-
-                // calculate the new cursor position:
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-
-                // set the element's new position:
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            }
-
-            function elementDragMob(e) {
-                e = e || window.event;
-                e.preventDefault();
-
-                // calculate the new touch location:
-                pos1 = pos3 - e.targetTouches[0].clientX;
-                pos2 = pos4 - e.targetTouches[0].clientY;
-                pos3 = e.targetTouches[0].clientX;
-                pos4 = e.targetTouches[0].clientY;
-
-                // set the element's new position:
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            }
-
-            function closeDragElement() {
-                // stop moving when mouse button/finger is released/raised:
-                document.removeEventListener('mouseup', closeDragElement, false);
-                document.removeEventListener('touchend', closeDragElement, false);
-                document.removeEventListener('mousemove', elementDrag, false);
-                document.removeEventListener('mousemove', elementDragMob, false);
-                document.removeEventListener('touchmove', elementDragMob, false);
-                document.removeEventListener('touchmove', elementDrag, false);
-            }
-        }
-
-        updateTime();
-
-        var body = document.getElementsByTagName("body")[0];
-        var blogIcon = document.getElementById("blogIcon");
-        var contactIcon = document.getElementById("contactIcon");
-        var githubIcon = document.getElementById("githubIcon");
-        var linkedinIcon = document.getElementById("linkedinIcon");
-        var sliderIcon = document.getElementById("sliderIcon");
-        var resumeIcon = document.getElementById("resumeIcon");
-        var factIcon = document.getElementById("factIcon");
-
-        var bodyTap = new Hammer(body);
-        var blogIconTap = new Hammer(blogIcon);
-        var contactIconTap = new Hammer(contactIcon);
-        var githubIconTap = new Hammer(githubIcon);
-        var linkedinIconTap = new Hammer(linkedinIcon);
-        var sliderIconTap = new Hammer(sliderIcon);
-        var resumeIconTap = new Hammer(resumeIcon);
-        var factIconTap = new Hammer(factIcon);
-
-        bodyTap.on('tap', function() {
-            // this is definitely hacky, but this is what dang makes the start menu functional for mobile Safari AKA the new IE
-            if (document.getElementById('start-menu').style.display === "unset") {
-                setTimeout(function() {
-                    dispelMenu98();
-                }, 50);
-            }
-            else if (document.getElementById('start-menuXP').style.display === "unset") {
-                setTimeout(function() {
-                    dispelMenuXP();
-                }, 50);
-            }
-        });
-
-        blogIconTap.on('doubletap', function() {
-            if ($(window).width() < 767) {
-                window.open('/blog', "_blank");
-            }
-        });
-
-        contactIconTap.on('doubletap', function() {
-            window.open('mailto:ethanexline@gmail.com');
-        });
-
-        githubIconTap.on('doubletap', function() {
-            if ($(window).width() < 767) {
-                window.open('https://github.com/ethanexline', "_blank");
-            }
-        });
-
-        sliderIconTap.on('doubletap', function() {
-            document.getElementById('slider').style.display = 'block';
-        });
-
-        linkedinIconTap.on('doubletap', function() {
-            if ($(window).width() < 767) {
-                window.open('https://www.linkedin.com/in/ethan-exline-b9b369201/', "_blank");
-            }
-        });
-
-        resumeIconTap.on('doubletap', function() {
-            if ($(window).width() < 767) {
-                window.open('https://docs.google.com/document/d/1RQ8oDsmeiHMNIHJQmh23w6evR7nBwG9K/edit?usp=sharing&ouid=116941067584196312043&rtpof=true&sd=true', "_blank");
-            }
-        });
-
-        factIconTap.on('doubletap', function() {
-            if ($(window).width() < 767) {
-                window.open('fact.html', "_blank");
-            }
-        });
-
-        window.onresize = function () {
-            const draggables = document.getElementsByClassName('drag');
-
-            for (let i = 0; i < draggables.length; i++) {
-                if (parseInt(draggables[i].style.left) >= window.innerWidth) {
-                    draggables[i].style.left = (window.innerWidth - 100) + 'px';
-                }
-                if (parseInt(draggables[i].style.top) >= window.innerHeight - 100) {
-                    draggables[i].style.top = (window.innerHeight - 150) + 'px';
-                }
-            }
-
-            if (window.innerWidth < 620) {
-                if (document.getElementById("SpaceCadet").style.left != "200%") {
-                    unloadSpaceCadet();
-                    document.getElementById("spaceWarning").style.display = "block";
-                }
-            } 
-            else {
-                dispelWarning();
-                if (document.getElementById("SpaceCadet").style.left != "200%") {
-                    loadSpaceCadet();
-                }
-            }
-        }
-    </script>
-
-    <!-- bombsniffer script -->
-    <script>
-        $(function() {
-            var gameType = 'expert';
-            var zoom = '100';
-            var position = 'center';
-            var isNightMode = false;
-            var hashParts, i;
-            var minesweeper;
-
-            if (!!location.hash && location.hash.length > 1) {
-                hashParts = location.hash.substring(1).split('-');
-
-                for (i = 0; i < hashParts.length; i++) {
-                    switch (hashParts[i]) {
-                        case 'beginner':     gameType = 'beginner';     break;
-                        case 'intermediate': gameType = 'intermediate'; break;
-                        case '150':          zoom = '150';              break;
-                        case '200':          zoom = '200';              break;
-                        case 'left':         position = 'left';         break;
-                        case 'night':        isNightMode = true;        break;
-                    }
-                }
-            }
-
-            $('#' + gameType).attr('checked', true);
-            $('#zoom' + zoom).attr('checked', true);
-            $('#position-' + position).attr('checked', true);
-            $('#nightMode').attr('checked', isNightMode);
-
-            document.getElementById('game-container').className = 'z' + zoom;
-            setPosition(position);
-
-            if (isNightMode) {
-                toggleNightMode(isNightMode);
-            }
-
-            minesweeper = new Minesweeper([
-                [ 2, 17, 62],
-                [ 2, 14, 53],
-                [ 1, 13, 51],
-                [ 1, 10, 45]
-            ], getOptions, setOptions);
-
-            minesweeper.onWin = function(gameTypeId, time) {
-            };
-
-            minesweeper.onNewHighScore = function(intervalTypeId) {
-            };
-
-            minesweeper.newGame();
-            setHash();
-
-            $("#options-link, #options-close").click(function() {
-                $("#options").toggle();
-                $("#display").hide();
-                $("#controls").hide();
-                $("#import").hide();
-                $("#export").hide();
-            });
-
-            $("#options-form").submit(function(e) {
-                $("#options").hide();
-                minesweeper.newGame();
-                setHash();
-                e.preventDefault();
-            });
-
-            $("#display-link, #display-close").click(function() {
-                $("#options").hide();
-                $("#display").toggle();
-                $("#controls").hide();
-                $("#import").hide();
-                $("#export").hide();
-            });
-
-            $('input[name="zoom"]').change(function() {
-                var zoom = parseFloat($(this).val());
-                minesweeper.resize(zoom);
-                setHash();
-            });
-
-            $('input[name="position"]').change(function() {
-                setPosition($(this).val());
-                setHash();
-            });
-
-            $('input[name="nightMode"]').change(function() {
-                var isNightMode = $(this).is(':checked');
-                toggleNightMode(isNightMode);
-                setHash();
-            });
-
-            $("#controls-link, #controls-close").click(function() {
-                $("#options").hide();
-                $("#display").hide();
-                $("#controls").toggle();
-                $("#import").hide();
-                $("#export").hide();
-            });
-
-            $("#import-link, #import-close").click(function() {
-                $("#options").hide();
-                $("#display").hide();
-                $("#controls").hide();
-                $("#import").toggle();
-                $("#export").hide();
-
-                if ($('#import').is(':visible')) {
-                    $('#import input[type=submit]').prop('disabled', true);
-                    // trigger propertychange so "load game" button becomes enabled/disabled as needed
-                    $('#import textarea').select().trigger('propertychange');
-                }
-            });
-
-            $('#import textarea').bind('input propertychange', function() {
-                var isImportable = minesweeper.isImportable($.trim($(this).val()));
-                $('#import input[type=submit]').prop('disabled', !isImportable);
-            });
-
-            $("#import-form").submit(function(e) {
-                $("#import").hide();
-                minesweeper.import_($.trim($('#import textarea').val()));
-                e.preventDefault();
-            });
-
-            $("#export-link, #export-close").click(function() {
-                $("#options").hide();
-                $("#display").hide();
-                $("#controls").hide();
-                $("#import").hide();
-                $("#export").toggle();
-
-                if ($('#export').is(':visible')) {
-                    $('#export textarea').val(minesweeper.export_()).select();
-                    var didCopySucceed = document.execCommand('copy');
-                    $('#export-message').text(didCopySucceed ? 'Game state copied to your clipboard!' : 'Copy game state to your clipboard:');
-                    $('#export-first-click-message').toggle(!minesweeper.hasStartedPlaying());
-                }
-            });
-
-            $('#export textarea').mousedown(function () {
-                // If the textarea already has focus, don't override default behavior.
-                if (document.activeElement === $(this)[0]) {
-                    return;
-                }
-                // Defer or else the ensuing click event will un-highlight.
-                var that = this;
-                setTimeout(() => {
-                    $(that).select();	
-                }, 0);
-            });
-
-            $(document).keydown(function(e) {
-                if (e.keyCode == 27) { //escape
-                    $("#options, #display, #controls, #import, #export").hide();
-                }
-            });
-
-            function setPosition(position) {
-                if (position == 'left') {
-                    $('.outer-container').css('text-align', 'left' );
-                    $('body').css('margin-left', '20px');
-                }
-                else if (position == 'center') {
-                    $('.outer-container').css('text-align', 'center');
-                    $('body').css('margin-left', '0px');
-                }
-            }
-
-            function toggleNightMode(isOn) {
-                $('body').toggleClass('night-mode', isOn);
-            }
-
-            function getOptions() {
-                var gameTypeId;
-                var numRows;
-                var numCols;
-                var numMines;
-                var zoom;
-
-                if ($("#beginner").is(':checked')) {
-                    gameTypeId = 1;
-                    numRows = 9;
-                    numCols = 9;
-                    numMines = 10;
-                }
-                else if ($("#intermediate").is(':checked')) {
-                    gameTypeId = 2;
-                    numRows = 16;
-                    numCols = 16;
-                    numMines = 40;
-                }
-                else if ($("#expert").is(':checked')) {
-                    gameTypeId = 3;
-                    numRows = 16;
-                    numCols = 30;
-                    numMines = 99;
-                }
-                else if ($("#custom").is(':checked')) {
-                    gameTypeId = 0;
-
-                    numRows = parseInt($("#custom_height").val(), 10);
-                    if (isNaN(numRows)) {
-                        numRows = 20;
-                    }
-                    numRows = Math.max(1, numRows);
-                    numRows = Math.min(99, numRows);
-                    $("#custom_height").val(numRows);
-
-                    numCols = parseInt($("#custom_width").val(), 10);
-                    if (isNaN(numCols)) {
-                        numCols = 30;
-                    }
-                    numCols = Math.max(8, numCols);
-                    numCols = Math.min(99, numCols);
-                    $("#custom_width").val(numCols);
-
-                    numMines = parseInt($("#custom_mines").val(), 10);
-                    if (isNaN(numMines)) {
-                        numMines = Math.round(numRows * numCols / 5);
-                    }
-                    numMines = Math.max(0, numMines);
-                    numMines = Math.min(numRows * numCols - 1, numMines);
-                    $("#custom_mines").val(numMines);
-                }
-
-                zoom = parseFloat($('input[name="zoom"]:checked').val());
-                return {
-                    gameTypeId: gameTypeId,
-                    numRows: numRows,
-                    numCols: numCols,
-                    numMines: numMines,
-                    zoom: zoom
-                };
-            }
-
-            function setOptions(options) {
-                switch (options.gameTypeId) {
-                    case 1: $('#beginner').prop('checked', true); break;
-                    case 2: $('#intermediate').prop('checked', true); break;
-                    case 3: $('#expert').prop('checked', true); break;
-                    default:
-                        $('#custom').prop('checked', true);
-                        $('#custom_height').val(options.numRows);
-                        $('#custom_width').val(options.numCols);
-                        $('#custom_mines').val(options.numMines);
-                        break;
-                }
-            }
-
-            function setHash() {
-                var gameType = 'expert';
-                var zoom = $('input[name="zoom"]:checked').val();
-                var position = $('input[name="position"]:checked').val();
-                var isNightMode = $('input[name="nightMode"]').is(':checked');
-                var hashParts = [];
-
-                if ($("#beginner").attr("checked")) {
-                    hashParts.push("beginner");
-                }
-                else if ($("#intermediate").attr("checked")) {
-                    hashParts.push("intermediate");
-                }
-
-                if (zoom != 1) {
-                    hashParts.push(zoom * 100);
-                }
-
-                if (position != "center") {
-                    hashParts.push(position);
-                }
-
-                if (isNightMode) {
-                    hashParts.push('night');
-                }
-
-                if (hashParts.length > 0) {
-                    location.hash = '#' + hashParts.join('-');
-                }
-                else {
-                    location.hash = '';
-                }
-            }
-        });
-	</script>
-
-    <!-- Space Cadet stuff -->
-    <!-- <script>
-        var statusElement = document.getElementById("status")
-        var progressElement = document.getElementById("progress")
-        Module = {
-            preRun: [],
-            postRun: [],
-            print: function() {
-                var e = document.getElementById("output");
-                return e && (e.value = ""),
-                    function(e) {
-                        arguments.length > 1 && (e = Array.prototype.slice.call(arguments).join(" ")), console.log(e)
-                    }
-            }(),
-            printErr: function(e) {
-                arguments.length > 1 && (e = Array.prototype.slice.call(arguments).join(" ")), console.error(e)
-            },
-            canvas: function() {
-                var e = document.getElementById("canvas");
-                return e.addEventListener("webglcontextlost", (function(e) {
-                    alert("WebGL context lost. You will need to reload the page."), e.preventDefault()
-                }), !1), e
-            }(),
-            setStatus: function(e) {
-                if (Module.setStatus.last || (Module.setStatus.last = {
-                        time: Date.now(),
-                        text: ""
-                    }), e !== Module.setStatus.last.text) {
-                    var t = e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/),
-                        n = Date.now();
-                    if (!(t && n - Module.setStatus.last.time < 30)) {
-                        if (Module.setStatus.last.time = n, Module.setStatus.last.text = e, t) e = t[1], progressElement.value = 100 * parseInt(t[2]), progressElement.max = 100 * parseInt(t[4]), progressElement.hidden = !1;
-                        else progressElement.value = null, progressElement.max = null, progressElement.hidden = !0, document.getElementById("canvas").style.display = "";
-                        statusElement.innerHTML = e, "" === e ? (statusElement.style.display = "none", progressElement.style.display = "none") : (statusElement.style.display = "", progressElement.style.display = "")
-                    }
-                }
-            },
-            totalDependencies: 0,
-            monitorRunDependencies: function(e) {
-                this.totalDependencies = Math.max(this.totalDependencies, e), Module.setStatus(e ? "Preparing... (" + (this.totalDependencies - e) + "/" + this.totalDependencies + ")" : "All downloads complete.")
-            }
-        };
-        Module.setStatus("Downloading..."), window.onerror = function() {
-            Module.setStatus("Exception thrown, see JavaScript console"), Module.setStatus = function(e) {
-                e && Module.printErr("[post-exception status] " + e)
-            }
-        } 
-    </script>
-
-    <script async src="assets/SpaceCadet/SpaceCadetPinball.js"></script> -->
+    <!-- all the dumb general reactivity junk -->
+    <script type="text/javascript" src="/assets/js/reactivity.js"></script>
 </html>

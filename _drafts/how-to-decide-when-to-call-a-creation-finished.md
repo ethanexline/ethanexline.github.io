@@ -12,7 +12,7 @@ tags: coding css javascript design updates
 
 ##### Bold of me to imply I'm a designer? Possibly.
 
-I have decided that, pending another \**spark*\*, the landing page for my site is complete. The three views are functional and behave as expected in both desktop and mobile views - the only behavior I'd really like to change is that the start menus don't dismiss when clicked outside of on mobile. Oops, I accidentally fixed it. (thank you [hammer.js](https://hammerjs.github.io/)) Ok, it's already kind of a moot point because in between the writing of the last sentence and this one, I've already made like 150 changes, but I fully **in**tend to **pre**tend that I'm gonna stop doing that. To that end, I posit this question:
+I have decided that, pending another \**spark*\*, the landing page for my site is complete. The four views are functional and behave as expected in both desktop and mobile views - the only behavior I'd really like to change is that the start menus don't dismiss when clicked outside of on mobile. Oops, I accidentally fixed it. (thank you [hammer.js](https://hammerjs.github.io/)) Ok, it's already kind of a moot point because in between the writing of the last sentence and this one, I've already made like 150 changes, but I fully **in**tend to **pre**tend that I'm gonna stop doing that. To that end, I posit this question:
 
 ###### How do "creatives" know when a "piece" is done?
 
