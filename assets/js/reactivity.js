@@ -253,8 +253,7 @@ function toggleTheme() {
         theme[1].setAttribute('media', 'none');
         theme[2].setAttribute('media', 'none');
         theme[3].setAttribute('media', 'none');
-        bodyPic[0].setAttribute('style', "overflow: hidden; font-family: Tahoma, sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; " +
-            "background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; " +
+        bodyPic[0].setAttribute('style', "overflow: hidden; font-family: Tahoma, sans-serif; min-height: 100%; " +
             "background-size: " + window.innerWidth + "px " + window.innerHeight + "px; background-color: white; background-image: url('assets/images/win98.webp'); " +
             "max-width: 100vw;");
         startBar.style.display = "flex";
@@ -306,10 +305,9 @@ function toggleTheme() {
         theme[1].setAttribute('media', '');
         theme[2].setAttribute('media', 'none');
         theme[3].setAttribute('media', 'none');
-        bodyPic[0].setAttribute('style', "overflow: hidden; font-family: 'Franklin Gothic', sans-serif; min-height: 100%; background-repeat: no-repeat; " +
-            "background-attachment: fixed; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; " +
-            "background-size: cover; background-size: " + window.innerWidth + "px " + window.innerHeight + "px; background-color: white; " +
-            "background-image: url('assets/images/bliss.webp'); max-width: 100vw;");
+        bodyPic[0].setAttribute('style', "overflow: hidden; font-family: 'Franklin Gothic', sans-serif; min-height: 100%; " +
+            "background-size: " + window.innerWidth + "px " + window.innerHeight + "px; background-color: white; background-image: url('assets/images/bliss.webp'); " +
+            "max-width: 100vw;");
         startBar.style.display = "flex";
         startBar.className = "";
         startBar.className = "xp";
@@ -359,9 +357,9 @@ function toggleTheme() {
         theme[1].setAttribute('media', 'none');
         theme[2].setAttribute('media', '');
         theme[3].setAttribute('media', 'none');
-        bodyPic[0].setAttribute('style', "overflow: hidden; font-family: 'Segoe UI', sans-serif; min-height: 100%; background-repeat: no-repeat; background-attachment: fixed; " +
-            "background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; " +
-            "background-size: " + window.innerWidth + "px " + window.innerHeight + "px; background-color: white; background-image: url('assets/images/win7default.webp'); max-width: 100vw;");
+        bodyPic[0].setAttribute('style', "overflow: hidden; font-family: 'Segoe UI', sans-serif; min-height: 100%; " +
+            "background-size: " + window.innerWidth + "px " + window.innerHeight + "px; background-color: white; background-image: url('assets/images/win7default.webp'); " +
+            "max-width: 100vw;");
         startBar.style.display = "flex";
         startBar.className = "";
         startBar.className = "seven window glass";
