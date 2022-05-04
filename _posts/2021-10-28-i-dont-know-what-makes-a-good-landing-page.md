@@ -2,7 +2,7 @@
 layout: post
 title: I don't know what makes a good landing page
 description: I'm hoping weirdness translates to eccentric talent
-summary: Creativity or insanity?
+summary: Am I displaying creativity or just being a weirdo?
 tags: coding css javascript design learning
 ---
 
