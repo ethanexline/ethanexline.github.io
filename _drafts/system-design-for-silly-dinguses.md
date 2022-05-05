@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Recursion for Rot-brains
+title: System Design for Silly Dinguses
 description: join me on a journey to competency
-summary: inspired by Elden Ring
+summary: it can be so dang complicated
 tags: coding learning leetcode CS4CS
 ---

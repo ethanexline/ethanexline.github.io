@@ -3,7 +3,7 @@ layout: post
 title: BFS for Big Fat Schmucks
 description: join me on a journey to competency
 summary: Breadth-First (re)Search
-tags: coding learning leetcode AS4AS
+tags: coding learning leetcode CS4CS
 ---
 
 ##### Or, Level-Order Traversal
