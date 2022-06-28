@@ -25,7 +25,7 @@ A visual representation of BFS in action (white = unexplored, grey = queued to b
 ![stolen from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif "stolen from Wikipedia")
 {: refdef}
 
-### <u>CODE</u>
+### <u>EXTREMELY BASIC CODE</u>
 
 In Python3:
 ```python
@@ -42,9 +42,11 @@ In Python3:
         while queue:
             node = queue.pop()
             if node:
-                # whatever processing
-                queue.append(node.left)
-                queue.append(node.right)
+                if node.left:
+                    queue.append(node.left)
+                
+                if node.right:
+                    queue.append(node.right)
 ```
 
 (let me know if there's demand for showing the code in other languages, this is just what's most native to me)
