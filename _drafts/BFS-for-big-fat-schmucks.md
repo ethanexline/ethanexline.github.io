@@ -10,7 +10,7 @@ tags: coding learning leetcode CS4CS
 
 ### <u>DEFINITION</u>
 
-Breadth-First Search, or BFS, is an algorithm that traverses a tree or graph, but rather than traversing down through each node's child nodes as soon as they are encountered, it traverses all nodes at each "level" before moving on to that level's nodes' child nodes. In other words, starting with the "root" node, it traverses the root, then traverses all the root's children in the order encountered, then traverses all of those nodes' children, into infinity. It (typically) does this by utilizing a second data structure,usually a queue, as the FIFO (first in, first out) behavior is important to ensure traversal happens in the proper order, and placing unexplored child nodes of each traversed node into this structure. While this queue still has contents (that is, until we've reached a point where no more nodes have child nodes) and what is being searched for hasn't been found, traversal continues.
+Breadth-First Search, or BFS, is an algorithm that traverses a tree or graph, but rather than traversing down through each node's child nodes as soon as they are encountered (DFS), it traverses all nodes at each "level" before moving on to that level's nodes' child nodes. In other words, starting with the "root" node, it traverses the root, then traverses all the root's children in the order encountered, then traverses all of those nodes' children, into infinity. It (typically) does this by utilizing a second data structure, usually a queue, as the FIFO (first in, first out) behavior is important to ensure traversal happens in the proper order, and placing unexplored child nodes of each traversed node into this structure. While this queue still has contents (that is, until we've reached a point where no more nodes have child nodes) and what is being searched for hasn't been found, traversal continues.
 
 So, these are the events in order: 
 1. Queue is made, with the root as its only contents
@@ -29,7 +29,7 @@ A visual representation of BFS in action (white = unexplored, grey = queued to b
 
 In Python3:
 ```python
-    # (this definition is for a node of a binary tree)
+    # (given the following definition for a node of a binary tree)
 
     # class Node:
     # def __init__(self, val=0, left=None, right=None):
@@ -37,16 +37,16 @@ In Python3:
     #    self.left = left
     #    self.right = right
 
-    def BFS(self, root: Optional[Node]):
-        queue = [(root)]
+    from collections import deque
+
+    def BFSTree(self, root: Optional[Node]):
+        queue = deque([root])
         while queue:
-            node = queue.pop()
-            if node:
-                if node.left:
-                    queue.append(node.left)
-                
-                if node.right:
-                    queue.append(node.right)
+            node = queue.popleft()
+            for child in (node.left, node.right): # iterate over all child nodes of current node
+                if child:
+                    queue.append(child)
 ```
 
-(let me know if there's demand for showing the code in other languages, this is just what's most native to me)
+(let me know if there's demand for showing the code in other languages, this is just what's most native to me [and [probably the best language for coding interviews](https://www.techinterviewhandbook.org/programming-languages-for-coding-interviews/)])
+

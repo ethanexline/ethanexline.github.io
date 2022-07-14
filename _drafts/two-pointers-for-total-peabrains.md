@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Recursion for Rot-brains
+title: Two Pointers for Total Peabrains
 description: join me on a journey to competency
-summary: the Towers of Hanoi quake in fear
+summary: Or, how to remove a nested for-loop
 tags: coding learning leetcode CS4CS
 ---
