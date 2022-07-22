@@ -447,23 +447,17 @@ function toggleTheme() {
     }
 }
 
-function getHighest() {
+// this function's weirdness is a holdover from a refactor; 
+function zIndexReset() {
     var sniff = document.getElementById("Bombsniffer");
     var space = document.getElementById("SpaceCadet");
     var slide = document.getElementById("slider");
-    var max = 0;
+    
+    sniff.style.zIndex = 1
+    space.style.zIndex = 1
+    slide.style.zIndex = 1
 
-    if (parseInt(sniff.style.zIndex) > parseInt(space.style.zIndex)) {
-        max = parseInt(sniff.style.zIndex);
-    } else {
-        max = parseInt(space.style.zIndex);
-    }
-
-    if (parseInt(slide.style.zIndex) > max) {
-        max = parseInt(slide.style.zIndex);
-    }
-
-    return max > 0 ? max : 1;
+    return 1;
 }
 
 // Make stuff draggable:
@@ -496,7 +490,7 @@ function dragWindow(elmnt) {
         e = e || window.event;
         e.preventDefault();
         elmnt.focus();
-        elmnt.style.zIndex = (getHighest() + 1).toString();
+        elmnt.style.zIndex = zIndexReset() + 1;
         
         // get the mouse cursor position at startup:
         pos3 = e.clientX || e.targetTouches[0].clientX;

@@ -138,7 +138,7 @@ li.window::before {
     transition: -webkit-transform .25s;
     transition: transform .25s;
     transition: transform .25s,-webkit-transform .25s;
-    z-index: 2;
+    z-index: 1000;
 }
 
 #start-menuXP {
@@ -155,7 +155,7 @@ li.window::before {
     transition: -webkit-transform .25s;
     transition: transform .25s;
     transition: transform .25s,-webkit-transform .25s;
-    z-index: 2;
+    z-index: 1000;
 }
 
 #start-menu7 {
@@ -172,7 +172,7 @@ li.window::before {
     transition: -webkit-transform .25s;
     transition: transform .25s;
     transition: transform .25s,-webkit-transform .25s;
-    z-index: 2;
+    z-index: 1000;
 }
 
 #start-menu7::before {

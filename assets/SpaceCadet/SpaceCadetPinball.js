@@ -1350,18 +1350,18 @@ var ASM_CONSTS = {
         }
         var SDL2 = Module["SDL2"];
         if (!$0) {
-            //SDL2.audio = {}
+            SDL2.audio = {}
         } else {
             SDL2.capture = {}
         }
         if (!SDL2.audioContext) {
             if (typeof AudioContext !== "undefined") {
-                //SDL2.audioContext = new AudioContext
+                SDL2.audioContext = new AudioContext
             } else if (typeof webkitAudioContext !== "undefined") {
                 SDL2.audioContext = new webkitAudioContext
             }
             if (SDL2.audioContext) {
-                //autoResumeAudioContext(SDL2.audioContext)
+                autoResumeAudioContext(SDL2.audioContext)
             }
         }
         return SDL2.audioContext === undefined ? -1 : 0
@@ -1455,7 +1455,7 @@ var ASM_CONSTS = {
             }
         }
     },
-    3409352: function($0) {
+    3409352: function($0) { //*** important??
         var SDL2 = Module["SDL2"];
         if ($0) {
             if (SDL2.capture.silenceTimer !== undefined) {
@@ -9208,6 +9208,22 @@ function callMain(args) {
         }
     } finally {
         calledMain = true
+    }
+}
+
+function audioContextSuspend() {
+    var SDL2 = Module["SDL2"];
+
+    if (SDL2.audioContext !== undefined && SDL2.capture === undefined) {
+        SDL2.audioContext.suspend();
+    }
+}
+
+function audioContextResume() {
+    var SDL2 = Module["SDL2"];
+
+    if (SDL2.audioContext !== undefined && SDL2.capture === undefined) {
+        SDL2.audioContext.resume();
     }
 }
 

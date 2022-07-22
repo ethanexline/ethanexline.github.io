@@ -49,7 +49,7 @@ var addComment = function() {
     }).then(
       function (data) {
         if (data.ok) {
-          showModal('Comment submitted', 'Thanks - your comment is <a href="https://github.com/ethanexline/ethanexline.github.io/pulls">being reviewed</a>. It will appear if I like it.');
+          showModal('Comment submitted', 'Thanks - your comment is <a href="https://github.com/ethanexline/ethanexline.github.io/pulls">being reviewed</a>. It will appear if it ain\'t objectionable.');
           form.reset();
           form.doReset();
         } else {
