@@ -1,5 +1,8 @@
 function loadBombSniffer() {
     if (window.innerWidth > 620) {
+        if (document.getElementById("Bombsniffer").style.width == "522px") {
+            document.getElementById("Bombsniffer").style.width = "500px"
+        }
         document.getElementById("Bombsniffer").style.display = "block";
     } else {
         document.getElementById("sniffWarning").style.display = "block";
@@ -47,9 +50,6 @@ $(function() {
         [ 1, 13, 51],
         [ 1, 10, 45]
     ], getOptions, setOptions);
-
-    minesweeper.resize(1.5);
-    minesweeper.resize(1);
 
     minesweeper.onWin = function(gameTypeId, time) {
     };
