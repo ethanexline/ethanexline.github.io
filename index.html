@@ -53,7 +53,7 @@
 
                     <h6>Or perhaps you were looking to get funky:</h6>
                     <ul>
-                        <li><a style="cursor: pointer; text-decoration: underline;" onclick="document.getElementById('slider').style.display = 'block'; this.style.zIndex = (zIndexReset() + 1).toString(); return false;">monkey around <br> with the <br> Nostalgia Slider</a></li>
+                        <li><a style="cursor: pointer; text-decoration: underline;" onclick="document.getElementById('slider').style.display = 'block'; this.style.zIndex = (zIndexIncrement() + 1).toString(); return false;">monkey around <br> with the <br> Nostalgia Slider</a></li>
                         <li><a style="cursor: pointer; text-decoration: underline;" href="/fact.html" target="_blank">sample my <br><i>very</i> dumb <br> Fact API</a></li>
                     </ul>
                 </div>
@@ -118,7 +118,7 @@
             </div>
         </a>
 
-        <a id="sliderIcon" class="drag" onclick="return false" ondblclick="document.getElementById('slider').style.display = 'block'; this.style.zIndex = (zIndexReset() + 1).toString();" tabindex="4" style="left: 75px">
+        <a id="sliderIcon" class="drag" onclick="return false" ondblclick="document.getElementById('slider').style.display = 'block'; this.style.zIndex = (zIndexIncrement() + 1).toString();" tabindex="4" style="left: 75px">
             <div class="icon">
                 <div class="icon__inner">
                     <div class="icon__image">
@@ -419,7 +419,7 @@
                             </a>
                         </li>
                         <li class="start-item">
-                            <a class="start-item__button7" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu7(); document.getElementById('slider').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (zIndexReset() + 1).toString(); dispelMenu7();">
+                            <a class="start-item__button7" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu7(); document.getElementById('slider').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenu7();">
                                 <div class="start-item__icon">
                                     <img id="sliderStart" src="assets/images/slider7.png" alt="Nostalgia Slider">
                                 </div>
@@ -435,7 +435,7 @@
                             </a>
                         </li>
                         <li class="start-item">
-                            <a class="start-item__button7" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (zIndexReset() + 1).toString(); dispelMenu7();">
+                            <a class="start-item__button7" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenu7();">
                                 <div class="start-item__icon">
                                     <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                                 </div>
@@ -443,7 +443,7 @@
                             </a>
                         </li>
                         <li class="start-item">
-                            <a id="last" class="start-item__button7" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexReset() + 1).toString(); dispelMenu7();">
+                            <a id="last" class="start-item__button7" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenu7();">
                                 <div class="start-item__icon">
                                     <img id="spaceStart" src="assets/images/SpaceCadetXP.png" alt="Space Cadet Pinball">
                                 </div>
@@ -560,7 +560,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenuXP(); document.getElementById('slider').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (zIndexReset() + 1).toString(); dispelMenuXP();">
+                    <a class="start-item__buttonXP" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenuXP(); document.getElementById('slider').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenuXP();">
                         <div class="start-item__icon">
                             <img id="sliderStart" src="assets/images/sliderXP.png" alt="Nostalgia Slider">
                         </div>
@@ -576,7 +576,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (zIndexReset() + 1).toString(); dispelMenuXP();">
+                    <a class="start-item__buttonXP" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenuXP();">
                         <div class="start-item__icon">
                             <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                         </div>
@@ -584,7 +584,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__buttonXP" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexReset() + 1).toString(); dispelMenuXP();">
+                    <a class="start-item__buttonXP" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenuXP();">
                         <div class="start-item__icon">
                             <img id="spaceStart" src="assets/images/SpaceCadetXP.png" alt="Space Cadet Pinball">
                         </div>
@@ -639,7 +639,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu98(); document.getElementById('slider').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (zIndexReset() + 1).toString(); dispelMenu98();">
+                    <a class="start-item__button" onmousedown="document.getElementById('slider').style.display = 'block'; dispelMenu98(); document.getElementById('slider').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="document.getElementById('slider').style.display = 'block'; document.getElementById('slider').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenu98();">
                         <div class="start-item__icon">
                             <img id="sliderStart" src="assets/images/slider.png" alt="Nostalgia Slider">
                         </div>
@@ -655,7 +655,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (zIndexReset() + 1).toString(); dispelMenu98();">
+                    <a class="start-item__button" onmousedown="loadBombSniffer(); document.getElementById('Bombsniffer').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="document.getElementById('sniffWarning').style.display = 'block'; document.getElementById('Bombsniffer').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenu98();">
                         <div class="start-item__icon">
                             <img id="snifferStart" src="assets/images/bombsniffer.png" alt="Bombsniffer">
                         </div>
@@ -663,7 +663,7 @@
                     </a>
                 </li>
                 <li class="start-item">
-                    <a class="start-item__button" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexReset() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexReset() + 1).toString(); dispelMenu98();">
+                    <a class="start-item__button" onmousedown="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexIncrement() + 1).toString();" ontouchstart="loadSpaceCadet(); document.getElementById('SpaceCadet').style.zIndex = (zIndexIncrement() + 1).toString(); dispelMenu98();">
                         <div class="start-item__icon">
                             <img id="snifferStart" src="assets/images/SpaceCadet.png" alt="Space Cadet Pinball">
                         </div>

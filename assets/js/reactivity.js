@@ -447,17 +447,12 @@ function toggleTheme() {
     }
 }
 
+var highest = 0;
 // this function's weirdness is a holdover from a refactor; 
-function zIndexReset() {
-    var sniff = document.getElementById("Bombsniffer");
-    var space = document.getElementById("SpaceCadet");
-    var slide = document.getElementById("slider");
-    
-    sniff.style.zIndex = 1
-    space.style.zIndex = 1
-    slide.style.zIndex = 1
+function zIndexIncrement() {
+    highest += 1;
 
-    return 1;
+    return highest;
 }
 
 // Make stuff draggable:
@@ -490,7 +485,7 @@ function dragWindow(elmnt) {
         e = e || window.event;
         e.preventDefault();
         elmnt.focus();
-        elmnt.style.zIndex = zIndexReset() + 1;
+        elmnt.style.zIndex = zIndexIncrement() + 1;
         
         // get the mouse cursor position at startup:
         pos3 = e.clientX || e.targetTouches[0].clientX;
