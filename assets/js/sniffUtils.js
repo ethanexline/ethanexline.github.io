@@ -34,7 +34,7 @@ $(function() {
     $('#position-' + position).attr('checked', true);
     $('#nightMode').attr('checked', isNightMode);
 
-    document.getElementById('Bombsniffer').className = 'z' + zoom + ' window glass card';
+    document.getElementById('Bombsniffer').className = 'window glass card ' + 'z' + zoom;
     setPosition(position);
 
     if (isNightMode) {
