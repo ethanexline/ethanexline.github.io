@@ -48,6 +48,9 @@ $(function() {
         [ 1, 10, 45]
     ], getOptions, setOptions);
 
+    minesweeper.resize(1.5);
+    minesweeper.resize(1);
+
     minesweeper.onWin = function(gameTypeId, time) {
     };
 
