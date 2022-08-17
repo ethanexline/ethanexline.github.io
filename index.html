@@ -163,174 +163,172 @@
             </div>
         </div>
 
-        <div id="Bombsniffer" class="window glass card" style="width: auto; position: absolute; left: 12%; display: none;">
-            <div id="game-container" class="z100" style="height: auto; min-width: 162px;">
-                <div id="Bombsnifferheader" class="title-bar" style="width: calc(100% + 10px);">
-                    <div style="display: flex; align-items: center; flex-direction: row;">
-                        <img src="assets/images/bombsniffer.png" style="height: 15px;">
-                        <div class="title-bar-text card-header" style="margin-left: 2px;">Bombsniffer</div>
-                    </div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Close" onclick="document.getElementById('Bombsniffer').style.display = 'none'"></button>
-                    </div>
+        <div id="Bombsniffer" class="window glass card z100" style="width: auto; position: absolute; left: 12%; display: none; height: auto; min-width: 162px; padding-right: 19px; padding-left: 1px;">
+            <div id="Bombsnifferheader" class="title-bar" style="width: calc(100% + 10px);">
+                <div style="display: flex; align-items: center; flex-direction: row;">
+                    <img src="assets/images/bombsniffer.png" style="height: 15px;">
+                    <div class="title-bar-text card-header" style="margin-left: 2px;">Bombsniffer</div>
                 </div>
-
-                <div id="bombMenuElse" style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial; display: flex; align-items: center; height: 20px;">
-                    <span id="options-link" title="game options">Game</span>
-                    <span id="display-link" title="zoom level">Display</span>
-                    <span id="controls-link" title="keyboard/mouse controls">Controls</span>
-                    <span id="import-link" title="load previously exported game">Import</span>
-                    <span id="export-link" title="save a game for later">Export</span>
+                <div class="title-bar-controls">
+                    <button aria-label="Close" onclick="document.getElementById('Bombsniffer').style.display = 'none'"></button>
                 </div>
+            </div>
 
-                <ul id="bombMenu7" role="menubar" style="width: 100%; height: 20px; align-items: center; margin-top: 5px; margin-left: 10px; overflow: clip;">
-                    <li role="menuitem" id="options-link" title="game options">Game</li>
-                    <li role="menuitem" id="display-link" title="zoom level">Display</li>
-                    <li role="menuitem" id="controls-link" title="keyboard/mouse controls">Controls</li>
-                    <li role="menuitem" id="import-link" title="load previously exported game">Import</li>
-                    <li role="menuitem" id="export-link" title="save a game for later">Export</li>
-                </ul>
+            <div id="bombMenuElse" style="white-space: nowrap; margin-left: 4px; font-family: 'Pixelated MS Sans Serif', Arial; display: flex; align-items: center; height: 20px;">
+                <span id="options-link" title="game options">Game</span>
+                <span id="display-link" title="zoom level">Display</span>
+                <span id="controls-link" title="keyboard/mouse controls">Controls</span>
+                <span id="import-link" title="load previously exported game">Import</span>
+                <span id="export-link" title="save a game for later">Export</span>
+            </div>
 
-                <div style="width: calc(100% + 15px); display: flex; justify-content: center;">
-                    <div id="game" oncontextmenu="return false;" ondrag="return false;" ondragstart="return false;" style="margin-left: 1%;"></div>
-                </div>
+            <ul id="bombMenu7" role="menubar" style="width: 100%; height: 20px; align-items: center; margin-top: 5px; margin-left: 10px; overflow: clip;">
+                <li role="menuitem" id="options-link" title="game options">Game</li>
+                <li role="menuitem" id="display-link" title="zoom level">Display</li>
+                <li role="menuitem" id="controls-link" title="keyboard/mouse controls">Controls</li>
+                <li role="menuitem" id="import-link" title="load previously exported game">Import</li>
+                <li role="menuitem" id="export-link" title="save a game for later">Export</li>
+            </ul>
 
-                <form id="options-form">
-                    <table id="options" class="window glass" style="width: 250px; position: absolute; top: 100px; left: 100px; border-spacing: unset; display: none;">
-                        <tr class="title-bar" id="optionsheader" style="border-top-style: none; border-left-style: none; margin-right: -134px;">
-                            <td class="title-bar-text">Game</td>
-                            <td colspan="3" class="title-bar-controls" style="text-align: right;">
-                                <button type="button" id="options-close" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Height</td>
-                            <td>Width</td>
-                            <td>Mines</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="field" id="beginner" /><label for="beginner"><strong>Beginner</strong></label></td>
-                            <td>9</td>
-                            <td>9</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="field" id="intermediate" /><label for="intermediate"><strong>Intermediate</strong></label></td>
-                            <td>16</td>
-                            <td>16</td>
-                            <td>40</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="field" checked="checked" id="expert" /><label for="expert"><strong>Expert</strong></label></td>
-                            <td>16</td>
-                            <td>30</td>
-                            <td>99</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="field" id="custom" /><label for="custom">Custom</label></td>
-                            <td><input type="text" value="20" id="custom_height" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
-                            <td><input type="text" value="30" id="custom_width" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
-                            <td><input type="text" value="145" id="custom_mines" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" style="text-align: center;"><button id="newGame" type="submit" value="New Game" style="vertical-align: middle;">New Game</button></td>
-                        </tr>
-                    </table>
-                </form>
+            <div style="width: calc(100% + 15px); display: flex; justify-content: center;">
+                <div id="game" oncontextmenu="return false;" ondrag="return false;" ondragstart="return false;" style="margin-left: 1%;"></div>
+            </div>
 
-                <table cellspacing="0" cellpadding="2" id="display" class="window glass" style="display: none; position: absolute; width: 109px; top: 100px; left: 100px;">
-                    <tr class="title-bar" id="displayheader" style="margin-right: -57px;">
-                        <td class="title-bar-text">Display</td>
-                        <td class="title-bar-controls" style="text-align: right;">
-                            <button type="button" id="display-close" aria-label="Close"></button>
+            <form id="options-form">
+                <table id="options" class="window glass" style="width: 250px; position: absolute; top: 100px; left: 100px; border-spacing: unset; display: none;">
+                    <tr class="title-bar" id="optionsheader" style="border-top-style: none; border-left-style: none; margin-right: -134px;">
+                        <td class="title-bar-text">Game</td>
+                        <td colspan="3" class="title-bar-controls" style="text-align: right;">
+                            <button type="button" id="options-close" aria-label="Close"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding: 6px;"><strong>Zoom</strong></td>
-                        <td style="padding: 6px;">
-                            <div class="field-row">
-                                <input type="radio" name="zoom" id="zoom100" value="1" checked="checked"/><label for="zoom100">100%</label>
-                            </div>
-
-                            <div class="field-row">
-                                <input type="radio" name="zoom" id="zoom150" value="1.5" /><label for="zoom150">150%</label>
-                            </div>
-
-                            <div class="field-row">
-                                <input type="radio" name="zoom" id="zoom200" value="2" /><label for="zoom200">200%</label>
-                            </div>
-                        </td>
+                        <td></td>
+                        <td>Height</td>
+                        <td>Width</td>
+                        <td>Mines</td>
                     </tr>
                     <tr>
-                        <td colspan=2 style="padding: 6px; text-align: center;">
-                            <input type="checkbox" name="nightMode" id="nightMode" /><label for="nightMode"><strong>Night Mode</strong></label>
-                        </td>
+                        <td><input type="radio" name="field" id="beginner" /><label for="beginner"><strong>Beginner</strong></label></td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="field" id="intermediate" /><label for="intermediate"><strong>Intermediate</strong></label></td>
+                        <td>16</td>
+                        <td>16</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="field" checked="checked" id="expert" /><label for="expert"><strong>Expert</strong></label></td>
+                        <td>16</td>
+                        <td>30</td>
+                        <td>99</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="field" id="custom" /><label for="custom">Custom</label></td>
+                        <td><input type="text" value="20" id="custom_height" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
+                        <td><input type="text" value="30" id="custom_width" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
+                        <td><input type="text" value="145" id="custom_mines" class="dialog-text-input" onfocus="$('#custom').attr('checked', true);" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: center;"><button id="newGame" type="submit" value="New Game" style="vertical-align: middle;">New Game</button></td>
                     </tr>
                 </table>
+            </form>
 
-                <table cellspacing="0" cellpadding="2" id="controls" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
-                    <tr class="title-bar" id="controlsheader">
-                        <td class="title-bar-text">Controls</td>
+            <table cellspacing="0" cellpadding="2" id="display" class="window glass" style="display: none; position: absolute; width: 109px; top: 100px; left: 100px;">
+                <tr class="title-bar" id="displayheader" style="margin-right: -57px;">
+                    <td class="title-bar-text">Display</td>
+                    <td class="title-bar-controls" style="text-align: right;">
+                        <button type="button" id="display-close" aria-label="Close"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px;"><strong>Zoom</strong></td>
+                    <td style="padding: 6px;">
+                        <div class="field-row">
+                            <input type="radio" name="zoom" id="zoom100" value="1" checked="checked"/><label for="zoom100">100%</label>
+                        </div>
+
+                        <div class="field-row">
+                            <input type="radio" name="zoom" id="zoom150" value="1.5" /><label for="zoom150">150%</label>
+                        </div>
+
+                        <div class="field-row">
+                            <input type="radio" name="zoom" id="zoom200" value="2" /><label for="zoom200">200%</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=2 style="padding: 6px; text-align: center;">
+                        <input type="checkbox" name="nightMode" id="nightMode" /><label for="nightMode"><strong>Night Mode</strong></label>
+                    </td>
+                </tr>
+            </table>
+
+            <table cellspacing="0" cellpadding="2" id="controls" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
+                <tr class="title-bar" id="controlsheader">
+                    <td class="title-bar-text">Controls</td>
+                    <td class="title-bar-controls" style="text-align: right;">
+                        <button type="button" id="controls-close" aria-label="Close"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px;">
+                        <ul class="tree-view">
+                            <li><b>Left-click</b> an empty square to reveal it.</li>
+                            <li><b>Right-click</b> (or <b>Ctrl+click</b>) an empty square to flag it.</li>
+                            <li><b>Midde-click</b> (or <b>left+right click</b>) a number to reveal<br /> its adjacent squares.</li>
+                            <li>Press <b>space</b> bar while hovering over a square to flag<br />it or reveal its adjacent squares.</li>
+                            <li>Press <b>F2</b> or click the smiley face to start a new game.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <form id="import-form">
+                <table cellspacing="0" cellpadding="2" id="import" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
+                    <tr class="title-bar" id="importheader">
+                        <td class="title-bar-text">Import</td>
                         <td class="title-bar-controls" style="text-align: right;">
-                            <button type="button" id="controls-close" aria-label="Close"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 6px;">
-                            <ul class="tree-view">
-                                <li><b>Left-click</b> an empty square to reveal it.</li>
-                                <li><b>Right-click</b> (or <b>Ctrl+click</b>) an empty square to flag it.</li>
-                                <li><b>Midde-click</b> (or <b>left+right click</b>) a number to reveal<br /> its adjacent squares.</li>
-                                <li>Press <b>space</b> bar while hovering over a square to flag<br />it or reveal its adjacent squares.</li>
-                                <li>Press <b>F2</b> or click the smiley face to start a new game.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-
-                <form id="import-form">
-                    <table cellspacing="0" cellpadding="2" id="import" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
-                        <tr class="title-bar" id="importheader">
-                            <td class="title-bar-text">Import</td>
-                            <td class="title-bar-controls" style="text-align: right;">
-                                <button type="button" id="import-close" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                Paste exported game state:
-                                <br />
-                                <textarea style="width: 96%; height: 40px; margin-top: 4px; margin-left: 3px;"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="text-align: center;">
-                                <button type="submit" value="Load Game">Load Game</button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-
-                <table cellspacing="0" cellpadding="2" id="export" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
-                    <tr class="title-bar" id="exportheader">
-                        <td class="title-bar-text">Export</td>
-                        <td class="title-bar-controls" style="text-align: right;">
-                            <button aria-label="Close" id="export-close"></button>
+                            <button type="button" id="import-close" aria-label="Close"></button>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <em id="export-message"></em>
+                            Paste exported game state:
                             <br />
-                            <textarea style="width: 98%; height: 40px; margin-top: 4px; margin-left: 3px;"></textarea>
-                            <div id="export-first-click-message" style="width: 240px; margin-top: 4px; white-space: normal;">
-                                &#9432; &ldquo;First click cannot be a mine&rdquo; behavior has been disabled for this game, as a result of having clicked &ldquo;Export&rdquo;.
-                            </div>
+                            <textarea style="width: 96%; height: 40px; margin-top: 4px; margin-left: 3px;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" value="Load Game">Load Game</button>
                         </td>
                     </tr>
                 </table>
-            </div>
+            </form>
+
+            <table cellspacing="0" cellpadding="2" id="export" class="window glass" style="display: none; position: absolute; top: 100px; left: 100px;">
+                <tr class="title-bar" id="exportheader">
+                    <td class="title-bar-text">Export</td>
+                    <td class="title-bar-controls" style="text-align: right;">
+                        <button aria-label="Close" id="export-close"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <em id="export-message"></em>
+                        <br />
+                        <textarea style="width: 98%; height: 40px; margin-top: 4px; margin-left: 3px;"></textarea>
+                        <div id="export-first-click-message" style="width: 240px; margin-top: 4px; white-space: normal;">
+                            &#9432; &ldquo;First click cannot be a mine&rdquo; behavior has been disabled for this game, as a result of having clicked &ldquo;Export&rdquo;.
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div id="spaceWarning" style="display: none;">
