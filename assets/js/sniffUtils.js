@@ -1,7 +1,12 @@
 function loadBombSniffer() {
     if (window.innerWidth > 620) {
         if (document.getElementById("Bombsniffer").style.width == "522px") {
-            document.getElementById("Bombsniffer").style.width = "500px"
+            //this is such a stupid fix. I have absolutely no idea why it chooses to do this, but
+            //(only when pushed to production, not locally) when it initally loads it randomly
+            //sets the width of this box to 522px, as soon as you do anything else that changes the width, 
+            //it goes back to normal. It wasn't previously doing this, I don't know even what could possibly 
+            //be different versus before, but such is the life of the web dev.
+            document.getElementById("Bombsniffer").style.width = "500px";
         }
         document.getElementById("Bombsniffer").style.display = "block";
     } else {
